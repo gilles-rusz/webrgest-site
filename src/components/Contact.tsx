@@ -8,7 +8,7 @@ import { Send, Mail, MapPin, Phone, Clock, Loader2, CheckCircle2, AlertCircle } 
 // CONFIGURATION : remplace par ton ID de formulaire Formspree
 // Crée ton formulaire gratuit sur https://formspree.io
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const FORMSPREE_FORM_ID = "YOUR_FORM_ID";
+const FORMSPREE_FORM_ID = "xdayjojp";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
