@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -21,6 +21,21 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleMobileNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      const targetId = href.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    },
+    []
+  );
 
   return (
     <motion.header
@@ -114,7 +129,7 @@ export default function Header() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleMobileNavClick(e, link.href)}
                   className="block text-lg font-medium text-slate-300 hover:text-teal-400 transition-colors"
                 >
                   {link.label}
@@ -122,7 +137,7 @@ export default function Header() {
               ))}
               <a
                 href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, "#contact")}
                 className="block text-center px-5 py-3 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold"
               >
                 Devis gratuit
