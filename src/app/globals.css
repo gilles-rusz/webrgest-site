@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-navy-950: #0D1117;
+  --color-navy-900: #141729;
+  --color-navy-800: #1B1F3B;
+  --color-navy-700: #252A4A;
+  --color-navy-600: #2F3560;
+  --color-teal-400: #2DD4BF;
+  --color-teal-500: #14B8A6;
+  --color-teal-600: #0D9488;
+  --color-gold-400: #E8B84B;
+  --color-gold-500: #D4A853;
+  --color-gold-600: #C49A3E;
+  --color-slate-300: #B8BCC8;
+  --color-slate-400: #94A3B8;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-navy-950);
+  color: #ffffff;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-teal-500);
+  color: #ffffff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-700);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal-500);
+}
+
+/* Animated gradient background for hero */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow-teal {
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3), 0 0 60px rgba(45, 212, 191, 0.1);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px rgba(232, 184, 75, 0.3), 0 0 60px rgba(232, 184, 75, 0.1);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(27, 31, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(45, 212, 191, 0.1);
+}
+
+/* Particle dots background */
+.bg-dots {
+  background-image: radial-gradient(rgba(45, 212, 191, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
