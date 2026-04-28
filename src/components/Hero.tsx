@@ -102,10 +102,10 @@ export default function Hero() {
                 </span>
               </a>
               <a
-                href="#processus"
+                href="#realisations"
                 className="px-8 py-4 rounded-full border border-navy-600 text-slate-300 font-semibold text-lg hover:border-teal-500/50 hover:text-teal-400 transition-all duration-300 hover:scale-105"
               >
-                Mon approche
+                Voir mes réalisations
               </a>
             </motion.div>
           </div>
