@@ -54,6 +54,7 @@ export default function Footer() {
                 { href: "#services", label: "Services" },
                 { href: "#apropos", label: "À propos" },
                 { href: "#realisations", label: "Réalisations" },
+                { href: "#tarifs", label: "Tarifs" },
                 { href: "#processus", label: "Mon approche" },
                 { href: "#contact", label: "Contact" },
               ].map((link) => (
