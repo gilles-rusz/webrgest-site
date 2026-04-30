@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import {
-  User, Rocket, Globe, RefreshCw, ShoppingCart,
-  Monitor, Wrench, Settings, CheckCircle2, ArrowRight
+  User, Rocket, Zap, Globe, RefreshCw, ShoppingCart,
+  Monitor, Sparkles, Wrench, Settings, CheckCircle2, ArrowRight
 } from "lucide-react";
 
 const plans = [
@@ -25,6 +25,26 @@ const plans = [
     popular: false,
   },
   {
+    icon: Zap,
+    title: "Site Express",
+    subtitle: "Coachs, artisans, indépendants",
+    price: "690",
+    unit: "",
+    description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs qui veulent une présence en ligne rapide et efficace.",
+    features: [
+      "1-2 pages sur mesure",
+      "Design moderne & responsive",
+      "Formulaire de contact",
+      "SEO local optimisé",
+      "Lien réseaux sociaux",
+      "Hébergement 1ère année inclus",
+      "Livraison en 5 jours",
+    ],
+    idealFor: ["Coach sportif", "Artisan", "Thérapeute", "Food truck", "Photographe", "Formateur"],
+    accent: "gold" as const,
+    popular: false,
+  },
+  {
     icon: Rocket,
     title: "Landing Page",
     subtitle: "Conversion",
@@ -39,7 +59,7 @@ const plans = [
       "SEO de base",
       "Hébergement 1ère année inclus",
     ],
-    accent: "gold" as const,
+    accent: "teal" as const,
     popular: false,
   },
   {
@@ -115,6 +135,25 @@ const plans = [
       "Tests & documentation",
     ],
     accent: "gold" as const,
+    popular: false,
+  },
+  {
+    icon: Sparkles,
+    title: "Automatisation",
+    subtitle: "Workflows & n8n",
+    price: "290",
+    unit: "",
+    description: "Automatisez vos tâches répétitives et gagnez du temps. Notifications, factures, emails, synchronisation — tout en automatique.",
+    features: [
+      "Audit de vos process actuels",
+      "Création de workflows n8n",
+      "Notifications automatiques (SMS, email)",
+      "Connexion à vos outils existants",
+      "Formation & documentation",
+      "Support 30 jours inclus",
+    ],
+    idealFor: ["E-commerce", "Restaurant", "PME", "Logistique", "Immobilier"],
+    accent: "teal" as const,
     popular: false,
   },
 ];
@@ -258,7 +297,7 @@ export default function Pricing() {
                   {plan.description}
                 </p>
 
-                <ul className="space-y-2.5 mb-6">
+                <ul className="space-y-2.5 mb-5">
                   {plan.features.map((feature, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm">
                       <CheckCircle2
@@ -272,6 +311,28 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                {"idealFor" in plan && plan.idealFor && (
+                  <div className="mb-5 pt-4 border-t border-white/5">
+                    <span className="text-xs text-slate-500 uppercase tracking-wider">
+                      Idéal pour
+                    </span>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {plan.idealFor.map((item: string, j: number) => (
+                        <span
+                          key={j}
+                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${
+                            plan.accent === "teal"
+                              ? "bg-teal-500/10 text-teal-300"
+                              : "bg-gold-400/10 text-gold-300"
+                          }`}
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <a
                   href="#contact"
