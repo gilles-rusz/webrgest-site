@@ -90,7 +90,7 @@ export default function About() {
               <p className="text-lg text-slate-300 leading-relaxed">
                 Pendant{" "}
                 <span className="text-gold-400 font-semibold">22 ans chez Stellantis</span>,
-                j&apos;ai dirigé une équipe de 25 personnes, optimisé des flux logistiques
+                j&apos;ai géré une équipe de 25 personnes, optimisé des flux logistiques
                 et appliqué les méthodes Lean au quotidien. Aujourd&apos;hui, je mets
                 cette rigueur et cette vision business au service de vos projets web.
               </p>
