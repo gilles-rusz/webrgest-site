@@ -10,7 +10,7 @@ interface Message {
   timestamp: Date;
 }
 
-const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";
+
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,6 @@ export default function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [sessionId] = useState(() => crypto.randomUUID());
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -58,40 +57,26 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
-      if (!N8N_WEBHOOK_URL) {
-        setTimeout(() => {
-          setMessages((prev) => [
-            ...prev,
-            {
-              id: crypto.randomUUID(),
-              text: "Le chatbot est en cours de configuration. Contactez-nous directement \u00e0 contact@webrgest.fr en attendant !",
-              sender: "bot",
-              timestamp: new Date(),
-            },
-          ]);
-          setIsLoading(false);
-        }, 1000);
-        return;
-      }
+      const history = messages
+        .filter((m) => m.id !== "welcome")
+        .map((m) => ({
+          role: m.sender === "user" ? "user" as const : "assistant" as const,
+          content: m.text,
+        }));
 
-      const response = await fetch(N8N_WEBHOOK_URL, {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "sendMessage",
-          sessionId,
-          chatInput: trimmed,
-        }),
+        body: JSON.stringify({ message: trimmed, history }),
       });
 
-      if (!response.ok) throw new Error("Erreur serveur");
-
       const data = await response.json();
-      const botText =
-        data.output ||
-        data.text ||
-        data.response ||
-        (typeof data === "string" ? data : "D\u00e9sol\u00e9, je n'ai pas pu traiter votre demande.");
+
+      if (!response.ok) {
+        throw new Error(data.error || "Erreur serveur");
+      }
+
+      const botText = data.reply || "D\u00e9sol\u00e9, je n'ai pas pu traiter votre demande.";
 
       setMessages((prev) => [
         ...prev,
