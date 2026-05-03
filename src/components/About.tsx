@@ -20,7 +20,7 @@ const techSkills = [
 ];
 
 const businessSkills = [
-  { icon: Users, title: "Management d'équipe", desc: "25 collaborateurs encadrés pendant 22 ans" },
+  { icon: Users, title: "Management d'équipe", desc: "Gestion de modules de 10+ personnes sur 22 ans" },
   { icon: TrendingUp, title: "Lean Management", desc: "Amélioration continue et optimisation des process" },
   { icon: Wrench, title: "Résolution de problèmes", desc: "Analyse, diagnostic et solutions concrètes" },
   { icon: Factory, title: "Environnement industriel", desc: "Logistique, flux de production, qualité" },
@@ -104,7 +104,7 @@ export default function About() {
               <p className="text-lg text-slate-300 leading-relaxed">
                 Pendant{" "}
                 <span className="text-gold-400 font-semibold">22 ans chez Stellantis</span>,
-                j&apos;ai géré une équipe de 25 personnes, optimisé des flux logistiques
+                j&apos;ai géré des modules de production d&apos;une dizaine de personnes, parfois plusieurs simultanément, optimisé des flux logistiques
                 et appliqué les méthodes Lean au quotidien. Aujourd&apos;hui, je mets
                 cette rigueur et cette vision business au service de vos projets web.
               </p>
@@ -166,7 +166,7 @@ export default function About() {
             <div className="grid grid-cols-3 gap-4 mb-2">
               {[
                 { stat: "22+", label: "Ans d'expérience", icon: Award },
-                { stat: "25", label: "Collaborateurs gérés", icon: Users },
+                { stat: "10+", label: "Par module géré", icon: Users },
                 { stat: "100%", label: "Engagement", icon: Shield },
               ].map((item, i) => {
                 const Icon = item.icon;
