@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { CheckCircle2, Users, TrendingUp, Wrench, Shield, Award, Factory } from "lucide-react";
 
 const techSkills = [
@@ -81,6 +82,19 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex justify-center lg:justify-start mb-8">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/30 to-gold-400/30 rounded-full blur-lg" />
+                <Image
+                  src="/portrait.webp"
+                  alt="Gilles Ruszczycki - Fondateur de Web RG Est"
+                  width={200}
+                  height={200}
+                  className="relative rounded-full border-4 border-teal-500/30 shadow-2xl object-cover"
+                />
+              </div>
+            </div>
+
             <div className="space-y-6 mb-10">
               <p className="text-lg text-slate-300 leading-relaxed">
                 Je suis{" "}
