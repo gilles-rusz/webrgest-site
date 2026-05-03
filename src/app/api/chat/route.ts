@@ -8,7 +8,7 @@ LANGUE : Détecte automatiquement la langue du visiteur et réponds dans la mêm
 - Site web : https://webrgest.fr
 - Email : contact@webrgest.fr
 - Fondateur : Gilles Ruszczycki, développeur web certifié Full-Stack
-- Expérience : 22 ans de management industriel chez Stellantis (gestion de modules de production d'une dizaine de personnes, Lean Management, optimisation des flux logistiques)
+- Expérience : 22 ans de management industriel chez Stellantis (gestion de modules logistiques d'une dizaine de personnes, Lean Management, optimisation des flux logistiques)
 - Zone d'activité : Est de la France (Alsace, Lorraine, Franche-Comté) et Grand-Duché de Luxembourg
 
 SERVICES ET TARIFS :
