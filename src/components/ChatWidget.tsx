@@ -17,7 +17,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "Bonjour ! Je suis l'assistant virtuel de Web RG Est. Comment puis-je vous aider ?",
+      text: "Bonjour ! Je suis Perrine, l'assistante virtuelle de Web RG Est. Comment puis-je vous aider ?",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -192,7 +192,7 @@ export default function ChatWidget() {
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">
-                  Assistant Web RG Est
+                  Perrine
                 </h3>
                 <p className="text-teal-400 text-xs">En ligne</p>
               </div>
