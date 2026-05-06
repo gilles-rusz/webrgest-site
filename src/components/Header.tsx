@@ -39,13 +39,10 @@ export default function Header() {
   );
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass shadow-lg shadow-navy-950/50"
+          ? "bg-navy-950/90 backdrop-blur-md border-b border-navy-800/50 shadow-lg shadow-navy-950/50"
           : "bg-transparent"
       }`}
     >
@@ -74,15 +71,14 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-300 group"
+                className="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-400 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
             <a
               href="#contact"
-              className="px-5 py-2 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm font-semibold hover:from-teal-400 hover:to-teal-500 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25"
+              className="px-5 py-2 rounded-lg bg-teal-500 text-white text-sm font-semibold hover:bg-teal-400 transition-colors duration-200"
             >
               Devis gratuit
             </a>
@@ -120,26 +116,23 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-teal-500/10"
+            className="md:hidden bg-navy-950/95 backdrop-blur-md border-t border-navy-800/50"
           >
             <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link, i) => (
-                <motion.a
+              {navLinks.map((link) => (
+                <a
                   key={link.href}
                   href={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
                   onClick={(e) => handleMobileNavClick(e, link.href)}
                   className="block text-lg font-medium text-slate-300 hover:text-teal-400 transition-colors"
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
               <a
                 href="#contact"
                 onClick={(e) => handleMobileNavClick(e, "#contact")}
-                className="block text-center px-5 py-3 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold"
+                className="block text-center px-6 py-3 rounded-lg bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-colors"
               >
                 Devis gratuit
               </a>
@@ -147,6 +140,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

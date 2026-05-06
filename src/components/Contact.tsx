@@ -4,10 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Phone, Clock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// CONFIGURATION : remplace par ton ID de formulaire Formspree
-// Crée ton formulaire gratuit sur https://formspree.io
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const FORMSPREE_FORM_ID = "xdayjojp";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -70,25 +66,19 @@ export default function Contact() {
   const isSubmitting = status === "submitting";
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 bg-dots">
+    <section id="contact" className="relative py-24 sm:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/95 to-navy-950" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-gold-400/10 text-gold-400 border border-gold-400/20 mb-4">
-            Parlons de votre projet
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Me{" "}
-            <span className="bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
-              Contacter
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Me contacter
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Une idée, un projet ? N&apos;hésitez pas à me contacter pour un devis
@@ -98,10 +88,10 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-8"
           >
             <div>
@@ -142,7 +132,7 @@ export default function Contact() {
                       href={item.href}
                       className="flex items-center gap-4 group"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-colors">
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
                         <Icon className="w-5 h-5 text-teal-400" />
                       </div>
                       <div>
@@ -159,7 +149,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="glass rounded-2xl p-6">
+            <div className="rounded-xl p-6 bg-navy-900/40 border border-navy-700/50">
               <h4 className="font-semibold text-white mb-2">
                 Devis gratuit & sans engagement
               </h4>
@@ -171,15 +161,15 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-3"
           >
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-3xl p-8 space-y-6"
+              className="rounded-2xl p-8 space-y-6 bg-navy-900/40 border border-navy-700/50"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -194,7 +184,7 @@ export default function Contact() {
                     required
                     disabled={isSubmitting}
                     placeholder="Jean Dupont"
-                    className="w-full px-4 py-3 rounded-xl bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -209,7 +199,7 @@ export default function Contact() {
                     required
                     disabled={isSubmitting}
                     placeholder="jean@exemple.fr"
-                    className="w-full px-4 py-3 rounded-xl bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -226,7 +216,7 @@ export default function Contact() {
                     onChange={handleChange}
                     disabled={isSubmitting}
                     placeholder="06 12 34 56 78"
-                    className="w-full px-4 py-3 rounded-xl bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -239,14 +229,17 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    className="w-full px-4 py-3 rounded-xl bg-navy-800 border border-navy-600 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all appearance-none disabled:opacity-50"
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors appearance-none disabled:opacity-50"
                   >
                     <option value="">Sélectionnez...</option>
                     <option value="Site Vitrine">Site Vitrine</option>
                     <option value="E-Commerce">E-Commerce</option>
                     <option value="Application Web">Application Web</option>
                     <option value="Refonte de Site">Refonte de Site</option>
-                    <option value="Maintenance">Maintenance</option>
+                    <option value="Landing Page">Landing Page</option>
+                    <option value="Site Express">Site Express</option>
+                    <option value="Portfolio / CV">Portfolio / CV</option>
+                    <option value="Automatisation">Automatisation</option>
                     <option value="Autre">Autre</option>
                   </select>
                 </div>
@@ -254,7 +247,7 @@ export default function Contact() {
 
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
-                  Décrivez votre projet *
+                  Votre message *
                 </label>
                 <textarea
                   name="message"
@@ -263,15 +256,15 @@ export default function Contact() {
                   required
                   disabled={isSubmitting}
                   rows={5}
-                  placeholder="Parlez-moi de votre projet, vos objectifs, votre budget estimé..."
-                  className="w-full px-4 py-3 rounded-xl bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all resize-none disabled:opacity-50"
+                  placeholder="Décrivez votre projet, vos besoins et vos objectifs..."
+                  className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors resize-none disabled:opacity-50"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold text-lg hover:from-teal-400 hover:to-teal-500 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/25 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:hover:scale-100"
+                className="w-full py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -281,36 +274,23 @@ export default function Contact() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Envoyer ma demande
+                    Envoyer le message
                   </>
                 )}
               </button>
 
               {status === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-teal-500/10 border border-teal-500/20"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-teal-400 flex-shrink-0" />
-                  <p className="text-teal-400 font-medium">
-                    Merci pour votre message ! Je vous recontacte très vite.
-                  </p>
-                </motion.div>
+                <div className="flex items-center gap-2 text-teal-400 text-sm">
+                  <CheckCircle2 className="w-5 h-5" />
+                  Message envoyé avec succès ! Je vous recontacte rapidement.
+                </div>
               )}
 
               {status === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20"
-                >
-                  <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                  <p className="text-red-400 font-medium">
-                    Une erreur est survenue. Veuillez réessayer ou m&apos;envoyer un
-                    email directement.
-                  </p>
-                </motion.div>
+                <div className="flex items-center gap-2 text-red-400 text-sm">
+                  <AlertCircle className="w-5 h-5" />
+                  Une erreur est survenue. Réessayez ou contactez-moi à contact@webrgest.fr.
+                </div>
               )}
             </form>
           </motion.div>

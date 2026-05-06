@@ -21,8 +21,6 @@ const plans = [
       "Formulaire de contact",
       "Hébergement 1ère année inclus",
     ],
-    accent: "teal" as const,
-    popular: false,
   },
   {
     icon: Zap,
@@ -30,7 +28,7 @@ const plans = [
     subtitle: "Coachs, artisans, indépendants",
     price: "350",
     unit: "",
-    description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs qui veulent une présence en ligne rapide et efficace.",
+    description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs.",
     features: [
       "1-2 pages sur mesure",
       "Design moderne & responsive",
@@ -41,8 +39,6 @@ const plans = [
       "Livraison en 5 jours",
     ],
     idealFor: ["Coach sportif", "Artisan", "Thérapeute", "Food truck", "Photographe", "Formateur"],
-    accent: "gold" as const,
-    popular: false,
   },
   {
     icon: Rocket,
@@ -59,8 +55,6 @@ const plans = [
       "SEO de base",
       "Hébergement 1ère année inclus",
     ],
-    accent: "teal" as const,
-    popular: false,
   },
   {
     icon: Globe,
@@ -78,7 +72,6 @@ const plans = [
       "Intégration réseaux sociaux",
       "Formation à la gestion",
     ],
-    accent: "teal" as const,
     popular: true,
   },
   {
@@ -96,8 +89,6 @@ const plans = [
       "Responsive & SEO",
       "Redirection des anciennes URLs",
     ],
-    accent: "gold" as const,
-    popular: false,
   },
   {
     icon: ShoppingCart,
@@ -115,8 +106,6 @@ const plans = [
       "SEO e-commerce",
       "Formation à la gestion",
     ],
-    accent: "teal" as const,
-    popular: false,
   },
   {
     icon: Monitor,
@@ -134,8 +123,6 @@ const plans = [
       "API REST",
       "Tests & documentation",
     ],
-    accent: "gold" as const,
-    popular: false,
   },
   {
     icon: Sparkles,
@@ -143,7 +130,7 @@ const plans = [
     subtitle: "Workflows & n8n",
     price: "190",
     unit: "",
-    description: "Automatisez vos tâches répétitives et gagnez du temps. Notifications, factures, emails, synchronisation — tout en automatique.",
+    description: "Automatisez vos tâches répétitives et gagnez du temps.",
     features: [
       "Audit de vos process actuels",
       "Création de workflows n8n",
@@ -153,8 +140,6 @@ const plans = [
       "Support 30 jours inclus",
     ],
     idealFor: ["E-commerce", "Restaurant", "PME", "Logistique", "Immobilier"],
-    accent: "teal" as const,
-    popular: false,
   },
 ];
 
@@ -175,45 +160,21 @@ const extras = [
   },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
-  },
-};
-
 export default function Pricing() {
   return (
     <section id="tarifs" className="relative py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-gold-400/10 text-gold-400 border border-gold-400/20 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Tarifs transparents
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Des prix{" "}
-            <span className="bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
-              clairs et adaptés
-            </span>
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Pas de mauvaise surprise. Chaque projet est unique, ces tarifs sont
@@ -221,49 +182,34 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {plans.map((plan, i) => {
             const Icon = plan.icon;
+            const isPopular = "popular" in plan && plan.popular;
             return (
               <motion.div
                 key={i}
-                variants={cardVariants}
-                whileHover={{ y: -5 }}
-                className={`relative glass rounded-3xl p-7 transition-all duration-500 ${
-                  plan.popular
-                    ? "border-teal-500/40 shadow-lg shadow-teal-500/10"
-                    : "hover:border-teal-500/30"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className={`relative rounded-2xl p-7 bg-navy-900/40 border transition-colors duration-200 ${
+                  isPopular
+                    ? "border-teal-500/40"
+                    : "border-navy-700/50 hover:border-teal-500/30"
                 }`}
               >
-                {plan.popular && (
+                {isPopular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-4 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-lg">
-                      Le plus demandé
+                    <span className="px-3 py-1 rounded-md text-xs font-semibold bg-teal-500 text-white">
+                      Populaire
                     </span>
                   </div>
                 )}
 
                 <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center ${
-                      plan.accent === "teal"
-                        ? "bg-teal-500/10"
-                        : "bg-gold-400/10"
-                    }`}
-                  >
-                    <Icon
-                      className={`w-5 h-5 ${
-                        plan.accent === "teal"
-                          ? "text-teal-400"
-                          : "text-gold-400"
-                      }`}
-                    />
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10">
+                    <Icon className="w-5 h-5 text-teal-400" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white leading-tight">
@@ -274,17 +220,11 @@ export default function Pricing() {
                 </div>
 
                 <div className="mb-4">
-                  <span className="text-xs text-slate-500 uppercase tracking-wider">
+                  <span className="text-xs text-slate-400">
                     À partir de
                   </span>
                   <div className="flex items-baseline gap-1">
-                    <span
-                      className={`text-3xl font-bold ${
-                        plan.accent === "teal"
-                          ? "text-teal-400"
-                          : "text-gold-400"
-                      }`}
-                    >
+                    <span className="text-3xl font-bold text-gold-400">
                       {plan.price}€
                     </span>
                     {plan.unit && (
@@ -300,32 +240,22 @@ export default function Pricing() {
                 <ul className="space-y-2.5 mb-5">
                   {plan.features.map((feature, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm">
-                      <CheckCircle2
-                        className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
-                          plan.accent === "teal"
-                            ? "text-teal-400"
-                            : "text-gold-400"
-                        }`}
-                      />
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-teal-400" />
                       <span className="text-slate-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {"idealFor" in plan && plan.idealFor && (
-                  <div className="mb-5 pt-4 border-t border-white/5">
-                    <span className="text-xs text-slate-500 uppercase tracking-wider">
+                  <div className="mb-5 pt-4 border-t border-navy-700/50">
+                    <span className="text-xs text-slate-400">
                       Idéal pour
                     </span>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {plan.idealFor.map((item: string, j: number) => (
                         <span
                           key={j}
-                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                            plan.accent === "teal"
-                              ? "bg-teal-500/10 text-teal-300"
-                              : "bg-gold-400/10 text-gold-300"
-                          }`}
+                          className="px-2.5 py-1 rounded-md text-xs font-medium bg-navy-800 text-slate-300 border border-navy-700"
                         >
                           {item}
                         </span>
@@ -336,12 +266,10 @@ export default function Pricing() {
 
                 <a
                   href="#contact"
-                  className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                    plan.popular
-                      ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-400 hover:to-teal-500 hover:shadow-lg hover:shadow-teal-500/25"
-                      : plan.accent === "teal"
-                      ? "border border-teal-500/30 text-teal-400 hover:bg-teal-500/10"
-                      : "border border-gold-400/30 text-gold-400 hover:bg-gold-400/10"
+                  className={`block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 ${
+                    isPopular
+                      ? "bg-teal-500 text-white hover:bg-teal-400"
+                      : "border border-navy-600 text-slate-300 hover:border-teal-500/30 hover:text-teal-400"
                   }`}
                 >
                   Demander un devis
@@ -349,14 +277,14 @@ export default function Pricing() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Extras */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.6 }}
           className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
         >
           {extras.map((extra, i) => {
@@ -364,17 +292,17 @@ export default function Pricing() {
             return (
               <div
                 key={i}
-                className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-teal-500/30 transition-all duration-300"
+                className="rounded-2xl p-6 flex items-start gap-4 bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
               >
-                <div className="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center flex-shrink-0">
                   <Icon className="w-5 h-5 text-teal-400" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-baseline justify-between mb-1">
                     <h4 className="font-bold text-white">{extra.title}</h4>
                     <div className="text-right">
-                      <span className="text-xs text-slate-500">à partir de </span>
-                      <span className="text-lg font-bold text-teal-400">
+                      <span className="text-xs text-slate-400">à partir de </span>
+                      <span className="text-lg font-bold text-gold-400">
                         {extra.price}€
                       </span>
                       <span className="text-sm text-slate-400">{extra.unit}</span>
@@ -387,12 +315,11 @@ export default function Pricing() {
           })}
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
           <p className="text-slate-400 mb-6 max-w-xl mx-auto">
@@ -401,7 +328,7 @@ export default function Pricing() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold text-lg hover:from-teal-400 hover:to-teal-500 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/25 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200"
           >
             Demander un devis gratuit
             <ArrowRight className="w-5 h-5" />
