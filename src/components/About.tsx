@@ -37,6 +37,22 @@ export default function About() {
           </h2>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-12"
+        >
+          <Image
+            src="/portrait.webp"
+            alt="Gilles Ruszczycki - Fondateur de Web RG Est"
+            width={200}
+            height={200}
+            className="rounded-full border-2 border-navy-700 object-cover"
+          />
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -44,16 +60,6 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex justify-center lg:justify-start mb-8">
-              <Image
-                src="/portrait.webp"
-                alt="Gilles Ruszczycki - Fondateur de Web RG Est"
-                width={180}
-                height={180}
-                className="rounded-full border-2 border-navy-700 object-cover"
-              />
-            </div>
-
             <div className="space-y-5">
               <p className="text-lg text-slate-300 leading-relaxed">
                 Je suis{" "}
