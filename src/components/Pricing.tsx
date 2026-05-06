@@ -11,7 +11,7 @@ const plans = [
     icon: User,
     title: "Portfolio / CV",
     subtitle: "Interactif",
-    price: "190",
+    price: "150",
     unit: "",
     description: "Mettez en valeur votre profil avec un portfolio en ligne moderne et interactif.",
     features: [
@@ -28,7 +28,7 @@ const plans = [
     icon: Zap,
     title: "Site Express",
     subtitle: "Coachs, artisans, indépendants",
-    price: "690",
+    price: "350",
     unit: "",
     description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs qui veulent une présence en ligne rapide et efficace.",
     features: [
@@ -48,7 +48,7 @@ const plans = [
     icon: Rocket,
     title: "Landing Page",
     subtitle: "Conversion",
-    price: "650",
+    price: "350",
     unit: "",
     description: "Page d'atterrissage optimisée pour convertir vos visiteurs en clients.",
     features: [
@@ -66,7 +66,7 @@ const plans = [
     icon: Globe,
     title: "Site Vitrine",
     subtitle: "Multi-pages",
-    price: "1 490",
+    price: "350",
     unit: "",
     description: "Le site complet pour présenter votre activité et attirer de nouveaux clients.",
     features: [
@@ -85,7 +85,7 @@ const plans = [
     icon: RefreshCw,
     title: "Refonte de Site",
     subtitle: "Modernisation",
-    price: "990",
+    price: "450",
     unit: "",
     description: "Votre site actuel fait vieillot ? On le remet au goût du jour.",
     features: [
@@ -103,7 +103,7 @@ const plans = [
     icon: ShoppingCart,
     title: "E-Commerce",
     subtitle: "Boutique en ligne",
-    price: "2 990",
+    price: "1 490",
     unit: "",
     description: "Vendez en ligne avec une boutique professionnelle et sécurisée.",
     features: [
@@ -122,7 +122,7 @@ const plans = [
     icon: Monitor,
     title: "Application Web",
     subtitle: "Sur mesure",
-    price: "3 500",
+    price: "2 000",
     unit: "",
     description: "Application web complète, développée sur mesure selon vos besoins métier.",
     features: [
@@ -141,7 +141,7 @@ const plans = [
     icon: Sparkles,
     title: "Automatisation",
     subtitle: "Workflows & n8n",
-    price: "290",
+    price: "190",
     unit: "",
     description: "Automatisez vos tâches répétitives et gagnez du temps. Notifications, factures, emails, synchronisation — tout en automatique.",
     features: [
@@ -162,14 +162,14 @@ const extras = [
   {
     icon: Wrench,
     title: "Maintenance",
-    price: "49",
+    price: "39",
     unit: "/mois",
     description: "Mises à jour, sauvegardes, sécurité et support technique continu.",
   },
   {
     icon: Settings,
     title: "Intervention ponctuelle",
-    price: "80",
+    price: "60",
     unit: "",
     description: "Modification, ajout de fonctionnalité, correction de bug — à la demande.",
   },
