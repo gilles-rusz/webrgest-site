@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Phone, Clock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -9,6 +10,7 @@ const FORMSPREE_FORM_ID = "xdayjojp";
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +48,7 @@ export default function Contact() {
       if (response.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-        setTimeout(() => setStatus("idle"), 6000);
+        router.push("/merci");
       } else {
         setStatus("error");
         setTimeout(() => setStatus("idle"), 5000);
