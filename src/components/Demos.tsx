@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, UtensilsCrossed, ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 const demos = [
   {
@@ -21,8 +22,10 @@ const demos = [
     description:
       "Boutique en ligne de produits du terroir alsacien. Catalogue avec filtres, panier fonctionnel, fiches produits détaillées et paiement sécurisé.",
     features: ["Catalogue produits", "Panier interactif", "Filtres & recherche", "Fiches détaillées", "Paiement sécurisé"],
-    url: "https://out-nqvrddxq.devinapps.com",
+    url: "/demos/ecommerce",
     icon: ShoppingCart,
+    image: "/demos/vignoble-alsace.png",
+    internal: true,
   },
 ];
 
@@ -60,22 +63,39 @@ export default function Demos() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="rounded-2xl overflow-hidden bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
               >
-                <div className="relative h-48 sm:h-56 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
-                  <Icon className="w-16 h-16 text-teal-400/30" />
+                <div className="relative h-48 sm:h-56 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center overflow-hidden">
+                  {demo.image ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={demo.image} alt={demo.title} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-navy-900/30" />
+                    </>
+                  ) : (
+                    <Icon className="w-16 h-16 text-teal-400/30" />
+                  )}
                   <div className="absolute top-4 left-4">
                     <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">
                       {demo.type}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <a
-                      href={demo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-lg bg-navy-800/80 border border-navy-700 flex items-center justify-center text-slate-300 hover:text-teal-400 hover:border-teal-500/30 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {demo.internal ? (
+                      <Link
+                        href={demo.url}
+                        className="w-10 h-10 rounded-lg bg-navy-800/80 border border-navy-700 flex items-center justify-center text-slate-300 hover:text-teal-400 hover:border-teal-500/30 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </Link>
+                    ) : (
+                      <a
+                        href={demo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-lg bg-navy-800/80 border border-navy-700 flex items-center justify-center text-slate-300 hover:text-teal-400 hover:border-teal-500/30 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -109,15 +129,25 @@ export default function Demos() {
                     ))}
                   </div>
 
-                  <a
-                    href={demo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-teal-400 font-medium hover:text-teal-300 transition-colors"
-                  >
-                    Voir le site
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  {demo.internal ? (
+                    <Link
+                      href={demo.url}
+                      className="inline-flex items-center gap-2 text-teal-400 font-medium hover:text-teal-300 transition-colors"
+                    >
+                      Voir le site
+                      <ExternalLink className="w-4 h-4" />
+                    </Link>
+                  ) : (
+                    <a
+                      href={demo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-teal-400 font-medium hover:text-teal-300 transition-colors"
+                    >
+                      Voir le site
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             );
