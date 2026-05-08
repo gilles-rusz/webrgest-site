@@ -14,6 +14,7 @@ const demos = [
     features: ["Carte interactive", "Réservation en ligne", "Galerie photo", "Avis clients", "Design responsive"],
     url: "https://out-qnvstzzv.devinapps.com",
     icon: UtensilsCrossed,
+    image: "/demos/restaurant-gastronomique.jpg",
   },
   {
     title: "Terroir d'Alsace",
