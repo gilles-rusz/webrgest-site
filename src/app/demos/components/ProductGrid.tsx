@@ -23,7 +23,7 @@ export default function ProductGrid() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute inset-0 bg-[#FAF5EF]/85" />
+      <div className="absolute inset-0 bg-[#FAF5EF]/70" />
 
       <div className="relative z-10">
         <div className="text-center mb-10">

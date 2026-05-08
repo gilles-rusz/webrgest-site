@@ -1,67 +1,39 @@
-import { Leaf, MapPin, Heart, Award } from "lucide-react";
+"use client";
 
-const values = [
-  {
-    icon: Leaf,
-    title: "100% Local",
-    text: "Chaque produit est sélectionné auprès de producteurs et artisans implantés en Alsace et dans le Grand Est.",
-  },
-  {
-    icon: Heart,
-    title: "Fait avec passion",
-    text: "Nos partenaires perpétuent des savoir-faire transmis de génération en génération, loin de la production industrielle.",
-  },
-  {
-    icon: MapPin,
-    title: "Circuit court",
-    text: "Du producteur à votre table, sans intermédiaire superflu. Vous savez d'où viennent vos produits.",
-  },
-  {
-    icon: Award,
-    title: "Qualité garantie",
-    text: "AOP, IGP, labels fermiers… Nous ne proposons que des produits dont nous sommes fiers.",
-  },
-];
+import AlsaceIllustration from "./AlsaceIllustration";
 
 export default function About() {
   return (
     <section id="apropos" className="py-14">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-[#3C2415]">Notre histoire</h2>
-        <p className="mt-3 text-[#5C3D2E]/80 max-w-2xl mx-auto leading-relaxed">
-          Terroir d&apos;Alsace est née d&apos;une conviction simple&nbsp;: les
-          richesses de notre région méritent d&apos;être partagées. Installés au
-          c&oelig;ur de l&apos;Alsace, nous parcourons les villages, les caves et
-          les fermes du Grand Est pour dénicher les meilleurs produits du terroir
-          &mdash; fromages affinés, vins d&apos;exception, pâtisseries
-          traditionnelles et confitures artisanales.
-        </p>
-        <p className="mt-3 text-[#5C3D2E]/70 max-w-2xl mx-auto leading-relaxed">
-          Chaque référence de notre catalogue raconte une histoire, celle d&apos;un
-          artisan passionné qui perpétue un savoir-faire ancestral. Notre mission
-          est de vous faire découvrir ces trésors, avec la garantie d&apos;une
-          qualité irréprochable et d&apos;un approvisionnement en circuit court.
-        </p>
+      <div className="mb-8 px-4">
+        <AlsaceIllustration />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-        {values.map((v) => {
-          const Icon = v.icon;
-          return (
-            <div
-              key={v.title}
-              className="bg-white rounded-2xl border border-amber-100 p-6 text-center hover:shadow-md transition-shadow"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#3C2415]/10 flex items-center justify-center mx-auto mb-4">
-                <Icon className="w-6 h-6 text-[#3C2415]" />
-              </div>
-              <h3 className="font-bold text-[#3C2415] mb-2">{v.title}</h3>
-              <p className="text-sm text-[#5C3D2E]/70 leading-relaxed">
-                {v.text}
-              </p>
-            </div>
-          );
-        })}
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-[#3C2415] uppercase tracking-wide">
+          Qui sommes-nous ?
+        </h2>
+        <p className="mt-5 text-[#5C3D2E]/80 max-w-2xl mx-auto leading-relaxed text-lg">
+          Terroir d&apos;Alsace, entreprise située à Kaysersberg, en plein
+          c&oelig;ur du vignoble alsacien, sur la Route des Vins d&apos;Alsace, a
+          le plaisir de vous faire découvrir et partager des spécialités
+          alsaciennes issues de son terroir riche, gourmand et généreux&nbsp;!
+        </p>
+        <p className="mt-3 text-[#5C3D2E]/70 max-w-2xl mx-auto leading-relaxed">
+          Tous les produits en vente sur ce site sont fabriqués en Alsace par des
+          artisans et petits producteurs qui vous proposent des produits
+          authentiques garantis d&apos;origine et de qualité.
+        </p>
+        <a
+          href="#produits"
+          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+            e.preventDefault();
+            document.getElementById("produits")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="inline-block mt-8 px-8 py-3 rounded-full bg-[#3C2415] text-amber-100 font-semibold hover:bg-[#2D1A0F] transition-colors shadow-md"
+        >
+          Je découvre
+        </a>
       </div>
     </section>
   );
