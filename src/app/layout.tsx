@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Kaushan_Script } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,6 +10,12 @@ const inter = Inter({
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const kaushanScript = Kaushan_Script({
+  variable: "--font-brush",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -43,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${kaushanScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
       <Script
