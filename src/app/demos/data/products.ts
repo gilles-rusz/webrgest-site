@@ -43,7 +43,7 @@ export const products: Product[] = [
     description:
       "Confiture artisanale de quetsches d'Alsace, cuite au chaudron en cuivre selon la tradition familiale.",
     price: 6.5,
-    image: "https://images.unsplash.com/photo-1474440692706-2b98aec0bfbf?w=400&h=300&fit=crop",
+    image: "/demos/confiture-quetsches.png",
     category: "Confitures",
   },
   {
