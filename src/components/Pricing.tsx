@@ -266,11 +266,7 @@ export default function Pricing() {
 
                 <a
                   href="#contact"
-                  className={`block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 ${
-                    isPopular
-                      ? "bg-teal-500 text-white hover:bg-teal-400"
-                      : "border border-navy-600 text-slate-300 hover:border-teal-500/30 hover:text-teal-400"
-                  }`}
+                  className="block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-white"
                 >
                   Demander un devis
                 </a>
