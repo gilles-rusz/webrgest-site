@@ -47,7 +47,7 @@ export default function Demos() {
             Exemples de réalisations
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-            Découvrez des exemples de sites que je peux créer pour vous.
+            Ces démonstrations montrent le type de site que je peux concevoir pour votre activité.
             Chaque projet est unique, responsive et optimisé.
           </p>
         </motion.div>
@@ -74,9 +74,12 @@ export default function Demos() {
                   ) : (
                     <Icon className="w-16 h-16 text-teal-400/30" />
                   )}
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">
                       {demo.type}
+                    </span>
+                    <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-gold-400/10 text-gold-400 border border-gold-400/20">
+                      Démo fictive
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">

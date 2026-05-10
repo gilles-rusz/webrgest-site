@@ -20,7 +20,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <p className="text-sm font-medium text-teal-400 mb-4 tracking-wide">
-                Développeur Full-Stack &bull; Est de la France
+                Développeur Full-Stack &bull; Grand Est de la France
               </p>
             </motion.div>
 
@@ -31,8 +31,8 @@ export default function Hero() {
               className="text-5xl sm:text-6xl lg:text-7xl leading-tight"
               style={{ fontFamily: "var(--font-brush), cursive" }}
             >
-              <span className="text-white">Je crée </span>
-              <span className="text-teal-400">votre site web</span>
+              <span className="text-white">Sites web pour </span>
+              <span className="text-teal-400">artisans, indépendants et PME</span>
             </motion.h1>
 
             <motion.p
@@ -41,9 +41,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-6 text-lg text-slate-300 max-w-xl mx-auto lg:mx-0"
             >
-              Développeur freelance, je conçois des sites et applications
-              qui correspondent vraiment à votre activité.
-              Pas de template, pas de superflu — du sur-mesure.
+              Des sites modernes, rapides et pensés pour générer des contacts.
+              Je ne construis pas juste un site — je comprends votre métier
+              et je crée un outil utile pour votre activité.
             </motion.p>
 
             <motion.div

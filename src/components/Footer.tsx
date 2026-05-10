@@ -29,8 +29,22 @@ export default function Footer() {
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Votre partenaire pour la création de sites web et solutions
-              digitales sur mesure dans l&apos;Est de la France.
+              digitales sur mesure dans le Grand Est.
             </p>
+            <div className="mt-4 space-y-1 text-xs text-slate-500">
+              <p>SIRET : 989 861 869 00018</p>
+              <p>17 Rue de la Division Leclerc, 57280 Maizières-lès-Metz</p>
+            </div>
+            <div className="mt-4 flex gap-3">
+              <a
+                href="https://www.linkedin.com/in/gilles-ruszczycki/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
 
           <div>
@@ -91,13 +105,13 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="#"
+              href="/mentions-legales"
               className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
             >
               Mentions légales
             </a>
             <a
-              href="#"
+              href="/politique-de-confidentialite"
               className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
             >
               Politique de confidentialité

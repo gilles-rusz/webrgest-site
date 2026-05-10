@@ -26,7 +26,7 @@ const plans = [
     icon: Zap,
     title: "Site Express",
     subtitle: "Coachs, artisans, indépendants",
-    price: "350",
+    price: "490",
     unit: "",
     description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs.",
     features: [
@@ -60,7 +60,7 @@ const plans = [
     icon: Globe,
     title: "Site Vitrine",
     subtitle: "Multi-pages",
-    price: "350",
+    price: "990",
     unit: "",
     description: "Le site complet pour présenter votre activité et attirer de nouveaux clients.",
     features: [
@@ -78,7 +78,7 @@ const plans = [
     icon: RefreshCw,
     title: "Refonte de Site",
     subtitle: "Modernisation",
-    price: "450",
+    price: "690",
     unit: "",
     description: "Votre site actuel fait vieillot ? On le remet au goût du jour.",
     features: [
@@ -111,7 +111,7 @@ const plans = [
     icon: Monitor,
     title: "Application Web",
     subtitle: "Sur mesure",
-    price: "2 000",
+    price: "2 500",
     unit: "",
     description: "Application web complète, développée sur mesure selon vos besoins métier.",
     features: [

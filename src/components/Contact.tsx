@@ -294,6 +294,19 @@ export default function Contact() {
                   Une erreur est survenue. Réessayez ou contactez-moi à contact@webrgest.fr.
                 </div>
               )}
+
+              <p className="text-xs text-slate-500 leading-relaxed">
+                En soumettant ce formulaire, vous acceptez que vos données soient
+                utilisées pour répondre à votre demande. Elles ne seront ni vendues
+                ni transmises à des tiers. Consultez notre{" "}
+                <a
+                  href="/politique-de-confidentialite"
+                  className="text-teal-400 hover:text-teal-300 underline"
+                >
+                  politique de confidentialité
+                </a>{" "}
+                pour en savoir plus.
+              </p>
             </form>
           </motion.div>
         </div>
