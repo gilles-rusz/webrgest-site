@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Briefcase, Wrench, Zap } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -66,6 +67,39 @@ export default function Hero() {
               >
                 Voir mes réalisations
               </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              {[
+                {
+                  icon: Briefcase,
+                  text: "22 ans de management industriel",
+                },
+                {
+                  icon: Wrench,
+                  text: "Développeur Full-Stack certifié",
+                },
+                {
+                  icon: Zap,
+                  text: "Méthodes Lean appliquées au web",
+                },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 rounded-lg p-3 bg-navy-900/40 border border-navy-700/50"
+                  >
+                    <Icon className="w-5 h-5 text-gold-400 flex-shrink-0" />
+                    <span className="text-sm text-slate-300">{item.text}</span>
+                  </div>
+                );
+              })}
             </motion.div>
           </div>
 

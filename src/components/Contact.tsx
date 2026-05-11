@@ -16,6 +16,8 @@ export default function Contact() {
     email: "",
     phone: "",
     subject: "",
+    budget: "",
+    delai: "",
     message: "",
   });
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -39,6 +41,8 @@ export default function Contact() {
             email: formData.email,
             phone: formData.phone || "Non renseigné",
             subject: formData.subject,
+            budget: formData.budget || "Non renseigné",
+            delai: formData.delai || "Non renseigné",
             message: formData.message,
             _subject: `[Web RG Est] Nouveau message de ${formData.name} — ${formData.subject}`,
           }),
@@ -47,7 +51,7 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", subject: "", budget: "", delai: "", message: "" });
         router.push("/merci");
       } else {
         setStatus("error");
@@ -246,6 +250,45 @@ export default function Contact() {
                     <option value="Portfolio / CV">Portfolio / CV</option>
                     <option value="Automatisation">Automatisation</option>
                     <option value="Autre">Autre</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Budget approximatif
+                  </label>
+                  <select
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors appearance-none disabled:opacity-50"
+                  >
+                    <option value="">Sélectionnez...</option>
+                    <option value="Moins de 500€">Moins de 500€</option>
+                    <option value="500 – 1 000€">500 – 1 000€</option>
+                    <option value="1 000 – 2 000€">1 000 – 2 000€</option>
+                    <option value="2 000€ et plus">2 000€ et plus</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Délai souhaité
+                  </label>
+                  <select
+                    name="delai"
+                    value={formData.delai}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg bg-navy-800 border border-navy-600 text-white focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-colors appearance-none disabled:opacity-50"
+                  >
+                    <option value="">Sélectionnez...</option>
+                    <option value="Urgent (moins de 2 semaines)">Urgent (moins de 2 semaines)</option>
+                    <option value="1 à 2 mois">1 à 2 mois</option>
+                    <option value="3 mois ou plus">3 mois ou plus</option>
+                    <option value="Pas de deadline">Pas de deadline</option>
                   </select>
                 </div>
               </div>
