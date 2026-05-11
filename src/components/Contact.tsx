@@ -20,10 +20,24 @@ export default function Contact() {
     delai: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState("");
+  const [formLoadTime] = useState(() => Date.now());
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
+
+    const timeOnPage = Date.now() - formLoadTime;
+    if (timeOnPage < 3000) {
+      setStatus("success");
+      return;
+    }
+
     setStatus("submitting");
 
     try {
@@ -180,6 +194,18 @@ export default function Contact() {
               onSubmit={handleSubmit}
               className="rounded-2xl p-8 space-y-6 bg-navy-900/40 border border-navy-700/50"
             >
+              <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden" style={{ position: "absolute", left: "-9999px" }}>
+                <label htmlFor="_gotcha">Ne pas remplir</label>
+                <input
+                  id="_gotcha"
+                  type="text"
+                  name="_gotcha"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
