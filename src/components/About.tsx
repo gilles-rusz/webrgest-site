@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 
 const techSkills = [
@@ -38,22 +37,6 @@ export default function About() {
               moi
             </span>
           </h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-12"
-        >
-          <Image
-            src="/portrait.webp"
-            alt="Gilles Ruszczycki - Fondateur de Web RG Est"
-            width={200}
-            height={200}
-            className="rounded-full border-2 border-navy-700 object-cover"
-          />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
