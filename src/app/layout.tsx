@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Satisfy } from "next/font/google";
+import { Sora, Satisfy, Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -11,6 +11,16 @@ const sora = Sora({
 const satisfy = Satisfy({
   variable: "--font-satisfy",
   weight: "400",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
@@ -44,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${sora.variable} ${satisfy.variable} h-full antialiased`}
+      className={`${sora.variable} ${satisfy.variable} ${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
       <Script
