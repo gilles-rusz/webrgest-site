@@ -32,8 +32,11 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Qui suis-je
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            À propos de{" "}
+            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
+              moi
+            </span>
           </h2>
         </motion.div>
 

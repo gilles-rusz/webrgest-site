@@ -124,7 +124,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleMobileNavClick(e, link.href)}
-                  className="block text-lg font-medium text-slate-300 hover:text-teal-400 transition-colors"
+                  className="block text-lg font-semibold text-slate-300 hover:text-teal-400 hover:translate-x-1.5 transition-all duration-200"
                 >
                   {link.label}
                 </a>

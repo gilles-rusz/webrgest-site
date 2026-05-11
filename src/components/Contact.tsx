@@ -79,8 +79,11 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Me contacter
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Parlons de votre{" "}
+            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
+              projet
+            </span>
           </h2>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
             Une idée, un projet ? N&apos;hésitez pas à me contacter pour un devis

@@ -28,11 +28,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl sm:text-6xl lg:text-7xl leading-tight"
-              style={{ fontFamily: "var(--font-brush), cursive" }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight"
             >
-              <span className="text-white">Sites web pour </span>
-              <span className="text-teal-400">artisans, indépendants et PME</span>
+              <span className="text-white">Sites web modernes pour </span>
+              <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive" }}>
+                artisans, indépendants
+              </span>
+              <span className="text-white"> &amp; PME</span>
             </motion.h1>
 
             <motion.p
