@@ -112,8 +112,8 @@ export default function Hero() {
             <Image
               src="/logo.png"
               alt="Web RG Est - Création Web"
-              width={350}
-              height={350}
+              width={500}
+              height={500}
               className="rounded-2xl"
               priority
             />
