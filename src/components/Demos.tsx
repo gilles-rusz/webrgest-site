@@ -12,7 +12,7 @@ const demos = [
     description:
       "Site complet pour un restaurant étoilé en Alsace. Carte interactive, réservation en ligne, galerie photo, avis clients et design premium.",
     features: ["Carte interactive", "Réservation en ligne", "Galerie photo", "Avis clients", "Design responsive"],
-    url: "https://out-qnvstzzv.devinapps.com",
+    url: "https://la-table-dor-demo-vybkmwgw.devinapps.com",
     icon: UtensilsCrossed,
     image: "/demos/restaurant-gastronomique.jpg",
   },
