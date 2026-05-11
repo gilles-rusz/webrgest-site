@@ -47,3 +47,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-teal-500);
 }
+
+/* Hide reCAPTCHA v3 badge (text attribution is shown in the form instead) */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

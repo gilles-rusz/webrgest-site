@@ -18,8 +18,18 @@ import {
 } from "lucide-react";
 
 const FORMSPREE_FORM_ID = "xdayjojp";
+const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 export default function DevisGratuitPage() {
   const router = useRouter();
@@ -35,6 +45,21 @@ export default function DevisGratuitPage() {
   });
   const [status, setStatus] = useState<FormStatus>("idle");
 
+  const getRecaptchaToken = (): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      if (!window.grecaptcha) {
+        reject(new Error("reCAPTCHA not loaded"));
+        return;
+      }
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(RECAPTCHA_SITE_KEY, { action: "submit_devis" })
+          .then(resolve)
+          .catch(reject);
+      });
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
@@ -44,6 +69,8 @@ export default function DevisGratuitPage() {
     const utmCampaign = searchParams.get("utm_campaign") || "";
 
     try {
+      const recaptchaToken = await getRecaptchaToken();
+
       const response = await fetch(
         `https://formspree.io/f/${FORMSPREE_FORM_ID}`,
         {
@@ -63,6 +90,7 @@ export default function DevisGratuitPage() {
             utm_source: utmSource,
             utm_medium: utmMedium,
             utm_campaign: utmCampaign,
+            "g-recaptcha-response": recaptchaToken,
             _subject: `[Devis Landing] Nouveau devis de ${formData.name} — ${formData.subject}`,
           }),
         }
@@ -364,6 +392,28 @@ export default function DevisGratuitPage() {
                     politique de confidentialité
                   </a>{" "}
                   pour en savoir plus.
+                </p>
+
+                <p className="text-xs text-slate-500/70 leading-relaxed">
+                  Ce site est protégé par reCAPTCHA et les{" "}
+                  <a
+                    href="https://policies.google.com/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-slate-400"
+                  >
+                    règles de confidentialité
+                  </a>{" "}
+                  et{" "}
+                  <a
+                    href="https://policies.google.com/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-slate-400"
+                  >
+                    conditions d&apos;utilisation
+                  </a>{" "}
+                  de Google s&apos;appliquent.
                 </p>
               </form>
 
