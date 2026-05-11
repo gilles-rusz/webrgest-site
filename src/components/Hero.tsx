@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Briefcase, Wrench, Zap } from "lucide-react";
+import { Briefcase, Wrench, Zap, PhoneCall } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -69,13 +69,14 @@ export default function Hero() {
                 href="#contact"
                 className="px-8 py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200"
               >
-                Démarrer un projet
+                Demander un devis gratuit
               </a>
               <a
-                href="#realisations"
-                className="px-8 py-4 rounded-lg border border-navy-600 text-slate-300 font-semibold text-lg hover:border-teal-500/50 hover:text-teal-400 transition-colors duration-200"
+                href="#contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border border-navy-600 text-slate-300 font-semibold text-lg hover:border-teal-500/50 hover:text-teal-400 transition-colors duration-200"
               >
-                Voir mes réalisations
+                <PhoneCall className="w-5 h-5" />
+                Être rappelé
               </a>
             </motion.div>
 
