@@ -186,7 +186,7 @@ export default function Pricing() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {plans.map((plan, i) => {
+          {plans.slice(0, 6).map((plan, i) => {
             const Icon = plan.icon;
             const isPopular = "popular" in plan && plan.popular;
             return (
@@ -210,6 +210,86 @@ export default function Pricing() {
                   </div>
                 )}
 
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10">
+                    <Icon className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white leading-tight">
+                      {plan.title}
+                    </h3>
+                    <span className="text-xs text-slate-400">{plan.subtitle}</span>
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <span className="text-xs text-slate-400">
+                    À partir de
+                  </span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold text-gold-400">
+                      {plan.price}€
+                    </span>
+                    {plan.unit && (
+                      <span className="text-sm text-slate-400">{plan.unit}</span>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-sm text-slate-400 mb-5 leading-relaxed">
+                  {plan.description}
+                </p>
+
+                <ul className="space-y-2.5 mb-5">
+                  {plan.features.map((feature, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-teal-400" />
+                      <span className="text-slate-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {"idealFor" in plan && plan.idealFor && (
+                  <div className="mb-5 pt-4 border-t border-navy-700/50">
+                    <span className="text-xs text-slate-400">
+                      Idéal pour
+                    </span>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {plan.idealFor.map((item: string, j: number) => (
+                        <span
+                          key={j}
+                          className="px-2.5 py-1 rounded-md text-xs font-medium bg-navy-800 text-slate-300 border border-navy-700"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <a
+                  href="#contact"
+                  className="block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-white"
+                >
+                  Demander un devis
+                </a>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {plans.slice(6).map((plan, i) => {
+            const Icon = plan.icon;
+            return (
+              <motion.div
+                key={i + 6}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (i + 6) * 0.04 }}
+                className="relative rounded-2xl p-7 bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10">
                     <Icon className="w-5 h-5 text-teal-400" />
