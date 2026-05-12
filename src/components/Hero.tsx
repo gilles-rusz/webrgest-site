@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Briefcase, Wrench, Zap, PhoneCall, TrendingUp, Users, BarChart3 } from "lucide-react";
 
 function DashboardMockup() {
@@ -163,20 +164,20 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,212,191,0.25)]"
                 >
                   Demander un devis gratuit
                   <span aria-hidden="true">&rarr;</span>
-                </a>
-                <a
-                  href="#contact"
+                </Link>
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-navy-600 text-slate-300 font-semibold text-lg hover:border-teal-500/50 hover:text-teal-400 transition-all duration-200"
                 >
                   <PhoneCall className="w-5 h-5" />
                   Être rappelé
-                </a>
+                </Link>
               </motion.div>
 
               <motion.div

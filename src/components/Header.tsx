@@ -1,42 +1,31 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "#accueil", label: "Accueil" },
-  { href: "#services", label: "Services" },
-  { href: "#apropos", label: "À propos" },
-  { href: "#realisations", label: "Réalisations" },
-  { href: "#tarifs", label: "Tarifs" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Accueil" },
+  { href: "/services", label: "Services" },
+  { href: "/realisations", label: "Réalisations" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/tarifs", label: "Tarifs" },
+  { href: "/avis", label: "Avis" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleMobileNavClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      e.preventDefault();
-      setIsMobileMenuOpen(false);
-      const targetId = href.replace("#", "");
-      setTimeout(() => {
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
-    },
-    []
-  );
 
   return (
     <header
@@ -48,7 +37,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#accueil" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="Web RG Est"
@@ -64,24 +53,28 @@ export default function Header() {
                 Création Web
               </span>
             </div>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === link.href
+                    ? "text-teal-400"
+                    : "text-slate-300 hover:text-teal-400"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              className="px-5 py-2 rounded-lg bg-teal-500 text-white text-sm font-semibold hover:bg-teal-400 transition-colors duration-200"
+            <Link
+              href="/contact"
+              className="px-5 py-2 rounded-full border border-teal-500 text-teal-400 text-sm font-semibold hover:bg-teal-500 hover:text-white transition-all duration-200"
             >
-              Devis gratuit
-            </a>
+              Être rappelé ✆
+            </Link>
           </nav>
 
           <button
@@ -120,22 +113,26 @@ export default function Header() {
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleMobileNavClick(e, link.href)}
-                  className="block text-lg font-semibold text-slate-300 hover:text-teal-400 hover:translate-x-1.5 transition-all duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg font-semibold hover:translate-x-1.5 transition-all duration-200 ${
+                    pathname === link.href
+                      ? "text-teal-400"
+                      : "text-slate-300 hover:text-teal-400"
+                  }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
-                onClick={(e) => handleMobileNavClick(e, "#contact")}
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block text-center px-6 py-3 rounded-lg bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-colors"
               >
                 Devis gratuit
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

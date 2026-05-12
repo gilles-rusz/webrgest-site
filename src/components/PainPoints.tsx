@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Globe, Search, Clock, Smartphone, ArrowRight } from "lucide-react";
 
 const painPoints = [
@@ -10,7 +11,7 @@ const painPoints = [
     solution:
       "Je crée des sites pensés pour convertir : formulaires visibles, appels à l'action clairs, parcours optimisé.",
     cta: "Site Vitrine",
-    href: "#tarifs",
+    href: "/tarifs",
   },
   {
     icon: Search,
@@ -18,7 +19,7 @@ const painPoints = [
     solution:
       "Optimisation SEO dès la conception : structure technique, mots-clés locaux, vitesse de chargement.",
     cta: "Référencement SEO",
-    href: "#services",
+    href: "/services",
   },
   {
     icon: Clock,
@@ -26,7 +27,7 @@ const painPoints = [
     solution:
       "Automatisation de vos flux : emails, factures, notifications, synchronisation entre vos outils.",
     cta: "Automatisation",
-    href: "#services",
+    href: "/automatisation",
   },
   {
     icon: Smartphone,
@@ -34,7 +35,7 @@ const painPoints = [
     solution:
       "Refonte responsive et moderne : votre site s'adapte à tous les écrans, du smartphone au desktop.",
     cta: "Refonte de site",
-    href: "#tarifs",
+    href: "/tarifs",
   },
 ];
 
@@ -92,13 +93,13 @@ export default function PainPoints() {
                     <p className="text-sm text-slate-400 leading-relaxed mb-4">
                       {item.solution}
                     </p>
-                    <a
+                    <Link
                       href={item.href}
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
                     >
                       {item.cta}
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

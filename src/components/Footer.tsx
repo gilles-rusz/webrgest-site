@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -53,21 +54,21 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "#accueil", label: "Accueil" },
-                { href: "#services", label: "Services" },
-                { href: "#apropos", label: "À propos" },
-                { href: "#realisations", label: "Réalisations" },
-                { href: "#tarifs", label: "Tarifs" },
-                { href: "#processus", label: "Mon approche" },
-                { href: "#contact", label: "Contact" },
+                { href: "/", label: "Accueil" },
+                { href: "/services", label: "Services" },
+                { href: "/a-propos", label: "À propos" },
+                { href: "/realisations", label: "Réalisations" },
+                { href: "/tarifs", label: "Tarifs" },
+                { href: "/avis", label: "Avis" },
+                { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -84,15 +85,15 @@ export default function Footer() {
                 "Applications Web",
                 "Refonte de Sites",
                 "SEO & Référencement",
-                "Maintenance",
+                "Automatisation",
               ].map((service) => (
                 <li key={service}>
-                  <a
-                    href="#services"
+                  <Link
+                    href="/services"
                     className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
                   >
                     {service}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,13 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import PainPoints from "@/components/PainPoints";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Demos from "@/components/Demos";
-import Pricing from "@/components/Pricing";
-import Portfolio from "@/components/Portfolio";
-import Contact from "@/components/Contact";
+import HomeOffers from "@/components/HomeOffers";
+import HomeMethodRealisations from "@/components/HomeMethodRealisations";
+import HomeBadges from "@/components/HomeBadges";
+import HomeContact from "@/components/HomeContact";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import CookieBanner from "@/components/CookieBanner";
@@ -18,14 +14,10 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <PainPoints />
-        <WhyChooseUs />
-        <Services />
-        <About />
-        <Demos />
-        <Pricing />
-        <Portfolio />
-        <Contact />
+        <HomeOffers />
+        <HomeMethodRealisations />
+        <HomeBadges />
+        <HomeContact />
       </main>
       <Footer />
       <ChatWidget />
