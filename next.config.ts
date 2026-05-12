@@ -36,7 +36,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://*.devinapps.com",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://*.devinapps.com https://images.unsplash.com",
       "connect-src 'self' https://formspree.io https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com",
       "frame-src 'self' https://www.google.com https://www.gstatic.com",
       "object-src 'none'",
