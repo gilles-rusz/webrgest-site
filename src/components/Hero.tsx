@@ -113,23 +113,26 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left column: text */}
             <div className="text-center lg:text-left">
-              {/* Portrait — large */}
+              {/* Portrait — prominent */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className="flex items-center gap-5 mb-8 justify-center lg:justify-start"
+                className="flex flex-col items-center lg:items-start gap-4 mb-8"
               >
-                <Image
-                  src="/portrait-gilles.png"
-                  alt="Gilles Ruszczycki - Web RG Est"
-                  width={120}
-                  height={120}
-                  className="rounded-full border-3 border-teal-500/50 shadow-[0_0_30px_rgba(45,212,191,0.15)] object-cover"
-                />
-                <div>
-                  <p className="text-lg font-bold text-white">Gilles Ruszczycki</p>
-                  <p className="text-sm text-teal-400 tracking-wide">
+                <div className="relative">
+                  <Image
+                    src="/portrait-gilles.png"
+                    alt="Gilles Ruszczycki - Web RG Est"
+                    width={200}
+                    height={200}
+                    className="rounded-full border-4 border-teal-500/40 shadow-[0_0_40px_rgba(45,212,191,0.15),0_0_80px_rgba(45,212,191,0.05)] object-cover w-[160px] h-[160px] sm:w-[200px] sm:h-[200px]"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-teal-400/20 ring-offset-2 ring-offset-navy-950" />
+                </div>
+                <div className="text-center lg:text-left">
+                  <p className="text-xl font-bold text-white">Gilles Ruszczycki</p>
+                  <p className="text-sm text-teal-400 tracking-wide font-medium">
                     Développeur Web Full-Stack
                   </p>
                   <p className="text-xs text-slate-400 tracking-wide">
