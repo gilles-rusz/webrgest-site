@@ -113,24 +113,27 @@ export default function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left column: text */}
             <div className="text-center lg:text-left">
-              {/* Portrait + badge */}
+              {/* Portrait — large */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className="flex items-center gap-4 mb-6 justify-center lg:justify-start"
+                className="flex items-center gap-5 mb-8 justify-center lg:justify-start"
               >
                 <Image
                   src="/portrait-gilles.png"
                   alt="Gilles Ruszczycki - Web RG Est"
-                  width={64}
-                  height={64}
-                  className="rounded-full border-2 border-teal-500/40 shadow-lg"
+                  width={120}
+                  height={120}
+                  className="rounded-full border-3 border-teal-500/50 shadow-[0_0_30px_rgba(45,212,191,0.15)] object-cover"
                 />
                 <div>
-                  <p className="text-sm font-semibold text-white">Gilles Ruszczycki</p>
-                  <p className="text-xs text-teal-400 tracking-wide">
-                    Développeur Full-Stack &bull; Grand Est
+                  <p className="text-lg font-bold text-white">Gilles Ruszczycki</p>
+                  <p className="text-sm text-teal-400 tracking-wide">
+                    Développeur Web Full-Stack
+                  </p>
+                  <p className="text-xs text-slate-400 tracking-wide">
+                    Grand Est &bull; Créateur de sites sur mesure
                   </p>
                 </div>
               </motion.div>
@@ -212,6 +215,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Bottom neon separator */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/40 to-transparent" />
     </section>
   );
 }

@@ -12,8 +12,13 @@ const badges = [
 
 export default function HomeBadges() {
   return (
-    <section className="relative py-10 border-t border-white/[0.04]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12">
+      {/* Lighter background */}
+      <div className="absolute inset-0 bg-[#0c1220]" />
+      {/* Top neon separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {badges.map((badge, i) => {
             const Icon = badge.icon;

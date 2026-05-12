@@ -87,7 +87,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-24 sm:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/95 to-navy-950" />
+      <div className="absolute inset-0 bg-navy-950" />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(45, 212, 191, 0.04), transparent 60%)" }} />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/25 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

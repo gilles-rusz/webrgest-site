@@ -28,8 +28,19 @@ const projects = [
 
 export default function HomeMethodRealisations() {
   return (
-    <section className="relative py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-14 sm:py-20">
+      {/* Dark background */}
+      <div className="absolute inset-0 bg-navy-950" />
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: "radial-gradient(ellipse at 30% 50%, rgba(45, 212, 191, 0.05), transparent 50%), radial-gradient(ellipse at 70% 50%, rgba(99, 102, 241, 0.04), transparent 50%)",
+        }}
+      />
+      {/* Top neon separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/25 to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Method column */}
           <motion.div

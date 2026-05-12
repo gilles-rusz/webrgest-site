@@ -7,7 +7,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-navy-950 border-t border-navy-800/50">
+    <footer className="relative bg-[#060a10]">
+      {/* Neon top border with gold accent */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-teal-500/20 to-transparent blur-sm" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>

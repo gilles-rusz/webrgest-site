@@ -35,8 +35,28 @@ const offers = [
 
 export default function HomeOffers() {
   return (
-    <section className="relative py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-14 sm:py-20">
+      {/* Slightly lighter background to differentiate */}
+      <div className="absolute inset-0 bg-[#0c1220]" />
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          background: "radial-gradient(ellipse at 50% 0%, rgba(45, 212, 191, 0.06), transparent 60%)",
+        }}
+      />
+      {/* Top neon separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <p className="text-[10px] font-semibold text-teal-400 tracking-[3px] uppercase mb-3">Nos services</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            Des solutions sur-mesure pour votre{" "}
+            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
+              réussite
+            </span>
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {offers.map((offer, i) => {
             const Icon = offer.icon;
