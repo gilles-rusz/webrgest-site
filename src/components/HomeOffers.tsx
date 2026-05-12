@@ -10,7 +10,7 @@ const offers = [
     title: "Site Express",
     description: "Un site essentiel, rapide et efficace pour lancer votre activité.",
     features: ["1 à 3 pages", "Design sur mesure", "Optimisé SEO & mobile"],
-    price: "690",
+    price: "490",
     href: "/tarifs",
   },
   {
@@ -18,7 +18,7 @@ const offers = [
     title: "Site Vitrine",
     description: "Un site professionnel pour valoriser votre savoir-faire et vos services.",
     features: ["Pages illimitées", "SEO avancé", "Formulaire & intégrations"],
-    price: "1 490",
+    price: "990",
     href: "/tarifs",
     highlighted: true,
   },

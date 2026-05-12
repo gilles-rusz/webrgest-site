@@ -4,38 +4,44 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const services: { title: string; description: string; image: string; link?: string }[] = [
+const services: { id: string; title: string; description: string; image: string; link?: string }[] = [
   {
+    id: "site-vitrine",
     title: "Sites Vitrines",
     description:
       "Des sites web élégants et performants pour présenter votre entreprise, vos services et votre savoir-faire.",
     image: "/services/site-vitrine.jpg",
   },
   {
+    id: "e-commerce",
     title: "E-Commerce",
     description:
       "Boutiques en ligne complètes avec paiement sécurisé, gestion des stocks et interface d'administration.",
     image: "/services/ecommerce.jpg",
   },
   {
+    id: "applications-web",
     title: "Applications Web",
     description:
       "Applications sur mesure : dashboards, CRM, outils internes, plateformes collaboratives.",
     image: "/services/application-web.jpg",
   },
   {
+    id: "seo",
     title: "Référencement SEO",
     description:
       "Optimisation pour les moteurs de recherche, référencement local et stratégie de visibilité en ligne.",
     image: "/services/seo.jpg",
   },
   {
+    id: "maintenance",
     title: "Maintenance & Support",
     description:
       "Mises à jour, sécurité et support technique pour la sérénité de votre site au quotidien.",
     image: "/services/maintenance.png",
   },
   {
+    id: "automatisation",
     title: "Automatisation",
     description:
       "Automatisez vos tâches répétitives : notifications, factures, emails, synchronisation entre outils.",
@@ -75,11 +81,12 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.div
               key={i}
+              id={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="rounded-2xl overflow-hidden bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
+              className="rounded-2xl overflow-hidden bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200 scroll-mt-24"
             >
               <div className="relative h-44 overflow-hidden">
                 <Image

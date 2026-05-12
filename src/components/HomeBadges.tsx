@@ -6,7 +6,7 @@ import { Zap, Shield, Search, Headphones } from "lucide-react";
 const badges = [
   { icon: Zap, title: "Performance", desc: "Des sites rapides pour une meilleure expérience." },
   { icon: Shield, title: "Sécurité", desc: "Hébergement fiable et protection des données." },
-  { icon: Search, title: "SEO & Visibilité", desc: "Optimisés pour être trouvé sur Google." },
+  { icon: Search, title: "SEO & Visibilité", desc: "Optimisés pour être trouvés sur Google." },
   { icon: Headphones, title: "Accompagnement", desc: "Un partenaire de confiance, sur le long terme." },
 ];
 

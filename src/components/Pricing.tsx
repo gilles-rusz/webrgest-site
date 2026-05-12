@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   User, Rocket, Zap, Globe, RefreshCw, ShoppingCart,
   Monitor, Sparkles, Wrench, Settings, CheckCircle2, ArrowRight, ChevronDown, Star
@@ -268,12 +269,12 @@ function PlanCard({ plan, index, featured }: { plan: Plan; index: number; featur
         </div>
       )}
 
-      <a
-        href="#contact"
+      <Link
+        href="/contact"
         className="block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-white mt-auto"
       >
         Demander un devis
-      </a>
+      </Link>
     </motion.div>
   );
 }
@@ -387,13 +388,13 @@ export default function Pricing() {
             Chaque projet est unique. Contactez-moi pour un devis personnalisé
             et gratuit, adapté à vos besoins.
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200"
           >
             Demander un devis gratuit
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
