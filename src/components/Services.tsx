@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-const services = [
+const services: { title: string; description: string; image: string; link?: string }[] = [
   {
     title: "Sites Vitrines",
     description:
@@ -39,6 +40,7 @@ const services = [
     description:
       "Automatisez vos tâches répétitives : notifications, factures, emails, synchronisation entre outils.",
     image: "/services/automatisation.jpg",
+    link: "/automatisation",
   },
 ];
 
@@ -94,6 +96,14 @@ export default function Services() {
                 <p className="text-sm text-slate-400 leading-relaxed">
                   {service.description}
                 </p>
+                {service.link && (
+                  <Link
+                    href={service.link}
+                    className="inline-flex items-center gap-1 text-sm text-teal-400 hover:text-teal-300 mt-3 font-medium transition-colors"
+                  >
+                    En savoir plus &rarr;
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
