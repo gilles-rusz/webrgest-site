@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
-import { getSupabase } from "@/lib/supabase";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 export async function GET() {
   try {
-    const supabase = getSupabase();
+    const supabase = getSupabaseAdmin();
     const { data, error } = await supabase
       .from("avis")
       .select("id, name, company, rating, message, created_at")
