@@ -19,7 +19,11 @@ export function getSupabaseAdmin(): SupabaseClient {
         `Supabase admin env vars missing. SUPABASE_URL=${url ? "set" : "MISSING"}, SUPABASE_SERVICE_ROLE_KEY=${key ? "set" : "MISSING"}`
       );
     }
-    _supabaseAdmin = createClient(url, key);
+    const cleanUrl = url
+      .trim()
+      .replace(/\/rest\/v1\/?$/, "")
+      .replace(/\/+$/, "");
+    _supabaseAdmin = createClient(cleanUrl, key.trim());
   }
   return _supabaseAdmin;
 }
