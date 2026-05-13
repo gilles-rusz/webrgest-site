@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
+import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 export async function GET() {
   try {
@@ -46,8 +47,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    const supabase = getSupabase();
-    const { error } = await supabase.from("avis").insert({
+    const supabaseAdmin = getSupabaseAdmin();
+    const { error } = await supabaseAdmin.from("avis").insert({
       name,
       company: company || null,
       rating,
