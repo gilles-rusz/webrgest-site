@@ -1,16 +1,25 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.SUPABASE_URL || "";
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+function getEnv(key: string): string {
+  return process.env[key] || "";
+}
 
 let _supabaseAdmin: SupabaseClient | null = null;
 
 export function getSupabaseAdmin(): SupabaseClient {
-  if (!supabaseUrl || !supabaseServiceKey) {
-    throw new Error("Supabase admin environment variables are not configured.");
-  }
   if (!_supabaseAdmin) {
-    _supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+    const url =
+      getEnv("SUPABASE_URL") || getEnv("NEXT_PUBLIC_SUPABASE_URL");
+    const key =
+      getEnv("SUPABASE_SERVICE_ROLE_KEY") ||
+      getEnv("SUPABASE_SERVICE_KEY");
+
+    if (!url || !key) {
+      throw new Error(
+        `Supabase admin env vars missing. SUPABASE_URL=${url ? "set" : "MISSING"}, SUPABASE_SERVICE_ROLE_KEY=${key ? "set" : "MISSING"}`
+      );
+    }
+    _supabaseAdmin = createClient(url, key);
   }
   return _supabaseAdmin;
 }
