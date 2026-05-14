@@ -43,6 +43,13 @@
   --font-satisfy: var(--font-satisfy);
 }
 
+:root {
+  --font-sora: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-satisfy: "Satisfy", cursive;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -109,4 +116,35 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Premium animated hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 28%, black 0%, transparent 68%);
+}
+
+.tablet-shine::before {
+  content: "";
+  position: absolute;
+  inset: -40% 20% auto -20%;
+  height: 70%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+  animation: tablet-shine 7s ease-in-out infinite;
+}
+
+@keyframes tablet-shine {
+  0%, 18% { transform: translateX(-80%) rotate(18deg); opacity: 0; }
+  35% { opacity: 1; }
+  55%, 100% { transform: translateX(135%) rotate(18deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tablet-shine::before {
+    animation: none;
+  }
 }

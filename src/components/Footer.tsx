@@ -64,6 +64,7 @@ export default function Footer() {
                 { href: "/tarifs", label: "Tarifs" },
                 { href: "/avis", label: "Avis" },
                 { href: "/contact", label: "Contact" },
+                { href: "/devis-gratuit", label: "Devis gratuit" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -86,7 +87,7 @@ export default function Footer() {
                 { label: "Sites Vitrines", href: "/services#site-vitrine" },
                 { label: "E-Commerce", href: "/services#e-commerce" },
                 { label: "Applications Web", href: "/services#applications-web" },
-                { label: "Refonte de Sites", href: "/services#maintenance" },
+                { label: "Refonte de Sites", href: "/refonte-site-internet" },
                 { label: "SEO & Référencement", href: "/services#seo" },
                 { label: "Automatisation", href: "/automatisation" },
               ].map((service) => (
@@ -119,6 +120,12 @@ export default function Footer() {
               className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
             >
               Politique de confidentialité
+            </a>
+            <a
+              href="/laisser-un-avis"
+              className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
+            >
+              Laisser un avis
             </a>
           </div>
         </div>

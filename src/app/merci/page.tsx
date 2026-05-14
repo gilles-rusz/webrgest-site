@@ -81,7 +81,7 @@ export default function MerciPage() {
               Retour à l&apos;accueil
             </Link>
             <Link
-              href="/#realisations"
+              href="/realisations"
               className="flex items-center gap-2 px-6 py-3 rounded-full border border-teal-500/20 text-teal-400 font-medium hover:bg-teal-500/10 transition-colors"
             >
               Voir mes réalisations

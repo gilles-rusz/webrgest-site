@@ -59,7 +59,7 @@ export default function AutomatisationPage() {
                 d&apos;erreurs, plus de temps pour votre activité.
               </p>
               <Link
-                href="/#contact"
+                href="/devis-gratuit"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,212,191,0.25)]"
               >
                 Demander un devis gratuit
@@ -399,14 +399,14 @@ export default function AutomatisationPage() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/#contact"
+                  href="/devis-gratuit"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,212,191,0.25)]"
                 >
                   Discutons de votre projet
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="/#tarifs"
+                  href="/tarifs"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-navy-600 text-slate-300 font-semibold hover:border-teal-500/50 hover:text-teal-400 transition-colors"
                 >
                   Voir tous les tarifs

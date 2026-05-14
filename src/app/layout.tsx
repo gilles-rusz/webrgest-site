@@ -1,28 +1,7 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
-import { Sora, Satisfy, Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-});
-
-const satisfy = Satisfy({
-  variable: "--font-satisfy",
-  weight: "400",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Web RG Est | Création Web & Solutions Digitales",
@@ -54,24 +33,34 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${sora.variable} ${satisfy.variable} ${inter.variable} ${playfair.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-DD380PLJ90"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-          });
-          gtag('js', new Date());
-          gtag('config', 'G-DD380PLJ90');
-        `}
-      </Script>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Satisfy&family=Sora:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DD380PLJ90"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+            });
+            gtag('js', new Date());
+            gtag('config', 'G-DD380PLJ90');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }

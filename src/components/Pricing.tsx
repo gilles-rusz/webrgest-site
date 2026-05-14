@@ -270,10 +270,10 @@ function PlanCard({ plan, index, featured }: { plan: Plan; index: number; featur
       )}
 
       <Link
-        href="/contact"
+        href={`/devis-gratuit?offre=${encodeURIComponent(plan.title)}`}
         className="block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-white mt-auto"
       >
-        Demander un devis
+        Recevoir un devis
       </Link>
     </motion.div>
   );
@@ -389,7 +389,7 @@ export default function Pricing() {
             et gratuit, adapté à vos besoins.
           </p>
           <Link
-            href="/contact"
+            href="/devis-gratuit"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200"
           >
             Demander un devis gratuit

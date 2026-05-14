@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Star, CheckCircle2, XCircle, Trash2, Loader2, Lock } from "lucide-react";
 
 interface Avis {
@@ -20,20 +20,28 @@ export default function AdminAvisPage() {
   const [loading, setLoading] = useState(false);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
 
-  const fetchAvis = async () => {
+  const fetchAvis = async (token = password) => {
     setLoading(true);
     try {
       const res = await fetch("/api/admin/avis", {
-        headers: { Authorization: `Bearer ${password}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
+
       if (res.status === 401) {
         setAuthenticated(false);
-        return;
+        return false;
       }
+
       const data = await res.json();
-      if (Array.isArray(data)) setAvis(data);
+      if (Array.isArray(data)) {
+        setAvis(data);
+        setAuthenticated(true);
+        return true;
+      }
+
+      return false;
     } catch {
-      // error
+      return false;
     } finally {
       setLoading(false);
     }
@@ -41,13 +49,8 @@ export default function AdminAvisPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setAuthenticated(true);
+    await fetchAvis(password);
   };
-
-  useEffect(() => {
-    if (authenticated) fetchAvis();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authenticated]);
 
   const handleApprove = async (id: string, approved: boolean) => {
     setActionLoading(id);

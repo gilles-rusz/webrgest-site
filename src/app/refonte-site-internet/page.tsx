@@ -173,7 +173,7 @@ export default function RefonteSiteInternet() {
               Audit gratuit de votre site actuel — réponse sous 24h.
             </p>
             <Link
-              href="/#contact"
+              href="/devis-gratuit"
               className="inline-block px-8 py-3 rounded-lg bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-colors duration-200"
             >
               Demander un audit gratuit

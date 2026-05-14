@@ -28,7 +28,7 @@ const projects = [
 
 export default function HomeMethodRealisations() {
   return (
-    <section className="relative py-14 sm:py-20">
+    <section id="realisations" className="relative py-14 sm:py-20 scroll-mt-24">
       {/* Dark background */}
       <div className="absolute inset-0 bg-navy-950" />
       <div

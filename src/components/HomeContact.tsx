@@ -35,7 +35,7 @@ export default function HomeContact() {
               </span>
             </h3>
             <p className="text-sm text-slate-400 mt-1">
-              Un projet en tête ? Contactez-nous et obtenez un devis gratuit sous 24h.
+              Un projet en tête ? Décrivez votre besoin et recevez une réponse personnalisée, claire et sans engagement.
             </p>
           </div>
 
@@ -56,10 +56,10 @@ export default function HomeContact() {
           </div>
 
           <Link
-            href="/contact"
+            href="/devis-gratuit"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(45,212,191,0.25)] whitespace-nowrap"
           >
-            Nous contacter
+            Obtenir mon devis gratuit
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>

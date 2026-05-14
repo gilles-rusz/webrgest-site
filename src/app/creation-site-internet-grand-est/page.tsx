@@ -142,7 +142,7 @@ export default function CreationSiteGrandEst() {
               Devis gratuit et sans engagement — réponse sous 24h.
             </p>
             <Link
-              href="/#contact"
+              href="/devis-gratuit"
               className="inline-block px-8 py-3 rounded-lg bg-teal-500 text-white font-semibold hover:bg-teal-400 transition-colors duration-200"
             >
               Demander un devis gratuit

@@ -35,11 +35,15 @@ export default function DevisGratuitPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const initialSubject =
+    searchParams.get("offre") ||
+    (searchParams.get("objectif") === "rappel" ? "Être rappelé" : "");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    subject: initialSubject,
     budget: "",
     message: "",
   });
@@ -305,13 +309,15 @@ export default function DevisGratuitPage() {
                       className={selectClasses}
                     >
                       <option value="">Sélectionnez...</option>
+                      <option value="Site Express">Site Express</option>
                       <option value="Site Vitrine">Site Vitrine</option>
                       <option value="Refonte de Site">Refonte de site</option>
                       <option value="E-Commerce">E-commerce</option>
                       <option value="Landing Page">Landing page</option>
-                      <option value="Automatisation n8n">
-                        Automatisation n8n
-                      </option>
+                      <option value="Portfolio / CV">Portfolio / CV</option>
+                      <option value="Application Web">Application Web</option>
+                      <option value="Automatisation">Automatisation</option>
+                      <option value="Être rappelé">Être rappelé</option>
                       <option value="Autre">Autre</option>
                     </select>
                   </div>

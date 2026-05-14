@@ -29,7 +29,11 @@ function openMenu() {
 
 navToggle.addEventListener("click", () => {
   const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-  isOpen ? closeMenu() : openMenu();
+  if (isOpen) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
 });
 
 navLinks.forEach((link) => {
