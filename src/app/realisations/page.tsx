@@ -4,9 +4,12 @@ import Demos from "@/components/Demos";
 import Portfolio from "@/components/Portfolio";
 
 export const metadata: Metadata = {
-  title: "Réalisations | Web RG Est — Sites web créés",
+  title: "Réalisations — Sites web créés par Web RG Est",
   description:
-    "Découvrez les projets réalisés par Web RG Est : sites vitrines, e-commerce, automatisation. Des démonstrations concrètes de ce que nous pouvons créer pour vous.",
+    "Découvrez les sites web créés par Web RG Est : sites vitrines, e-commerce, applications web pour artisans et PME dans le Grand Est.",
+  alternates: {
+    canonical: "https://www.webrgest.fr/realisations",
+  },
 };
 
 export default function RealisationsPage() {

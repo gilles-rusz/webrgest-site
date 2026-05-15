@@ -4,9 +4,12 @@ import Services from "@/components/Services";
 import PainPoints from "@/components/PainPoints";
 
 export const metadata: Metadata = {
-  title: "Services | Web RG Est — Création Web & Automatisation",
+  title: "Services de création web — Sites, E-commerce, SEO, Automatisation",
   description:
-    "Sites vitrines, e-commerce, applications web, SEO, maintenance et automatisation. Découvrez tous les services de Web RG Est pour développer votre activité en ligne.",
+    "Sites vitrines dès 990€, e-commerce, applications web, SEO local et automatisation. Tous les services Web RG Est pour développer votre activité en ligne dans le Grand Est.",
+  alternates: {
+    canonical: "https://www.webrgest.fr/services",
+  },
 };
 
 export default function ServicesPage() {
