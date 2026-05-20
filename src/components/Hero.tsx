@@ -1,20 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   Briefcase,
-  CalendarCheck,
   CheckCircle2,
-  MousePointerClick,
-  Rocket,
-  ShieldCheck,
   Sparkles,
-  Star,
-  TrendingUp,
-  Users,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -27,11 +20,6 @@ const floatingDots = [
   { left: "88%", top: "78%", delay: 0.5, size: "h-1.5 w-1.5" },
 ];
 
-const tabletStats = [
-  { icon: Users, value: "+38%", label: "contacts qualifiés", tone: "text-teal-300" },
-  { icon: MousePointerClick, value: "4,8%", label: "conversion devis", tone: "text-gold-400" },
-  { icon: CalendarCheck, value: "12", label: "RDV ce mois-ci", tone: "text-emerald-300" },
-];
 
 function HeroBackground() {
   return (
@@ -99,177 +87,457 @@ function FounderCard() {
   );
 }
 
-function ConversionTablet() {
-  const shouldReduceMotion = useReducedMotion();
+function MonHistoire() {
+  const stats = [
+    { value: "22 ans", label: "expérience", accent: "rgba(45,212,191,1)" },
+    { value: "Grand Est & Luxembourg", label: "France & Luxembourg", accent: "rgba(232,184,75,1)" },
+    { value: "×1", label: "interlocuteur", accent: "rgba(52,211,153,1)" },
+  ];
 
   return (
-    <div className="relative mx-auto max-w-[560px]" style={{ perspective: "1400px" }}>
-      <motion.div
-        initial={{ opacity: 0, y: 26, rotateX: 10, rotateY: -18 }}
-        animate={
-          shouldReduceMotion
-            ? { opacity: 1, y: 0, rotateX: 0, rotateY: 0 }
-            : {
-                opacity: 1,
-                y: [0, -10, 0],
-                rotateX: [8, 6, 8],
-                rotateY: [-15, -10, -15],
-              }
+    <div
+      className="relative mx-auto w-full max-w-[520px]"
+      style={{ perspective: "1600px", paddingBottom: "120px" }}
+    >
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes ipadFloat {
+          0%,  100% { transform: rotateX(12deg)  rotateY(-18deg) translateY(0px); }
+          25%        { transform: rotateX(4deg)   rotateY(-7deg)  translateY(-36px); }
+          55%        { transform: rotateX(8deg)   rotateY(-13deg) translateY(-20px); }
+          78%        { transform: rotateX(16deg)  rotateY(-24deg) translateY(-8px); }
         }
-        transition={
-          shouldReduceMotion
-            ? { duration: 0.7, delay: 0.25 }
-            : { opacity: { duration: 0.7, delay: 0.25 }, y: { duration: 7, repeat: Infinity, ease: "easeInOut" }, rotateX: { duration: 7, repeat: Infinity, ease: "easeInOut" }, rotateY: { duration: 7, repeat: Infinity, ease: "easeInOut" } }
+        @keyframes ipadShadow {
+          0%,  100% { transform: scaleX(1)    scaleY(1);    opacity: 0.62; }
+          25%        { transform: scaleX(0.50) scaleY(0.38); opacity: 0.09; }
+          55%        { transform: scaleX(0.70) scaleY(0.52); opacity: 0.20; }
+          78%        { transform: scaleX(0.86) scaleY(0.68); opacity: 0.36; }
         }
-        className="relative rounded-[2rem] border border-white/15 bg-gradient-to-br from-slate-700/60 via-navy-950 to-black p-2.5 shadow-[0_50px_110px_rgba(0,0,0,0.62),0_0_90px_rgba(20,184,166,0.16)]"
-        style={{ transformStyle: "preserve-3d" }}
+        @keyframes ipadShine {
+          0%, 22%  { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+          36%      { opacity: 1; }
+          58%, 100%{ transform: translateX(170%)  skewX(-18deg); opacity: 0; }
+        }
+      ` }} />
+
+      {/* ── 3D floating wrapper ─────────────────────────────── */}
+      <div
+        style={{
+          transformStyle: "preserve-3d",
+          animation: "ipadFloat 8s ease-in-out infinite",
+          willChange: "transform",
+          position: "relative",
+        }}
       >
-        <div className="absolute left-1/2 top-3 z-20 h-1.5 w-20 -translate-x-1/2 rounded-full bg-white/20" />
-        <div className="tablet-shine pointer-events-none absolute inset-0 rounded-[2rem]" />
+        {/* Back face — simulates ~7 mm device thickness */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            borderRadius: "56px",
+            transform: "translateZ(-7px)",
+            background: "linear-gradient(160deg, #1a1a1c 0%, #0e0e10 100%)",
+            boxShadow: "0 0 0 1px rgba(0,0,0,0.92)",
+            pointerEvents: "none",
+          }}
+        />
 
-        <div className="relative overflow-hidden rounded-[1.55rem] border border-white/10 bg-navy-950">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(45,212,191,0.18),transparent_18rem),radial-gradient(circle_at_95%_20%,rgba(232,184,75,0.12),transparent_18rem)]" />
+        {/* ── Aluminum body ──────────────────────────────────── */}
+        <div
+          style={{
+            background: "linear-gradient(200deg, #5c5c5e 0%, #4a4a4c 7%, #3c3c3e 20%, #2e2e30 44%, #242426 68%, #1c1c1e 100%)",
+            borderRadius: "56px",
+            padding: "30px 14px 112px",
+            boxShadow: [
+              "inset 0 1px 0 rgba(255,255,255,0.24)",
+              "inset 0 -1px 0 rgba(0,0,0,0.42)",
+              "inset 0 0 0 1px rgba(255,255,255,0.07)",
+              "0 0 0 1.5px rgba(0,0,0,0.92)",
+              "0 80px 160px rgba(0,0,0,0.88)",
+              "0 40px 80px rgba(0,0,0,0.58)",
+              "0 16px 36px rgba(0,0,0,0.38)",
+              "0 0 120px rgba(20,184,166,0.12)",
+            ].join(", "),
+            position: "relative",
+            overflow: "visible",
+          }}
+        >
+          {/* Chamfer highlight — top-left → bottom-right diagonal */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "56px",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 38%, transparent 62%, rgba(0,0,0,0.09) 100%)",
+              pointerEvents: "none",
+            }}
+          />
 
-          <div className="relative flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-md">
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-400/90" />
-              <span className="h-2.5 w-2.5 rounded-full bg-gold-400/90" />
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
-            </div>
-            <div className="hidden rounded-full border border-white/10 bg-navy-900/80 px-4 py-1.5 text-[11px] font-medium text-slate-300 sm:block">
-              webrgest.fr/dashboard-client
-            </div>
-            <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-[11px] font-bold text-emerald-300">
-              LIVE
-            </span>
+          {/* ── Front camera + status LED ─────────────────────── */}
+          <div
+            style={{
+              position: "absolute",
+              top: "13px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: "9px",
+            }}
+          >
+            <div
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                background: "radial-gradient(circle at 32% 32%, #262628 30%, #080809 100%)",
+                boxShadow: "0 0 0 2px rgba(0,0,0,0.95), 0 0 0 4px rgba(255,255,255,0.04), inset 0 0 5px rgba(0,140,220,0.28)",
+              }}
+            />
+            <div
+              style={{
+                width: "6px",
+                height: "6px",
+                borderRadius: "50%",
+                background: "radial-gradient(circle, #22c55e 0%, #15803d 100%)",
+                boxShadow: "0 0 8px rgba(34,197,94,0.85)",
+              }}
+            />
           </div>
 
-          <div className="relative p-5 sm:p-6">
-            <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-300/80">
-                  Tableau de conversion
-                </p>
-                <h3 className="mt-2 text-2xl font-black tracking-tight text-white sm:text-3xl">
-                  Votre site génère des prospects
-                </h3>
-              </div>
-              <div className="rounded-2xl border border-teal-300/20 bg-teal-300/10 px-4 py-3 text-right">
-                <p className="text-[11px] text-slate-400">Objectif mensuel</p>
-                <p className="text-xl font-black text-teal-300">32 devis</p>
-              </div>
-            </div>
+          {/* ── Home button (bottom center) ──────────────────── */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "26px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "58px",
+              height: "58px",
+              borderRadius: "50%",
+              background: "linear-gradient(145deg, #3e3e40 0%, #28282a 55%, #1c1c1e 100%)",
+              boxShadow: [
+                "0 0 0 2px rgba(0,0,0,0.85)",
+                "0 0 0 4.5px rgba(255,255,255,0.058)",
+                "inset 0 2px 3px rgba(255,255,255,0.15)",
+                "inset 0 -2px 3px rgba(0,0,0,0.52)",
+                "0 4px 10px rgba(0,0,0,0.55)",
+              ].join(", "),
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                background: "linear-gradient(145deg, #323234 0%, #1e1e20 100%)",
+                boxShadow: "inset 0 2px 4px rgba(0,0,0,0.72), inset 0 -1px 2px rgba(255,255,255,0.05), 0 0 0 1px rgba(255,255,255,0.04)",
+              }}
+            />
+          </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              {tabletStats.map((stat) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-white/10 bg-white/[0.045] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm"
-                  >
-                    <Icon className={`mb-3 h-4 w-4 ${stat.tone}`} />
-                    <p className="text-lg font-black text-white sm:text-2xl">{stat.value}</p>
-                    <p className="mt-1 text-[10px] leading-tight text-slate-400 sm:text-xs">{stat.label}</p>
-                  </div>
-                );
-              })}
-            </div>
+          {/* ── Power button — right side ────────────────────── */}
+          <div
+            style={{
+              position: "absolute",
+              right: "-7px",
+              top: "106px",
+              width: "7px",
+              height: "74px",
+              borderRadius: "4px 0 0 4px",
+              background: "linear-gradient(90deg, #3c3c3e 0%, #2e2e30 100%)",
+              boxShadow: "inset -1px 0 0 rgba(0,0,0,0.6), 1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.3)",
+            }}
+          />
 
-            <div className="mt-4 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-              <div className="rounded-3xl border border-white/10 bg-white/[0.035] p-4">
-                <div className="mb-3 flex items-center justify-between">
-                  <p className="text-xs font-semibold text-slate-300">Demandes entrantes</p>
-                  <span className="rounded-full bg-teal-400/10 px-2.5 py-1 text-[10px] font-bold text-teal-300">
-                    +8 cette semaine
-                  </span>
+          {/* ── Volume up — left side ────────────────────────── */}
+          <div
+            style={{
+              position: "absolute",
+              left: "-7px",
+              top: "90px",
+              width: "7px",
+              height: "58px",
+              borderRadius: "0 4px 4px 0",
+              background: "linear-gradient(90deg, #2e2e30 0%, #3c3c3e 100%)",
+              boxShadow: "inset 1px 0 0 rgba(0,0,0,0.6), -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.3)",
+            }}
+          />
+
+          {/* ── Volume down — left side ──────────────────────── */}
+          <div
+            style={{
+              position: "absolute",
+              left: "-7px",
+              top: "162px",
+              width: "7px",
+              height: "58px",
+              borderRadius: "0 4px 4px 0",
+              background: "linear-gradient(90deg, #2e2e30 0%, #3c3c3e 100%)",
+              boxShadow: "inset 1px 0 0 rgba(0,0,0,0.6), -1px 0 0 rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.3)",
+            }}
+          />
+
+          {/* ── Screen ──────────────────────────────────────── */}
+          <div
+            style={{
+              background: "#0D1117",
+              borderRadius: "42px",
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            {/* Ambient screen glow */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "radial-gradient(circle at 22% 0%, rgba(45,212,191,0.22) 0%, transparent 46%), radial-gradient(circle at 90% 18%, rgba(232,184,75,0.12) 0%, transparent 38%), radial-gradient(circle at 50% 100%, rgba(99,102,241,0.07) 0%, transparent 55%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Diagonal shine sweep */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "-30%",
+                width: "52%",
+                height: "100%",
+                background: "linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.04) 44%, rgba(255,255,255,0.09) 50%, rgba(255,255,255,0.04) 56%, transparent 100%)",
+                transform: "skewX(-15deg)",
+                animation: "ipadShine 9s ease-in-out infinite",
+                pointerEvents: "none",
+                zIndex: 11,
+              }}
+            />
+
+            {/* Top-left corner glare */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "46%",
+                background: "linear-gradient(155deg, rgba(255,255,255,0.068) 0%, rgba(255,255,255,0.022) 35%, transparent 62%)",
+                borderRadius: "42px 42px 0 0",
+                pointerEvents: "none",
+                zIndex: 10,
+              }}
+            />
+
+            {/* Screen content */}
+            <div style={{ position: "relative", zIndex: 1, padding: "26px 22px 24px" }}>
+
+              {/* Label */}
+              <p style={{
+                fontSize: "12px",
+                fontWeight: 700,
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "rgba(45,212,191,0.82)",
+                marginBottom: "9px",
+              }}>
+                Mon histoire
+              </p>
+
+              {/* Title */}
+              <h3 style={{
+                fontSize: "19px",
+                fontWeight: 900,
+                lineHeight: 1.28,
+                color: "#fff",
+                marginBottom: "19px",
+                letterSpacing: "-0.03em",
+              }}>
+                Pourquoi j&apos;ai tout quitté pour créer des sites web
+              </h3>
+
+              {/* Founder mini-card */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                padding: "11px 14px",
+                borderRadius: "16px",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                marginBottom: "17px",
+              }}>
+                <Image
+                  src="/portrait-gilles.png"
+                  alt="Gilles"
+                  width={46}
+                  height={46}
+                  style={{
+                    borderRadius: "12px",
+                    border: "1px solid rgba(45,212,191,0.22)",
+                    objectFit: "cover",
+                    flexShrink: 0,
+                  }}
+                />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: "16px", fontWeight: 800, color: "#fff", lineHeight: 1.2 }}>
+                    Gilles Ruszczycki
+                  </p>
+                  <p style={{ fontSize: "12px", color: "rgba(45,212,191,0.85)", marginTop: "3px" }}>
+                    Maizières-lès-Metz
+                  </p>
                 </div>
-                <svg viewBox="0 0 320 120" className="h-32 w-full" role="img" aria-label="Courbe de croissance des demandes de devis">
-                  <defs>
-                    <linearGradient id="heroChart" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="rgba(45,212,191,0.35)" />
-                      <stop offset="100%" stopColor="rgba(45,212,191,0)" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 100 C42 92 49 72 84 78 C125 86 127 42 169 50 C210 58 215 28 252 30 C282 31 294 18 320 14 L320 120 L0 120 Z" fill="url(#heroChart)" />
-                  <motion.path
-                    d="M0 100 C42 92 49 72 84 78 C125 86 127 42 169 50 C210 58 215 28 252 30 C282 31 294 18 320 14"
-                    fill="none"
-                    stroke="#2DD4BF"
-                    strokeLinecap="round"
-                    strokeWidth="4"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 1.4, delay: 0.7, ease: "easeOut" }}
-                  />
-                  {[84, 169, 252, 320].map((x, index) => (
-                    <motion.circle
-                      key={x}
-                      cx={x}
-                      cy={[78, 50, 30, 14][index]}
-                      r="4"
-                      fill="#E8B84B"
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 1 + index * 0.12 }}
-                    />
-                  ))}
-                </svg>
+                <span style={{
+                  flexShrink: 0,
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  padding: "4px 10px",
+                  borderRadius: "999px",
+                  background: "rgba(52,211,153,0.12)",
+                  color: "#34d399",
+                  border: "1px solid rgba(52,211,153,0.18)",
+                  whiteSpace: "nowrap",
+                }}>
+                  Disponible
+                </span>
               </div>
 
-              <div className="space-y-3">
-                {[
-                  { title: "Projet artisan", status: "Devis envoyé", icon: Rocket },
-                  { title: "Refonte PME", status: "RDV planifié", icon: CalendarCheck },
-                  { title: "SEO local", status: "Brief reçu", icon: ShieldCheck },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.title} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-navy-900/70 p-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-400/10 text-teal-300">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <p className="text-sm font-bold text-white">{item.title}</p>
-                        <p className="text-xs text-slate-400">{item.status}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+              {/* Body text */}
+              <div style={{
+                fontSize: "14px",
+                lineHeight: 1.65,
+                color: "rgba(148,163,184,0.9)",
+                marginBottom: "16px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}>
+                <p>
+                  Après 22 ans en entreprise, j&apos;accompagne artisans et TPE du Grand Est avec ce que les agences facturent 3× plus cher.
+                </p>
+                <p>
+                  Contact direct, sans intermédiaire, du brief à la mise en ligne.
+                </p>
+              </div>
+
+              {/* Quote */}
+              <div style={{
+                padding: "12px 15px",
+                borderRadius: "15px",
+                border: "1px solid rgba(45,212,191,0.18)",
+                background: "rgba(45,212,191,0.055)",
+                marginBottom: "19px",
+              }}>
+                <p style={{
+                  fontSize: "13px",
+                  fontStyle: "italic",
+                  color: "rgba(204,251,241,0.88)",
+                  lineHeight: 1.55,
+                }}>
+                  &ldquo;Un seul interlocuteur du brief à la mise en ligne.&rdquo;
+                </p>
+              </div>
+
+              {/* Stat cards */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px" }}>
+                {stats.map((s) => (
+                  <div
+                    key={s.label}
+                    style={{
+                      padding: "14px 8px",
+                      borderRadius: "15px",
+                      background: "rgba(255,255,255,0.038)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
+                      textAlign: "center",
+                    }}
+                  >
+                    <p style={{
+                      fontSize: "16px",
+                      fontWeight: 900,
+                      color: "#fff",
+                      lineHeight: 1.1,
+                      letterSpacing: "-0.02em",
+                    }}>
+                      {s.value}
+                    </p>
+                    <p style={{
+                      fontSize: "11px",
+                      color: "rgba(148,163,184,0.75)",
+                      marginTop: "4px",
+                      lineHeight: 1.3,
+                    }}>
+                      {s.label}
+                    </p>
+                    <div style={{
+                      width: "19px",
+                      height: "3px",
+                      borderRadius: "2px",
+                      background: s.accent,
+                      margin: "7px auto 0",
+                      opacity: 0.65,
+                    }} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 26, y: 18 }}
-        animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
-        transition={{ opacity: { duration: 0.5, delay: 0.9 }, x: { duration: 0.5, delay: 0.9 }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
-        className="absolute -right-2 top-8 hidden rounded-2xl border border-white/10 bg-navy-950/85 p-4 shadow-2xl backdrop-blur-xl sm:block"
+      {/* ── Ombre portée pulsante + reflet ambiant ─────────── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "24px",
+          left: 0,
+          right: 0,
+          display: "flex",
+          justifyContent: "center",
+          pointerEvents: "none",
+        }}
       >
-        <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-400/10 text-teal-300">
-            <TrendingUp className="h-5 w-5" />
-          </span>
-          <div>
-            <p className="text-sm font-black text-white">+42% contacts</p>
-            <p className="text-xs text-slate-400">après refonte</p>
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: -24, y: -14 }}
-        animate={{ opacity: 1, x: 0, y: [0, 8, 0] }}
-        transition={{ opacity: { duration: 0.5, delay: 1.05 }, x: { duration: 0.5, delay: 1.05 }, y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" } }}
-        className="absolute -bottom-4 -left-3 hidden rounded-2xl border border-gold-400/20 bg-navy-950/90 px-4 py-3 shadow-2xl backdrop-blur-xl sm:block"
-      >
-        <div className="flex items-center gap-2 text-sm font-bold text-white">
-          <Star className="h-4 w-4 fill-gold-400 text-gold-400" />
-          Site clair, rapide, rentable
-        </div>
-      </motion.div>
+        {/* ombre principale — pulse avec la lévitation */}
+        <div
+          style={{
+            position: "absolute",
+            width: "72%",
+            height: "56px",
+            borderRadius: "50%",
+            animation: "ipadShadow 8s ease-in-out infinite",
+            background: "radial-gradient(ellipse at center, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.36) 42%, transparent 70%)",
+            filter: "blur(14px)",
+          }}
+        />
+        {/* ombre secondaire — étalement doux */}
+        <div
+          style={{
+            position: "absolute",
+            width: "88%",
+            height: "40px",
+            top: "8px",
+            borderRadius: "50%",
+            animation: "ipadShadow 8s ease-in-out infinite",
+            background: "radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, transparent 70%)",
+            filter: "blur(22px)",
+          }}
+        />
+        {/* reflet teal ambiant */}
+        <div
+          style={{
+            position: "absolute",
+            width: "54%",
+            height: "34px",
+            top: "4px",
+            borderRadius: "50%",
+            animation: "ipadShadow 8s ease-in-out infinite",
+            background: "radial-gradient(ellipse at center, rgba(20,184,166,0.22) 0%, transparent 70%)",
+            filter: "blur(22px)",
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -292,7 +560,7 @@ export default function Hero() {
                 className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-teal-300/10 px-4 py-2 text-sm font-semibold text-teal-200"
               >
                 <Sparkles className="h-4 w-4" />
-                Création web moderne dans le Grand Est
+                Création web — France, Grand Est &amp; Luxembourg
               </motion.div>
 
               <motion.h1
@@ -375,7 +643,7 @@ export default function Hero() {
             </div>
 
             <div className="lg:pl-4">
-              <ConversionTablet />
+              <MonHistoire />
             </div>
           </div>
         </div>
