@@ -113,7 +113,7 @@ function OfferCard({
 
   if (offer.featured) {
     return (
-      <div className="offer-neon-wrap-v7 offer-featured-v7" id="tarifs">
+      <div className="offer-neon-wrap-v7 offer-featured-v7 p-[2px]" id="tarifs">
         <div className="offer-neon-border-v7" />
         {inner}
       </div>
