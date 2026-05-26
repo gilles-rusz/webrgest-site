@@ -1,134 +1,79 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#060a10]">
-      {/* Neon top border with gold accent */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent" />
-      <div className="h-px bg-gradient-to-r from-transparent via-teal-500/20 to-transparent blur-sm" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Web RG Est"
-                width={40}
-                height={40}
-                className="rounded-lg"
-              />
-              <div>
-                <span className="text-lg font-bold text-white tracking-wide">
-                  WEB RG EST
-                </span>
-                <span className="block text-xs text-gold-400 tracking-[0.2em] uppercase">
-                  Création Web
-                </span>
+    <footer className="border-t border-navy-800 bg-[#070f1c] px-6 pb-7 pt-12 sm:px-12">
+      <div className="footer-grid-v7 mx-auto mb-8 grid max-w-[1200px] grid-cols-1 gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+        {/* Brand column */}
+        <div>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-navy-800 bg-navy-900 text-xs font-bold text-gold-400">
+              WR
+            </div>
+            <div>
+              <div className="text-[15px] font-bold text-slate-300">WEB RG EST</div>
+              <div className="text-[11px] italic text-gold-400" style={{ fontFamily: "var(--font-playfair)" }}>
+                Création Web
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Votre partenaire pour la création de sites web et solutions
-              digitales sur mesure dans le Grand Est.
-            </p>
-            <div className="mt-4 space-y-1 text-xs text-slate-500">
-              <p>SIRET : 989 861 869 00018</p>
-              <p>17 Rue de la Division Leclerc, 57280 Maizières-lès-Metz</p>
-            </div>
-            <div className="mt-4 flex gap-3">
-              <a
-                href="https://www.linkedin.com/in/gilles-ruszczycki/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
-              >
-                LinkedIn
-              </a>
-            </div>
           </div>
+          <p className="mb-3.5 text-xs leading-[1.75] text-slate-700">
+            Votre partenaire pour la création de sites web et solutions digitales sur mesure dans le Grand Est.
+          </p>
+          <p className="text-xs text-slate-700">SIRET : 989 861 869 00018</p>
+          <p className="text-xs text-slate-700">17 Rue de la Division Leclerc, 57280 Maizières-lès-Metz</p>
+          <a
+            href="https://www.linkedin.com/in/gilles-ruszczycki/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block text-xs text-gold-400 hover:text-gold-500"
+          >
+            LinkedIn
+          </a>
+        </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Navigation
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { href: "/", label: "Accueil" },
-                { href: "/services", label: "Services" },
-                { href: "/a-propos", label: "À propos" },
-                { href: "/realisations", label: "Réalisations" },
-                { href: "/tarifs", label: "Tarifs" },
-                { href: "/blog", label: "Blog" },
-                { href: "/avis", label: "Avis" },
-                { href: "/contact", label: "Contact" },
-                { href: "/devis-gratuit", label: "Devis gratuit" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Navigation column */}
+        <div>
+          <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-300">
+            Navigation
           </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Sites Vitrines", href: "/services#site-vitrine" },
-                { label: "E-Commerce", href: "/services#e-commerce" },
-                { label: "Applications Web", href: "/services#applications-web" },
-                { label: "Refonte de Sites", href: "/refonte-site-internet" },
-                { label: "SEO & Référencement", href: "/services#seo" },
-                { label: "Automatisation", href: "/automatisation" },
-              ].map((service) => (
-                <li key={service.label}>
-                  <Link
-                    href={service.href}
-                    className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-2">
+            <Link href="/" className="text-xs text-slate-700 hover:text-[#8bafc9]">Accueil</Link>
+            <Link href="/realisations" className="text-xs text-slate-700 hover:text-[#8bafc9]">Réalisations</Link>
+            <Link href="/tarifs" className="text-xs text-slate-700 hover:text-[#8bafc9]">Tarifs</Link>
+            <Link href="/blog" className="text-xs text-slate-700 hover:text-[#8bafc9]">Blog</Link>
+            <Link href="/avis" className="text-xs text-slate-700 hover:text-[#8bafc9]">Avis</Link>
+            <Link href="/contact" className="text-xs text-slate-700 hover:text-[#8bafc9]">Contact</Link>
+            <Link href="/devis-gratuit" className="text-xs text-gold-400 hover:text-gold-500">Devis gratuit</Link>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-navy-800/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">
-            &copy; {currentYear} Web RG Est. Tous droits réservés.
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="/mentions-legales"
-              className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
-            >
-              Mentions légales
-            </a>
-            <a
-              href="/politique-de-confidentialite"
-              className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
-            >
-              Politique de confidentialité
-            </a>
-            <a
-              href="/laisser-un-avis"
-              className="text-sm text-slate-500 hover:text-teal-400 transition-colors"
-            >
-              Laisser un avis
-            </a>
+        {/* Services column */}
+        <div>
+          <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-300">
+            Services
           </div>
+          <div className="flex flex-col gap-2">
+            <Link href="/services#site-vitrine" className="text-xs text-slate-700 hover:text-[#8bafc9]">Sites Vitrines</Link>
+            <Link href="/services#e-commerce" className="text-xs text-slate-700 hover:text-[#8bafc9]">E-Commerce</Link>
+            <Link href="/refonte-site-internet" className="text-xs text-slate-700 hover:text-[#8bafc9]">Refonte de Sites</Link>
+            <Link href="/services#seo" className="text-xs text-slate-700 hover:text-[#8bafc9]">SEO &amp; Référencement</Link>
+            <Link href="/automatisation" className="text-xs text-slate-700 hover:text-[#8bafc9]">Automatisation</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-3 border-t border-navy-800 pt-5 sm:flex-row">
+        <span className="text-[11px] text-navy-800">© {currentYear} Web RG Est. Tous droits réservés.</span>
+        <div className="flex gap-4">
+          <Link href="/mentions-legales" className="text-[11px] text-navy-800 hover:text-slate-700">Mentions légales</Link>
+          <Link href="/politique-de-confidentialite" className="text-[11px] text-navy-800 hover:text-slate-700">Politique de confidentialité</Link>
+          <Link href="/laisser-un-avis" className="text-[11px] text-navy-800 hover:text-slate-700">Laisser un avis</Link>
         </div>
       </div>
     </footer>

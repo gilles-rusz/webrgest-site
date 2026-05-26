@@ -1,105 +1,91 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Zap, Globe, Sparkles, ArrowRight } from "lucide-react";
-
-const offers = [
-  {
-    icon: Zap,
-    title: "Site Express",
-    description: "Un site essentiel, rapide et efficace pour lancer votre activité.",
-    features: ["1 à 3 pages", "Design sur mesure", "Optimisé SEO & mobile"],
-    price: "490",
-    href: "/tarifs",
-  },
-  {
-    icon: Globe,
-    title: "Site Vitrine",
-    description: "Un site professionnel pour valoriser votre savoir-faire et vos services.",
-    features: ["Pages illimitées", "SEO avancé", "Formulaire & intégrations"],
-    price: "990",
-    href: "/tarifs",
-    highlighted: true,
-  },
-  {
-    icon: Sparkles,
-    title: "Automatisation",
-    description: "Gagnez du temps avec des outils sur mesure pour votre quotidien.",
-    features: ["Automatisation des tâches", "CRM & suivi des contacts", "Tableaux de bord personnalisés"],
-    price: null,
-    priceLabel: "Sur devis",
-    href: "/automatisation",
-  },
-];
 
 export default function HomeOffers() {
   return (
-    <section className="relative py-14 sm:py-20">
-      {/* Slightly lighter background to differentiate */}
-      <div className="absolute inset-0 bg-[#0c1220]" />
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background: "radial-gradient(ellipse at 50% 0%, rgba(45, 212, 191, 0.06), transparent 60%)",
-        }}
-      />
-      {/* Top neon separator */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+    <section className="section-reveal mx-auto max-w-[1200px] px-6 py-[72px] sm:px-12" id="s-offers">
+      <p className="mb-2 font-[var(--font-playfair)] text-[15px] italic text-gold-400" style={{ fontFamily: "var(--font-playfair)" }}>
+        Ce que je propose
+      </p>
+      <h2 className="mb-9 text-[clamp(22px,2.5vw,30px)] font-bold leading-[1.2] tracking-[-0.02em] text-slate-300">
+        Des offres claires, du plus simple au plus complet.
+      </h2>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <p className="text-[10px] font-semibold text-teal-400 tracking-[3px] uppercase mb-3">Nos services</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Des solutions sur-mesure pour votre{" "}
-            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
-              réussite
-            </span>
-          </h2>
+      <div className="offers-grid-v7 grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Portfolio / CV */}
+        <div className="flex h-full flex-col rounded-[10px] border border-navy-800 bg-navy-900 p-[22px_18px] transition-transform hover:-translate-y-1">
+          <div className="mb-1 text-[15px] font-bold text-slate-300">Portfolio / CV</div>
+          <div className="mb-4 text-xs leading-[1.4] text-slate-500">Indépendants, auto-entrepreneurs</div>
+          <div className="mt-auto mb-2 text-[22px] font-bold text-slate-300">
+            290 €<small className="block text-[11px] font-normal text-slate-500">forfait fixe</small>
+          </div>
+          <p className="mb-4 text-xs leading-[1.55] text-[#5a8aaa]">
+            1 à 2 pages soignées, mobile-first. Pour se lancer avec un budget maîtrisé.
+          </p>
+          <Link href="/tarifs" className="mt-auto text-xs text-blue-400 hover:text-slate-300">
+            Voir le détail →
+          </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {offers.map((offer, i) => {
-            const Icon = offer.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`rounded-2xl p-7 bg-navy-900/40 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] ${
-                  offer.highlighted
-                    ? "border-teal-500/25 hover:border-teal-500/40"
-                    : "border-navy-700/50 hover:border-teal-500/25"
-                }`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/15 flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6 text-teal-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{offer.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-4">
-                  {offer.description}
-                </p>
-                <ul className="space-y-1.5 mb-5">
-                  {offer.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-slate-300">
-                      <span className="text-teal-400 text-xs">•</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={offer.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
-                >
-                  {offer.price ? `À partir de ${offer.price} €` : offer.priceLabel}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
-            );
-          })}
+
+        {/* Site Vitrine - Featured */}
+        <div className="offer-neon-wrap" id="tarifs">
+          <div className="offer-neon-border" />
+          <div className="offer-neon-inner">
+            <div className="mb-2 text-xs italic text-gold-400" style={{ fontFamily: "var(--font-playfair)" }}>
+              Le plus demandé
+            </div>
+            <div className="mb-1 text-[15px] font-bold text-slate-300">Site Vitrine</div>
+            <div className="mb-4 text-xs leading-[1.4] text-slate-500">Artisans, commerçants, TPE</div>
+            <div className="price-gold mt-auto mb-2">
+              990 €<small>forfait fixe</small>
+            </div>
+            <p className="mb-4 text-xs leading-[1.55] text-[#5a8aaa]">
+              Pages illimitées, SEO local, formulaire de contact. Votre outil de prospection principal.
+            </p>
+            <Link href="/tarifs" className="mt-auto text-xs text-gold-400 hover:text-gold-500">
+              Voir le détail →
+            </Link>
+          </div>
+        </div>
+
+        {/* E-Commerce */}
+        <div className="flex h-full flex-col rounded-[10px] border border-navy-800 bg-navy-900 p-[22px_18px] transition-transform hover:-translate-y-1">
+          <div className="mb-1 text-[15px] font-bold text-slate-300">E-Commerce</div>
+          <div className="mb-4 text-xs leading-[1.4] text-slate-500">Boutiques en ligne</div>
+          <div className="mt-auto mb-2 text-[22px] font-bold text-slate-300">
+            sur devis<small className="block text-[11px] font-normal text-slate-500">&nbsp;</small>
+          </div>
+          <p className="mb-4 text-xs leading-[1.55] text-[#5a8aaa]">
+            Paiement sécurisé, gestion des stocks, interface simple au quotidien.
+          </p>
+          <Link href="/contact" className="mt-auto text-xs text-blue-400 hover:text-slate-300">
+            Prendre contact →
+          </Link>
+        </div>
+
+        {/* Automatisation */}
+        <div className="flex h-full flex-col rounded-[10px] border border-navy-800 bg-navy-900 p-[22px_18px] transition-transform hover:-translate-y-1">
+          <div className="mb-1 text-[15px] font-bold text-slate-300">Automatisation</div>
+          <div className="mb-4 text-xs leading-[1.4] text-slate-500">Gagner du temps</div>
+          <div className="mt-auto mb-2 text-[22px] font-bold text-slate-300">
+            sur devis<small className="block text-[11px] font-normal text-slate-500">&nbsp;</small>
+          </div>
+          <p className="mb-4 text-xs leading-[1.55] text-[#5a8aaa]">
+            Emails, devis, CRM, synchronisation d&apos;outils. Moins de tâches manuelles.
+          </p>
+          <Link href="/contact" className="mt-auto text-xs text-blue-400 hover:text-slate-300">
+            Prendre contact →
+          </Link>
         </div>
       </div>
+
+      <p className="mt-3.5 text-[11px] text-navy-600">
+        Maintenance et suivi disponibles en option sur toutes les offres.{" "}
+        <Link href="/tarifs" className="text-gold-400 hover:text-gold-500">
+          Voir tous les tarifs →
+        </Link>
+      </p>
     </section>
   );
 }

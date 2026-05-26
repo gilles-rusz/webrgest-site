@@ -1,12 +1,14 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SectionDivider from "@/components/SectionDivider";
 import HomeOffers from "@/components/HomeOffers";
+import PainPoints from "@/components/PainPoints";
 import HomeMethodRealisations from "@/components/HomeMethodRealisations";
-import HomeBadges from "@/components/HomeBadges";
 import HomeContact from "@/components/HomeContact";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -14,14 +16,19 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <SectionDivider />
         <HomeOffers />
+        <SectionDivider />
+        <PainPoints />
+        <SectionDivider />
         <HomeMethodRealisations />
-        <HomeBadges />
+        <SectionDivider />
         <HomeContact />
       </main>
       <Footer />
       <ChatWidget />
       <CookieBanner />
+      <ScrollReveal />
     </>
   );
 }
