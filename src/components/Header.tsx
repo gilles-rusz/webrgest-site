@@ -33,12 +33,12 @@ export default function Header() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "py-3" : "py-4"
+        isScrolled ? "py-1.5 sm:py-3" : "py-2 sm:py-4"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between rounded-3xl border px-3 transition-all duration-300 sm:px-4 ${
+          className={`flex items-center justify-between rounded-2xl sm:rounded-3xl border px-2.5 transition-all duration-300 sm:px-4 ${
             isScrolled
               ? "border-white/10 bg-navy-950/86 shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-2xl"
               : "border-white/8 bg-white/[0.035] backdrop-blur-md"
@@ -46,11 +46,11 @@ export default function Header() {
         >
           <Link
             href="/"
-            className="group flex items-center gap-3 py-2.5"
+            className="group flex items-center gap-2 py-1.5 sm:gap-3 sm:py-2.5"
             aria-label="Retour à l'accueil Web RG Est"
           >
-            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-teal-300/20 bg-navy-900/70 shadow-[0_0_30px_rgba(45,212,191,0.10)] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
-              <Image src="/logo.png" alt="Web RG Est" width={42} height={42} className="rounded-xl" priority />
+            <span className="relative flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl border border-teal-300/20 bg-navy-900/70 shadow-[0_0_30px_rgba(45,212,191,0.10)] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
+              <Image src="/logo.png" alt="Web RG Est" width={42} height={42} className="rounded-lg sm:rounded-xl" priority />
             </span>
             <span className="hidden leading-tight sm:block">
               <span className="block text-base font-black tracking-wide text-white">WEB RG EST</span>
@@ -97,24 +97,24 @@ export default function Header() {
 
           <button
             onClick={() => setIsMobileMenuOpen((open) => !open)}
-            className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] lg:hidden"
+            className="relative flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.04] lg:hidden"
             aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isMobileMenuOpen}
           >
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1">
               <span
-                className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "translate-y-2 rotate-45" : ""
+                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
+                  isMobileMenuOpen ? "translate-y-1.5 rotate-45" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
+                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
                   isMobileMenuOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
+                  isMobileMenuOpen ? "-translate-y-1.5 -rotate-45" : ""
                 }`}
               />
             </div>
