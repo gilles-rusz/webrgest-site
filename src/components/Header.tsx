@@ -33,12 +33,41 @@ export default function Header() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "py-1.5 sm:py-3" : "py-2 sm:py-4"
+        isScrolled ? "py-1.5 lg:py-3" : "py-2 lg:py-4"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Mobile: only burger button, top-right */}
+      <div className="absolute right-4 top-3 lg:hidden">
+        <button
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-navy-950/60 backdrop-blur-md"
+          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          <div className="flex flex-col gap-1.5">
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
+                isMobileMenuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
+                isMobileMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${
+                isMobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Desktop: full navbar */}
+      <div className="mx-auto hidden max-w-7xl px-4 sm:px-6 lg:block lg:px-8">
         <div
-          className={`flex items-center justify-between rounded-2xl sm:rounded-3xl border px-2.5 transition-all duration-300 sm:px-4 ${
+          className={`flex items-center justify-between rounded-3xl border px-4 transition-all duration-300 ${
             isScrolled
               ? "border-white/10 bg-navy-950/86 shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-2xl"
               : "border-white/8 bg-white/[0.035] backdrop-blur-md"
@@ -46,13 +75,13 @@ export default function Header() {
         >
           <Link
             href="/"
-            className="group flex items-center gap-2 py-1.5 sm:gap-3 sm:py-2.5"
+            className="group flex items-center gap-3 py-2.5"
             aria-label="Retour à l'accueil Web RG Est"
           >
-            <span className="relative flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl border border-teal-300/20 bg-navy-900/70 shadow-[0_0_30px_rgba(45,212,191,0.10)] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
-              <Image src="/logo.png" alt="Web RG Est" width={42} height={42} className="rounded-lg sm:rounded-xl" priority />
+            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-teal-300/20 bg-navy-900/70 shadow-[0_0_30px_rgba(45,212,191,0.10)] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
+              <Image src="/logo.png" alt="Web RG Est" width={42} height={42} className="rounded-xl" priority />
             </span>
-            <span className="hidden leading-tight sm:block">
+            <span className="leading-tight">
               <span className="block text-base font-black tracking-wide text-white">WEB RG EST</span>
               <span className="block text-[10px] font-bold uppercase tracking-[0.28em] text-gold-400">
                 Création Web
@@ -85,7 +114,7 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="flex items-center gap-3">
             <Link
               href="/devis-gratuit"
               className="group inline-flex items-center gap-2 rounded-2xl bg-teal-500 px-5 py-3 text-sm font-black text-white shadow-[0_14px_36px_rgba(20,184,166,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400 hover:shadow-[0_18px_48px_rgba(45,212,191,0.32)]"
@@ -94,31 +123,6 @@ export default function Header() {
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            className="relative flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.04] lg:hidden"
-            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <div className="flex flex-col gap-1">
-              <span
-                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "translate-y-1.5 rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block h-0.5 w-4 sm:w-5 rounded-full bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "-translate-y-1.5 -rotate-45" : ""
-                }`}
-              />
-            </div>
-          </button>
         </div>
       </div>
 
