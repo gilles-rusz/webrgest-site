@@ -260,13 +260,5 @@ body {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .hero-v7-btns {
-    margin-top: 280px !important;
-  }
 }
 
-@media (max-width: 600px) {
-  .hero-v7-btns {
-    margin-top: 220px !important;
-  }
-}
