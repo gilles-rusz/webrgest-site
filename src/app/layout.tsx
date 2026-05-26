@@ -6,20 +6,21 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Web RG Est | Création Web & Solutions Digitales",
   description:
-    "Web RG Est - Votre partenaire pour la création de sites web, applications et solutions digitales dans l'Est de la France. Développement full-stack sur mesure.",
+    "Web RG Est - Création de sites web pour artisans et TPE du Grand Est et du Luxembourg. Sites vitrines, e-commerce, automatisation.",
   keywords: [
     "création web",
     "développeur web",
-    "full-stack",
-    "Est de la France",
-    "site internet",
-    "application web",
+    "site internet artisan",
+    "Grand Est",
+    "Luxembourg",
+    "site vitrine",
+    "e-commerce",
     "Web RG Est",
   ],
   openGraph: {
     title: "Web RG Est | Création Web & Solutions Digitales",
     description:
-      "Votre partenaire pour la création de sites web et solutions digitales dans l'Est de la France.",
+      "Votre partenaire pour la création de sites web et solutions digitales dans le Grand Est et au Luxembourg.",
     type: "website",
     locale: "fr_FR",
   },
@@ -31,19 +32,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="fr"
-      className="h-full antialiased"
-    >
+    <html lang="fr">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Satisfy&family=Sora:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Playfair+Display:ital@1&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+        />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body>
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DD380PLJ90"
