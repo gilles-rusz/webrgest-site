@@ -1,105 +1,223 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Zap, Globe, Sparkles, ArrowRight } from "lucide-react";
 
 const offers = [
   {
-    icon: Zap,
-    title: "Site Express",
-    description: "Un site essentiel, rapide et efficace pour lancer votre activité.",
-    features: ["1 à 3 pages", "Design sur mesure", "Optimisé SEO & mobile"],
-    price: "490",
-    href: "/tarifs",
+    name: "Portfolio / CV",
+    target: "Indépendants, auto-entrepreneurs",
+    price: "290 \u20AC",
+    priceSub: "forfait fixe",
+    desc: "1 à 2 pages soignées, mobile-first. Pour se lancer avec un budget maîtrisé.",
+    link: "/tarifs",
+    linkText: "Voir le détail \u2192",
   },
   {
-    icon: Globe,
-    title: "Site Vitrine",
-    description: "Un site professionnel pour valoriser votre savoir-faire et vos services.",
-    features: ["Pages illimitées", "SEO avancé", "Formulaire & intégrations"],
-    price: "990",
-    href: "/tarifs",
-    highlighted: true,
+    name: "Site Vitrine",
+    target: "Artisans, commerçants, TPE",
+    price: "990 \u20AC",
+    priceSub: "forfait fixe",
+    desc: "Pages illimitées, SEO local, formulaire de contact. Votre outil de prospection principal.",
+    link: "/tarifs",
+    linkText: "Voir le détail \u2192",
+    featured: true,
+    badge: "Le plus demandé",
   },
   {
-    icon: Sparkles,
-    title: "Automatisation",
-    description: "Gagnez du temps avec des outils sur mesure pour votre quotidien.",
-    features: ["Automatisation des tâches", "CRM & suivi des contacts", "Tableaux de bord personnalisés"],
-    price: null,
-    priceLabel: "Sur devis",
-    href: "/automatisation",
+    name: "E-Commerce",
+    target: "Boutiques en ligne",
+    price: "sur devis",
+    priceSub: "\u00A0",
+    desc: "Paiement sécurisé, gestion des stocks, interface simple au quotidien.",
+    link: "/contact",
+    linkText: "Prendre contact \u2192",
+  },
+  {
+    name: "Automatisation",
+    target: "Gagner du temps",
+    price: "sur devis",
+    priceSub: "\u00A0",
+    desc: "Emails, devis, CRM, synchronisation d\u2019outils. Moins de tâches manuelles.",
+    link: "/contact",
+    linkText: "Prendre contact \u2192",
   },
 ];
 
-export default function HomeOffers() {
-  return (
-    <section className="relative py-14 sm:py-20">
-      {/* Slightly lighter background to differentiate */}
-      <div className="absolute inset-0 bg-[#0c1220]" />
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background: "radial-gradient(ellipse at 50% 0%, rgba(45, 212, 191, 0.06), transparent 60%)",
-        }}
-      />
-      {/* Top neon separator */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <p className="text-[10px] font-semibold text-teal-400 tracking-[3px] uppercase mb-3">Nos services</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Des solutions sur-mesure pour votre{" "}
-            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
-              réussite
-            </span>
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {offers.map((offer, i) => {
-            const Icon = offer.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`rounded-2xl p-7 bg-navy-900/40 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] ${
-                  offer.highlighted
-                    ? "border-teal-500/25 hover:border-teal-500/40"
-                    : "border-navy-700/50 hover:border-teal-500/25"
-                }`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/15 flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6 text-teal-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{offer.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-4">
-                  {offer.description}
-                </p>
-                <ul className="space-y-1.5 mb-5">
-                  {offer.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-slate-300">
-                      <span className="text-teal-400 text-xs">•</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={offer.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
-                >
-                  {offer.price ? `À partir de ${offer.price} €` : offer.priceLabel}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
+function OfferCard({
+  offer,
+}: {
+  offer: (typeof offers)[number];
+}) {
+  const inner = (
+    <div
+      className="flex flex-col h-full"
+      style={{
+        background: "#0f1e35",
+        borderRadius: "10px",
+        padding: "22px 18px",
+      }}
+    >
+      {offer.badge && (
+        <span
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontStyle: "italic",
+            fontSize: "12px",
+            color: "#c9893a",
+            marginBottom: "8px",
+          }}
+        >
+          {offer.badge}
+        </span>
+      )}
+      <div style={{ fontSize: "15px", fontWeight: 700, color: "#f0f6ff", marginBottom: "4px" }}>
+        {offer.name}
       </div>
+      <div style={{ fontSize: "12px", color: "#4a7090", marginBottom: "16px", lineHeight: 1.4 }}>
+        {offer.target}
+      </div>
+      <div
+        className={offer.featured ? "offer-price-gold-v7" : ""}
+        style={{
+          fontSize: "22px",
+          fontWeight: 700,
+          color: offer.featured ? undefined : "#f0f6ff",
+          marginTop: "auto",
+          marginBottom: "8px",
+        }}
+      >
+        {offer.price}
+        <small style={{ fontSize: "11px", color: "#4a7090", display: "block", fontWeight: 400 }}>
+          {offer.priceSub}
+        </small>
+      </div>
+      <div style={{ fontSize: "12px", color: "#5a8aaa", lineHeight: 1.55, marginBottom: "16px" }}>
+        {offer.desc}
+      </div>
+      <Link
+        href={offer.link}
+        className="mt-auto"
+        style={{
+          fontSize: "12px",
+          color: offer.featured ? "#c9893a" : "#38bdf8",
+          display: "inline-block",
+        }}
+      >
+        {offer.linkText}
+      </Link>
+    </div>
+  );
+
+  if (offer.featured) {
+    return (
+      <div className="offer-neon-wrap-v7" id="tarifs">
+        <div className="offer-neon-border-v7" />
+        {inner}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="transition-transform duration-200 hover:-translate-y-1 h-full"
+      style={{
+        background: "#0f1e35",
+        border: "0.5px solid #1a3050",
+        borderRadius: "10px",
+        padding: "22px 18px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div style={{ fontSize: "15px", fontWeight: 700, color: "#f0f6ff", marginBottom: "4px" }}>
+        {offer.name}
+      </div>
+      <div style={{ fontSize: "12px", color: "#4a7090", marginBottom: "16px", lineHeight: 1.4 }}>
+        {offer.target}
+      </div>
+      <div style={{ fontSize: "22px", fontWeight: 700, color: "#f0f6ff", marginTop: "auto", marginBottom: "8px" }}>
+        {offer.price}
+        <small style={{ fontSize: "11px", color: "#4a7090", display: "block", fontWeight: 400 }}>
+          {offer.priceSub}
+        </small>
+      </div>
+      <div style={{ fontSize: "12px", color: "#5a8aaa", lineHeight: 1.55, marginBottom: "16px" }}>
+        {offer.desc}
+      </div>
+      <Link
+        href={offer.link}
+        className="mt-auto"
+        style={{ fontSize: "12px", color: "#38bdf8", display: "inline-block" }}
+      >
+        {offer.linkText}
+      </Link>
+    </div>
+  );
+}
+
+export default function HomeOffers() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("v7-visible");
+        });
+      },
+      { threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={ref}
+      className="v7-section"
+      style={{ padding: "72px 48px", maxWidth: "1200px", margin: "0 auto" }}
+    >
+      <p
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontStyle: "italic",
+          fontSize: "15px",
+          color: "#c9893a",
+          marginBottom: "8px",
+        }}
+      >
+        Ce que je propose
+      </p>
+      <h2
+        style={{
+          fontSize: "clamp(22px, 2.5vw, 30px)",
+          fontWeight: 700,
+          lineHeight: 1.2,
+          letterSpacing: "-0.02em",
+          color: "#f0f6ff",
+          marginBottom: "36px",
+        }}
+      >
+        Des offres claires, du plus simple au plus complet.
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+        {offers.map((offer) =>
+          offer.featured ? (
+            <OfferCard key={offer.name} offer={offer} />
+          ) : (
+            <OfferCard key={offer.name} offer={offer} />
+          ),
+        )}
+      </div>
+      <p style={{ fontSize: "11px", color: "#2a4a6a", marginTop: "14px" }}>
+        Maintenance et suivi disponibles en option sur toutes les offres.{" "}
+        <Link href="/tarifs" style={{ color: "#c9893a" }}>
+          Voir tous les tarifs &rarr;
+        </Link>
+      </p>
     </section>
   );
 }
