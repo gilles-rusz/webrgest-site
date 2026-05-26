@@ -194,12 +194,22 @@ body {
   transform: scale(1.05);
   animation: floatCardV7 4s ease-in-out infinite;
 }
+.offer-neon-wrap-v7 > .flex {
+  position: relative;
+  z-index: 1;
+}
+.offer-featured-v7 {
+  transform: scale(1.08);
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
 .offer-neon-border-v7 {
   position: absolute;
   inset: 0;
   border-radius: 12px;
   overflow: hidden;
   pointer-events: none;
+  z-index: 0;
 }
 .offer-neon-border-v7::before {
   content: '';
@@ -255,6 +265,11 @@ body {
   .offer-neon-wrap-v7 {
     transform: scale(1);
     animation: none;
+  }
+  .offer-featured-v7 {
+    transform: scale(1);
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .cta-block-v7 {
     grid-template-columns: 1fr;

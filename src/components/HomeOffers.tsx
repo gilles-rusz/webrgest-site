@@ -7,7 +7,7 @@ const offers = [
   {
     name: "Portfolio / CV",
     target: "Indépendants, auto-entrepreneurs",
-    price: "290 \u20AC",
+    price: "150 \u20AC",
     priceSub: "forfait fixe",
     desc: "1 à 2 pages soignées, mobile-first. Pour se lancer avec un budget maîtrisé.",
     link: "/tarifs",
@@ -111,7 +111,7 @@ function OfferCard({
 
   if (offer.featured) {
     return (
-      <div className="offer-neon-wrap-v7" id="tarifs">
+      <div className="offer-neon-wrap-v7 offer-featured-v7" id="tarifs">
         <div className="offer-neon-border-v7" />
         {inner}
       </div>
