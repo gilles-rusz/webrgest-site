@@ -56,6 +56,8 @@ function OfferCard({
         background: "#0f1e35",
         borderRadius: "10px",
         padding: "22px 18px",
+        position: "relative" as const,
+        zIndex: 1,
       }}
     >
       {offer.badge && (
