@@ -1,133 +1,156 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  { num: "01", title: "Écoute", desc: "On comprend votre métier, vos objectifs et vos besoins." },
-  { num: "02", title: "Conception", desc: "Nous créons un design sur mesure et une structure efficace." },
-  { num: "03", title: "Développement", desc: "Un site rapide, sécurisé et optimisé pour le référencement." },
-  { num: "04", title: "Mise en ligne", desc: "Votre site est en ligne, et nous restons à vos côtés." },
-];
-
-const projects = [
-  {
-    title: "La Table d'Or",
-    type: "Site vitrine",
-    image: "/demos/restaurant-gastronomique.jpg",
-    href: "/demos/restaurant",
-  },
-  {
-    title: "Terroir d'Alsace",
-    type: "E-Commerce",
-    image: "/demos/vignoble-alsace.png",
-    href: "/demos/ecommerce",
-  },
+  { num: "01", title: "Brief", desc: "On comprend votre m\u00e9tier, vos objectifs et vos contraintes." },
+  { num: "02", title: "Conception", desc: "Design sur mesure et structure pens\u00e9e pour convertir." },
+  { num: "03", title: "D\u00e9veloppement", desc: "Site rapide, s\u00e9curis\u00e9 et optimis\u00e9 pour le r\u00e9f\u00e9rencement." },
+  { num: "04", title: "Mise en ligne", desc: "Votre site est en ligne. On reste \u00e0 vos c\u00f4t\u00e9s." },
 ];
 
 export default function HomeMethodRealisations() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(-1);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("v7-visible");
+            steps.forEach((_, i) => {
+              setTimeout(() => setActiveStep(i), 400 + i * 600);
+            });
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const lineProgress = activeStep < 0 ? 0 : ((activeStep + 1) / steps.length) * 75;
+
   return (
-    <section id="realisations" className="relative py-14 sm:py-20 scroll-mt-24">
-      {/* Dark background */}
-      <div className="absolute inset-0 bg-navy-950" />
-      <div
-        className="absolute inset-0 opacity-30"
+    <section
+      ref={ref}
+      id="realisations"
+      className="v7-section scroll-mt-24"
+      style={{ padding: "72px 48px", maxWidth: "1200px", margin: "0 auto" }}
+    >
+      <p
         style={{
-          background: "radial-gradient(ellipse at 30% 50%, rgba(45, 212, 191, 0.05), transparent 50%), radial-gradient(ellipse at 70% 50%, rgba(99, 102, 241, 0.04), transparent 50%)",
+          fontFamily: "'Playfair Display', serif",
+          fontStyle: "italic",
+          fontSize: "15px",
+          color: "#c9893a",
+          marginBottom: "8px",
         }}
-      />
-      {/* Top neon separator */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/25 to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Method column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-[10px] font-semibold text-teal-400 tracking-[3px] uppercase mb-3">
-              Notre méthode
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-8 leading-tight">
-              Un processus clair,{" "}
-              <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
-                simple
-              </span>{" "}
-              et efficace.
-            </h2>
-
-            <div className="relative">
-              {/* Connection line */}
-              <div className="hidden sm:block absolute top-5 left-5 right-5 h-0.5 bg-gradient-to-r from-teal-500 to-teal-500/20" />
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {steps.map((step, i) => (
-                  <div key={i} className="text-center relative">
-                    <div className="w-10 h-10 rounded-full bg-teal-500/15 border-2 border-teal-500 flex items-center justify-center mx-auto mb-3 relative z-10 backdrop-blur-sm">
-                      <span className="text-xs font-bold text-teal-400">{step.num}</span>
-                    </div>
-                    <h4 className="text-sm font-semibold text-white mb-1">{step.title}</h4>
-                    <p className="text-[11px] text-slate-400 leading-snug">{step.desc}</p>
-                  </div>
-                ))}
+      >
+        Notre m&eacute;thode
+      </p>
+      <h2
+        style={{
+          fontSize: "clamp(22px, 2.5vw, 30px)",
+          fontWeight: 700,
+          lineHeight: 1.2,
+          letterSpacing: "-0.02em",
+          color: "#f0f6ff",
+          marginBottom: "36px",
+        }}
+      >
+        Un processus clair, simple et efficace.
+      </h2>
+      <div
+        className="grid grid-cols-2 sm:grid-cols-4"
+        style={{ position: "relative", marginTop: "12px" }}
+      >
+        {/* Background line */}
+        <div
+          className="hidden sm:block"
+          style={{
+            position: "absolute",
+            top: "18px",
+            left: "12.5%",
+            right: "12.5%",
+            height: "2px",
+            background: "#1a3050",
+          }}
+        />
+        {/* Animated fill line */}
+        <div
+          className="hidden sm:block"
+          style={{
+            position: "absolute",
+            top: "18px",
+            left: "12.5%",
+            width: `${lineProgress}%`,
+            height: "2px",
+            background: "linear-gradient(to right, #c9893a, #f5d07a)",
+            transition: "width 0.5s ease",
+            zIndex: 1,
+          }}
+        />
+        {steps.map((step, i) => {
+          const isActive = i <= activeStep;
+          return (
+            <div
+              key={step.num}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
+                padding: "0 12px",
+                position: "relative",
+                zIndex: 2,
+              }}
+            >
+              <div
+                style={{
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "50%",
+                  background: isActive ? "#c9893a" : "#0f1e35",
+                  border: `1.5px solid ${isActive ? "#f5d07a" : "#1a3050"}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  color: isActive ? "#fff" : "#4a7090",
+                  marginBottom: "16px",
+                  flexShrink: 0,
+                  transition: "all 0.4s ease",
+                  boxShadow: isActive ? "0 0 12px rgba(201,137,58,0.5)" : "none",
+                }}
+              >
+                {step.num}
+              </div>
+              <div style={{
+                fontSize: "13px",
+                fontWeight: 600,
+                color: isActive ? "#f0f6ff" : "#4a7090",
+                marginBottom: "8px",
+                transition: "color 0.4s ease",
+              }}>
+                {step.title}
+              </div>
+              <div style={{
+                fontSize: "12px",
+                color: isActive ? "#5a8aaa" : "#2a4a6a",
+                lineHeight: 1.55,
+                transition: "color 0.4s ease",
+              }}>
+                {step.desc}
               </div>
             </div>
-          </motion.div>
-
-          {/* Réalisations column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="flex items-baseline justify-between mb-3">
-              <p className="text-[10px] font-semibold text-teal-400 tracking-[3px] uppercase">
-                Réalisations
-              </p>
-              <Link
-                href="/realisations"
-                className="text-xs font-semibold text-teal-400 hover:text-teal-300 transition-colors flex items-center gap-1"
-              >
-                Voir toutes les réalisations
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-6 leading-tight">
-              Des projets qui parlent de{" "}
-              <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
-                résultats
-              </span>
-              .
-            </h2>
-
-            <div className="grid grid-cols-2 gap-3">
-              {projects.map((project, i) => (
-                <Link
-                  key={i}
-                  href={project.href}
-                  className="group rounded-2xl overflow-hidden relative aspect-[4/3] bg-navy-800"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
-                    <h4 className="text-sm font-bold text-white">{project.title}</h4>
-                    <span className="text-[11px] text-slate-400">{project.type}</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );

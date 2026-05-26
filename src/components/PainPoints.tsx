@@ -1,113 +1,131 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Globe, Search, Clock, Smartphone, ArrowRight } from "lucide-react";
+import { Globe, Search, Clock, Smartphone } from "lucide-react";
 
 const painPoints = [
   {
     icon: Globe,
     problem: "Votre site ne vous rapporte aucun contact ?",
     solution:
-      "Je crée des sites pensés pour convertir : formulaires visibles, appels à l'action clairs, parcours optimisé.",
-    cta: "Site Vitrine",
+      "Je cr\u00e9e des sites pens\u00e9s pour convertir : formulaires visibles, appels \u00e0 l\u2019action clairs, parcours optimis\u00e9.",
+    cta: "Site Vitrine \u2192",
     href: "/tarifs",
   },
   {
     icon: Search,
-    problem: "Votre entreprise n'apparaît pas sur Google ?",
+    problem: "Votre entreprise n\u2019appara\u00eet pas sur Google ?",
     solution:
-      "Optimisation SEO dès la conception : structure technique, mots-clés locaux, vitesse de chargement.",
-    cta: "Référencement SEO",
+      "Optimisation SEO d\u00e8s la conception : structure technique, mots-cl\u00e9s locaux, vitesse de chargement.",
+    cta: "R\u00e9f\u00e9rencement SEO \u2192",
     href: "/services",
   },
   {
     icon: Clock,
-    problem: "Vous perdez du temps avec des tâches répétitives ?",
+    problem: "Vous perdez du temps avec des t\u00e2ches r\u00e9p\u00e9titives ?",
     solution:
       "Automatisation de vos flux : emails, factures, notifications, synchronisation entre vos outils.",
-    cta: "Automatisation",
+    cta: "Automatisation \u2192",
     href: "/automatisation",
   },
   {
     icon: Smartphone,
     problem: "Votre ancien site ne fonctionne pas sur mobile ?",
     solution:
-      "Refonte responsive et moderne : votre site s'adapte à tous les écrans, du smartphone au desktop.",
-    cta: "Refonte de site",
-    href: "/tarifs",
+      "Refonte responsive et moderne : votre site s\u2019adapte \u00e0 tous les \u00e9crans, du smartphone au desktop.",
+    cta: "Refonte de site \u2192",
+    href: "/refonte-site-internet",
   },
 ];
 
 export default function PainPoints() {
-  return (
-    <section className="relative py-24 sm:py-32">
-      <div className="absolute inset-0 bg-navy-950" />
-      <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(232, 184, 75, 0.04), transparent 50%)" }} />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/25 to-transparent" />
+  const ref = useRef<HTMLDivElement>(null);
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Vous vous reconnaissez{" "}
-            <span
-              className="text-teal-400"
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("v7-visible");
+        });
+      },
+      { threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={ref}
+      className="v7-section"
+      style={{ padding: "72px 48px", maxWidth: "1200px", margin: "0 auto" }}
+    >
+      <p
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontStyle: "italic",
+          fontSize: "15px",
+          color: "#c9893a",
+          marginBottom: "8px",
+        }}
+      >
+        Vous vous reconnaissez ?
+      </p>
+      <h2
+        style={{
+          fontSize: "clamp(22px, 2.5vw, 30px)",
+          fontWeight: 700,
+          lineHeight: 1.2,
+          letterSpacing: "-0.02em",
+          color: "#f0f6ff",
+          marginBottom: "36px",
+        }}
+      >
+        Ces situations sont fr&eacute;quentes chez les artisans, ind&eacute;pendants et PME.
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+        {painPoints.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={item.cta}
+              className="transition-transform duration-200 hover:-translate-y-1"
               style={{
-                fontFamily: "var(--font-satisfy), cursive",
-                fontWeight: 400,
+                background: "#0f1e35",
+                border: "0.5px solid #1a3050",
+                borderRadius: "10px",
+                padding: "24px",
               }}
             >
-              ?
-            </span>
-          </h2>
-          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-            Ces situations sont fréquentes chez les artisans, indépendants et
-            PME. J&apos;y apporte des solutions concrètes.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {painPoints.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="rounded-2xl p-6 bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
+              <div
+                style={{
+                  width: "38px",
+                  height: "38px",
+                  background: "#0a2540",
+                  borderRadius: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "16px",
+                }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-gold-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {item.problem}
-                    </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-4">
-                      {item.solution}
-                    </p>
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
-                    >
-                      {item.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                <Icon style={{ width: "19px", height: "19px", color: "#38bdf8" }} />
+              </div>
+              <p style={{ fontSize: "14px", fontWeight: 500, color: "#e2e8f0", marginBottom: "8px", lineHeight: 1.4 }}>
+                {item.problem}
+              </p>
+              <p style={{ fontSize: "13px", color: "#4a7090", lineHeight: 1.65, marginBottom: "14px" }}>
+                {item.solution}
+              </p>
+              <Link href={item.href} style={{ fontSize: "12px", color: "#c9893a" }}>
+                {item.cta}
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

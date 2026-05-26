@@ -44,7 +44,8 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/gilles-ruszczycki/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
+                className="transition-colors text-sm font-medium hover:opacity-80"
+                style={{ color: "#c9893a" }}
               >
                 LinkedIn
               </a>
@@ -65,12 +66,17 @@ export default function Footer() {
                 { href: "/blog", label: "Blog" },
                 { href: "/avis", label: "Avis" },
                 { href: "/contact", label: "Contact" },
-                { href: "/devis-gratuit", label: "Devis gratuit" },
+                { href: "/devis-gratuit", label: "Devis gratuit", gold: true },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-teal-400 transition-colors text-sm"
+                    className={`transition-colors text-sm ${
+                      (link as { gold?: boolean }).gold
+                        ? "font-medium hover:opacity-80"
+                        : "text-slate-400 hover:text-teal-400"
+                    }`}
+                    style={(link as { gold?: boolean }).gold ? { color: "#c9893a" } : undefined}
                   >
                     {link.label}
                   </Link>
