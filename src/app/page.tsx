@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <SectionDivider />
-        <HomeBenefits />
-        <SectionDivider />
         <PainPoints />
+        <SectionDivider />
+        <HomeBenefits />
         <SectionDivider />
         <HomeMethodRealisations />
         <SectionDivider />
