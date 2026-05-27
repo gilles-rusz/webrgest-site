@@ -150,6 +150,25 @@ body {
   }
 }
 
+/* ===== HERO SLIDE-IN ANIMATION ===== */
+@keyframes heroSlideIn {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero-slide-in {
+  opacity: 0;
+  animation: heroSlideIn 0.65s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 /* ===== V7 HOMEPAGE STYLES ===== */
 @keyframes fadeUpV7 {
   from { opacity: 0; transform: translateY(26px); }

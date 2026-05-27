@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
-import HomeOffers from "@/components/HomeOffers";
 import PainPoints from "@/components/PainPoints";
+import HomeBenefits from "@/components/HomeBenefits";
 import HomeMethodRealisations from "@/components/HomeMethodRealisations";
 import HomeContact from "@/components/HomeContact";
 import Footer from "@/components/Footer";
@@ -16,9 +16,9 @@ export default function Home() {
       <main>
         <Hero />
         <SectionDivider />
-        <HomeOffers />
-        <SectionDivider />
         <PainPoints />
+        <SectionDivider />
+        <HomeBenefits />
         <SectionDivider />
         <HomeMethodRealisations />
         <SectionDivider />
