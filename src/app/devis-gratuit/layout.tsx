@@ -7,11 +7,11 @@ const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
 export const metadata: Metadata = {
   title: "Devis Gratuit | Web RG Est - Création Web & Solutions Digitales",
   description:
-    "Demandez votre devis gratuit pour la création de votre site web, refonte, e-commerce, landing page ou automatisation. Réponse rapide, sans engagement.",
+    "Demandez votre devis gratuit pour la création de votre site web, refonte, e-commerce, automatisation ou application web sur mesure. Réponse rapide, sans engagement.",
   openGraph: {
     title: "Devis Gratuit | Web RG Est",
     description:
-      "Demandez votre devis gratuit — Création de site web, refonte, e-commerce, landing page ou automatisation. Réponse rapide, sans engagement.",
+      "Demandez votre devis gratuit — Création de site web, refonte, e-commerce, automatisation ou application web sur mesure. Réponse rapide, sans engagement.",
     type: "website",
     locale: "fr_FR",
   },

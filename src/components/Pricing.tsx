@@ -1,399 +1,417 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  User, Rocket, Zap, Globe, RefreshCw, ShoppingCart,
-  Monitor, Sparkles, Wrench, Settings, CheckCircle2, ArrowRight, ChevronDown, Star
+  Globe,
+  ShoppingCart,
+  Zap,
+  Monitor,
+  RefreshCw,
+  Wrench,
+  Settings,
+  CheckCircle2,
+  ArrowRight,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const starPlans = [
-  {
-    icon: Zap,
-    title: "Site Express",
-    subtitle: "Coachs, artisans, indépendants",
-    price: "490",
-    unit: "",
-    description: "Le site pro accessible à tous. Idéal pour les coachs, artisans, thérapeutes et auto-entrepreneurs.",
-    features: [
-      "1-2 pages sur mesure",
-      "Design moderne & responsive",
-      "Formulaire de contact",
-      "SEO local optimisé",
-      "Lien réseaux sociaux",
-      "Hébergement 1ère année inclus",
-      "Livraison en 5 jours",
-    ],
-    idealFor: ["Coach sportif", "Artisan", "Thérapeute", "Food truck", "Photographe", "Formateur"],
-  },
-  {
-    icon: Globe,
-    title: "Site Vitrine",
-    subtitle: "Multi-pages",
-    price: "990",
-    unit: "",
-    description: "Le site complet pour présenter votre activité et attirer de nouveaux clients.",
-    features: [
-      "Design sur mesure",
-      "4-6 pages (Accueil, Services, À propos, Contact...)",
-      "Responsive toutes tailles",
-      "SEO optimisé",
-      "Formulaire de contact",
-      "Intégration réseaux sociaux",
-      "Formation à la gestion",
-    ],
-    popular: true,
-  },
-  {
-    icon: Sparkles,
-    title: "Automatisation",
-    subtitle: "Agent IA & n8n",
-    price: "190",
-    unit: "",
-    description: "Automatisez vos tâches répétitives grâce à l\u2019IA et aux workflows n8n.",
-    features: [
-      "Audit de vos process actuels",
-      "Création de workflows n8n",
-      "Intégration d\u2019agents IA",
-      "Notifications automatiques (SMS, email)",
-      "Connexion à vos outils existants",
-      "Formation & documentation",
-      "Support 30 jours inclus",
-    ],
-    idealFor: ["E-commerce", "Restaurant", "PME", "Logistique", "Immobilier"],
-  },
-];
-
-const otherPlans = [
-  {
-    icon: User,
-    title: "Portfolio / CV",
-    subtitle: "Interactif",
-    price: "150",
-    unit: "",
-    description: "Mettez en valeur votre profil avec un portfolio en ligne moderne et interactif.",
-    features: [
-      "Design personnalisé",
-      "Page unique responsive",
-      "Animations modernes",
-      "Formulaire de contact",
-      "Hébergement 1ère année inclus",
-    ],
-  },
-  {
-    icon: Rocket,
-    title: "Landing Page",
-    subtitle: "Conversion",
-    price: "350",
-    unit: "",
-    description: "Page d\u2019atterrissage optimisée pour convertir vos visiteurs en clients.",
-    features: [
-      "Design haute conversion",
-      "Copywriting optimisé",
-      "Responsive mobile-first",
-      "Formulaire / CTA intégrés",
-      "SEO de base",
-      "Hébergement 1ère année inclus",
-    ],
-  },
-  {
-    icon: RefreshCw,
-    title: "Refonte de Site",
-    subtitle: "Modernisation",
-    price: "690",
-    unit: "",
-    description: "Votre site actuel fait vieillot ? On le remet au goût du jour.",
-    features: [
-      "Audit de l\u2019existant",
-      "Nouveau design moderne",
-      "Migration du contenu",
-      "Optimisation performances",
-      "Responsive & SEO",
-      "Redirection des anciennes URLs",
-    ],
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce",
-    subtitle: "Boutique en ligne",
-    price: "1 490",
-    unit: "",
-    description: "Vendez en ligne avec une boutique professionnelle et sécurisée.",
-    features: [
-      "Catalogue produits complet",
-      "Panier & paiement sécurisé",
-      "Gestion des stocks",
-      "Espace client",
-      "Responsive mobile",
-      "SEO e-commerce",
-      "Formation à la gestion",
-    ],
-  },
-  {
-    icon: Monitor,
-    title: "Application Web",
-    subtitle: "Sur mesure",
-    price: "2 500",
-    unit: "",
-    description: "Application web complète, développée sur mesure selon vos besoins métier.",
-    features: [
-      "Analyse & cahier des charges",
-      "Développement Full-Stack",
-      "Base de données",
-      "Authentification & rôles",
-      "Dashboard & statistiques",
-      "API REST",
-      "Tests & documentation",
-    ],
-  },
-];
-
-const extras = [
-  {
-    icon: Wrench,
-    title: "Maintenance",
-    price: "39",
-    unit: "/mois",
-    description: "Mises à jour, sauvegardes, sécurité et support technique continu.",
-  },
-  {
-    icon: Settings,
-    title: "Intervention ponctuelle",
-    price: "60",
-    unit: "",
-    description: "Modification, ajout de fonctionnalité, correction de bug — à la demande.",
-  },
-];
+/* ────────────────────────────────────────
+   DATA
+   ──────────────────────────────────────── */
 
 interface Plan {
-  icon: React.ComponentType<{ className?: string }>;
   title: string;
   subtitle: string;
+  badge?: string;
+  price: string;
+  unit?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  ctaHref: string;
+  icon: LucideIcon;
+  featured?: boolean;
+}
+
+const mainPlans: Plan[] = [
+  {
+    title: "Automatisation",
+    subtitle: "Gagner du temps sur vos tâches répétitives",
+    price: "190",
+    unit: "€",
+    description:
+      "Des automatisations simples pour réduire les tâches manuelles\u00a0: emails, notifications, formulaires, suivis ou connexions entre outils.",
+    features: [
+      "Analyse du besoin",
+      "Création d\u2019un workflow simple",
+      "Connexion entre outils existants",
+      "Notifications automatiques",
+      "Test et mise en route",
+      "Explication claire du fonctionnement",
+    ],
+    cta: "Recevoir un devis",
+    ctaHref: "/devis-gratuit?offre=Automatisation",
+    icon: Zap,
+  },
+  {
+    title: "Site Vitrine",
+    subtitle: "Présenter votre activité et recevoir des demandes de contact",
+    badge: "Le plus demandé",
+    price: "590",
+    unit: "€",
+    description:
+      "Un site professionnel pour présenter votre entreprise, rassurer vos visiteurs et leur donner envie de vous contacter.",
+    features: [
+      "Design moderne et responsive",
+      "1 à 3 pages selon le besoin",
+      "Formulaire de contact",
+      "SEO de base",
+      "Intégration réseaux sociaux",
+      "Mise en ligne accompagnée",
+    ],
+    cta: "Recevoir un devis",
+    ctaHref: "/devis-gratuit?offre=Site+Vitrine",
+    icon: Globe,
+    featured: true,
+  },
+  {
+    title: "E-commerce",
+    subtitle: "Vendre vos produits en ligne",
+    price: "1 490",
+    unit: "€",
+    description:
+      "Une boutique en ligne professionnelle pour vendre vos produits avec une solution claire, moderne et sécurisée.",
+    features: [
+      "Catalogue produits",
+      "Panier et paiement sécurisé",
+      "Pages essentielles",
+      "Responsive mobile",
+      "SEO e-commerce de base",
+      "Formation à la gestion",
+    ],
+    cta: "Recevoir un devis",
+    ctaHref: "/devis-gratuit?offre=E-commerce",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Application Web",
+    subtitle: "Projet sur mesure",
+    price: "Sur devis",
+    description:
+      "Une solution web développée sur mesure pour répondre à un besoin métier spécifique.",
+    features: [
+      "Analyse du besoin",
+      "Cahier des charges simplifié",
+      "Développement sur mesure",
+      "Interface administrateur si nécessaire",
+      "Base de données si nécessaire",
+      "Tests et accompagnement",
+    ],
+    cta: "Parler de mon projet",
+    ctaHref: "/devis-gratuit?offre=Application+Web",
+    icon: Monitor,
+  },
+];
+
+const refonteFeatures = [
+  "Audit de l\u2019existant",
+  "Nouveau design moderne",
+  "Amélioration de la lisibilité",
+  "Optimisation des performances",
+  "Responsive et SEO",
+];
+
+interface Option {
+  title: string;
   price: string;
   unit: string;
   description: string;
-  features: string[];
-  popular?: boolean;
-  idealFor?: string[];
+  note?: string;
+  icon: LucideIcon;
 }
 
-function PlanCard({ plan, index, featured }: { plan: Plan; index: number; featured?: boolean }) {
+const options: Option[] = [
+  {
+    title: "Maintenance",
+    price: "39",
+    unit: "€/mois",
+    description:
+      "Mises à jour, sauvegardes, sécurité et petits ajustements pour garder votre site propre et fonctionnel.",
+    note: "Optionnelle, sans obligation.",
+    icon: Settings,
+  },
+  {
+    title: "Modification ponctuelle",
+    price: "50",
+    unit: "€",
+    description:
+      "Pour une petite modification, une correction, un ajout simple ou une amélioration ponctuelle sur votre site.",
+    icon: Wrench,
+  },
+];
+
+/* ────────────────────────────────────────
+   CARD COMPONENT
+   ──────────────────────────────────────── */
+
+function PlanCard({ plan, index }: { plan: Plan; index: number }) {
   const Icon = plan.icon;
-  const isPopular = plan.popular;
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.04 }}
-      className={`relative rounded-2xl p-7 bg-navy-900/40 border transition-colors duration-200 flex flex-col ${
-        featured
-          ? "border-teal-500/40 ring-1 ring-teal-500/20"
-          : isPopular
-            ? "border-teal-500/40"
-            : "border-navy-700/50 hover:border-teal-500/30"
-      }`}
-    >
-      {isPopular && (
+
+  const inner = (
+    <div className="relative z-[1] flex h-full flex-col rounded-2xl bg-[#0f1e35] p-7">
+      {plan.badge && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="px-3 py-1 rounded-md text-xs font-semibold bg-teal-500 text-white">
-            Populaire
+          <span className="whitespace-nowrap rounded-md bg-gold-400 px-3 py-1 text-xs font-semibold text-navy-950">
+            {plan.badge}
           </span>
         </div>
       )}
 
-      {featured && !isPopular && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="px-3 py-1 rounded-md text-xs font-semibold bg-gold-500 text-navy-950 flex items-center gap-1">
-            <Star className="w-3 h-3" />
-            Recommandé
-          </span>
-        </div>
-      )}
-
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-teal-500/10">
-          <Icon className="w-5 h-5 text-teal-400" />
+      <div className="mb-4 flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-500/10">
+          <Icon className="h-5 w-5 text-teal-400" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white leading-tight">
-            {plan.title}
-          </h3>
+          <h3 className="text-lg font-bold leading-tight text-white">{plan.title}</h3>
           <span className="text-xs text-slate-400">{plan.subtitle}</span>
         </div>
       </div>
 
       <div className="mb-4">
-        <span className="text-xs text-slate-400">
-          À partir de
-        </span>
+        {plan.unit && (
+          <span className="text-xs text-slate-400">À partir de</span>
+        )}
         <div className="flex items-baseline gap-1">
-          <span className="text-3xl font-bold text-gold-400">
-            {plan.price}&euro;
+          <span className={`text-3xl font-bold ${plan.featured ? "offer-price-gold-v7" : "text-gold-400"}`}>
+            {plan.price}{plan.unit ? <>&nbsp;{plan.unit}</> : null}
           </span>
-          {plan.unit && (
-            <span className="text-sm text-slate-400">{plan.unit}</span>
-          )}
         </div>
       </div>
 
-      <p className="text-sm text-slate-400 mb-5 leading-relaxed">
-        {plan.description}
-      </p>
+      <p className="mb-5 text-sm leading-relaxed text-slate-400">{plan.description}</p>
 
-      <ul className="space-y-2.5 mb-5 flex-1">
-        {plan.features.map((feature, j) => (
+      <ul className="mb-5 flex-1 space-y-2.5">
+        {plan.features.map((f, j) => (
           <li key={j} className="flex items-start gap-2 text-sm">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5 text-teal-400" />
-            <span className="text-slate-300">{feature}</span>
+            <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-400" />
+            <span className="text-slate-300">{f}</span>
           </li>
         ))}
       </ul>
 
-      {plan.idealFor && (
-        <div className="mb-5 pt-4 border-t border-navy-700/50">
-          <span className="text-xs text-slate-400">
-            Idéal pour
-          </span>
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            {plan.idealFor.map((item, j) => (
-              <span
-                key={j}
-                className="px-2.5 py-1 rounded-md text-xs font-medium bg-navy-800 text-slate-300 border border-navy-700"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
       <Link
-        href={`/devis-gratuit?offre=${encodeURIComponent(plan.title)}`}
-        className="block text-center py-3 rounded-lg font-semibold text-sm transition-colors duration-200 bg-teal-500/10 border border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-white mt-auto"
+        href={plan.ctaHref}
+        className={`mt-auto block rounded-lg py-3 text-center text-sm font-semibold transition-colors duration-200 ${
+          plan.featured
+            ? "bg-teal-500 text-white hover:bg-teal-400"
+            : "border border-teal-500/30 bg-teal-500/10 text-teal-400 hover:bg-teal-500 hover:text-white"
+        }`}
       >
-        Recevoir un devis
+        {plan.cta}
       </Link>
+    </div>
+  );
+
+  if (plan.featured) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.06 }}
+        className="tarif-neon-wrap p-[2px]"
+      >
+        <div className="tarif-neon-border" />
+        {inner}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.06 }}
+      className="rounded-2xl border border-navy-700/50 transition-all duration-200 hover:-translate-y-1 hover:border-teal-500/30 hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+    >
+      {inner}
     </motion.div>
   );
 }
 
-export default function Pricing() {
-  const [showOtherPlans, setShowOtherPlans] = useState(false);
+/* ────────────────────────────────────────
+   MAIN COMPONENT
+   ──────────────────────────────────────── */
 
+export default function Pricing() {
   return (
     <section id="tarifs" className="relative py-24 sm:py-32">
       <div className="absolute inset-0 bg-[#0c1220]" />
-      <div className="absolute inset-0 opacity-40" style={{ background: "radial-gradient(ellipse at 50% 30%, rgba(45, 212, 191, 0.05), transparent 60%)" }} />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.05), transparent 60%)",
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ── HERO ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Des offres{" "}
-            <span className="text-teal-400" style={{ fontFamily: "var(--font-satisfy), cursive", fontWeight: 400 }}>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            Des tarifs{" "}
+            <span
+              className="text-teal-400"
+              style={{
+                fontFamily: "var(--font-satisfy), cursive",
+                fontWeight: 400,
+              }}
+            >
               simples
             </span>
+            , adaptés à votre projet.
           </h2>
-          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
-            Pas de mauvaise surprise. Chaque projet est unique, ces tarifs sont
-            des bases qui s&apos;adaptent à vos besoins.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+            Chaque activité est différente. Ces tarifs servent de base pour vous
+            aider à vous situer. Le devis final est toujours adapté à vos
+            besoins réels.
+          </p>
+          <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400/70">
+            Pas de mauvaise surprise&nbsp;: vous savez où vous allez dès le
+            départ.
           </p>
         </motion.div>
 
-        {/* 3 offres star */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {starPlans.map((plan, i) => (
-            <PlanCard key={plan.title} plan={plan} index={i} featured />
+        {/* ── 4 OFFRES PRINCIPALES ── */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {mainPlans.map((plan, i) => (
+            <PlanCard key={plan.title} plan={plan} index={i} />
           ))}
         </div>
 
-        {/* Autres offres (toggle) */}
-        <div className="mt-10 text-center">
-          <button
-            onClick={() => setShowOtherPlans(!showOtherPlans)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-navy-600 text-slate-300 font-semibold hover:border-teal-500/50 hover:text-teal-400 transition-colors duration-200"
-          >
-            {showOtherPlans ? "Masquer les autres offres" : "Voir toutes nos offres"}
-            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showOtherPlans ? "rotate-180" : ""}`} />
-          </button>
-        </div>
-
-        {showOtherPlans && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            transition={{ duration: 0.4 }}
-            className="mt-8"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {otherPlans.map((plan, i) => (
-                <PlanCard key={plan.title} plan={plan} index={i} />
-              ))}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Extras */}
+        {/* ── REFONTE ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto"
+          transition={{ duration: 0.5 }}
+          className="mx-auto mt-16 max-w-3xl rounded-2xl border border-navy-700/50 bg-navy-900/40 p-8 text-center"
         >
-          {extras.map((extra, i) => {
-            const Icon = extra.icon;
-            return (
-              <div
-                key={i}
-                className="rounded-2xl p-6 flex items-start gap-4 bg-navy-900/40 border border-navy-700/50 hover:border-teal-500/30 transition-colors duration-200"
+          <RefreshCw className="mx-auto mb-4 h-8 w-8 text-teal-400" />
+          <h3 className="text-xl font-bold text-white">
+            Vous avez déjà un site&nbsp;?
+          </h3>
+          <p className="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-slate-400">
+            Je peux moderniser votre site actuel, améliorer son design, sa
+            lisibilité, ses performances et ses appels à l&apos;action.
+          </p>
+          <ul className="mx-auto mt-5 flex flex-wrap justify-center gap-3">
+            {refonteFeatures.map((f) => (
+              <li
+                key={f}
+                className="flex items-center gap-1.5 rounded-lg border border-navy-700 bg-navy-800 px-3 py-1.5 text-xs font-medium text-slate-300"
               >
-                <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-teal-400" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-baseline justify-between mb-1">
-                    <h4 className="font-bold text-white">{extra.title}</h4>
-                    <div className="text-right">
-                      <span className="text-xs text-slate-400">à partir de </span>
-                      <span className="text-lg font-bold text-gold-400">
-                        {extra.price}&euro;
-                      </span>
-                      <span className="text-sm text-slate-400">{extra.unit}</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate-400">{extra.description}</p>
-                </div>
-              </div>
-            );
-          })}
+                <CheckCircle2 className="h-3.5 w-3.5 text-teal-400" />
+                {f}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/devis-gratuit?offre=Refonte+de+site"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg border border-teal-500/30 bg-teal-500/10 px-6 py-3 text-sm font-semibold text-teal-400 transition-colors duration-200 hover:bg-teal-500 hover:text-white"
+          >
+            Demander un devis
+          </Link>
         </motion.div>
 
+        {/* ── OPTIONS ET ACCOMPAGNEMENT ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-16"
+          className="mt-20 text-center"
         >
-          <p className="text-slate-400 mb-6 max-w-xl mx-auto">
-            Chaque projet est unique. Contactez-moi pour un devis personnalisé
-            et gratuit, adapté à vos besoins.
+          <h3 className="text-2xl font-bold text-white">
+            Options et accompagnement
+          </h3>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-slate-400">
+            Pour garder votre site à jour ou intervenir ponctuellement selon vos
+            besoins.
+          </p>
+        </motion.div>
+
+        <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
+          {options.map((opt, i) => {
+            const Icon = opt.icon;
+            return (
+              <motion.div
+                key={opt.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-teal-500/30"
+              >
+                <div className="mb-3 flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-teal-500/10">
+                    <Icon className="h-5 w-5 text-teal-400" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-baseline justify-between">
+                      <h4 className="font-bold text-white">{opt.title}</h4>
+                      <div className="text-right">
+                        <span className="text-xs text-slate-400">
+                          à partir de{" "}
+                        </span>
+                        <span className="text-lg font-bold text-gold-400">
+                          {opt.price}&nbsp;{opt.unit}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="mt-1 text-sm text-slate-400">
+                      {opt.description}
+                    </p>
+                    {opt.note && (
+                      <p className="mt-2 text-xs font-medium text-teal-400">
+                        {opt.note}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* ── CTA FINAL ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 text-center"
+        >
+          <h3 className="text-2xl font-bold text-white sm:text-3xl">
+            Vous ne savez pas quelle offre choisir&nbsp;?
+          </h3>
+          <p className="mx-auto mb-6 mt-3 max-w-xl text-slate-400">
+            Expliquez-moi simplement votre activité et votre besoin. Je vous
+            réponds avec une proposition claire, adaptée à votre projet.
           </p>
           <Link
             href="/devis-gratuit"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-teal-500 text-white font-semibold text-lg hover:bg-teal-400 transition-colors duration-200"
+            className="inline-flex items-center gap-2 rounded-lg bg-teal-500 px-8 py-4 text-lg font-semibold text-white transition-colors duration-200 hover:bg-teal-400"
           >
             Demander un devis gratuit
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="h-5 w-5" />
           </Link>
         </motion.div>
       </div>

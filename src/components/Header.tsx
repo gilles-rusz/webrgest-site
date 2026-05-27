@@ -9,12 +9,9 @@ import { ArrowRight } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/services", label: "Services" },
   { href: "/realisations", label: "Réalisations" },
-  { href: "/a-propos", label: "À propos" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/blog", label: "Blog" },
-  { href: "/avis", label: "Avis" },
   { href: "/contact", label: "Contact" },
 ];
 

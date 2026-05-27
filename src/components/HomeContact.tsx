@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
 
 export default function HomeContact() {
   const ref = useRef<HTMLDivElement>(null);
@@ -28,84 +27,56 @@ export default function HomeContact() {
       className="v7-section"
       style={{ padding: "72px 48px", maxWidth: "1200px", margin: "0 auto" }}
     >
-      <div className="cta-block-v7">
-        <div>
-          <div
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontStyle: "italic",
-              fontSize: "12px",
-              color: "#c9893a",
-              marginBottom: "8px",
-            }}
-          >
-            Pr&ecirc;t &agrave; d&eacute;marrer ?
-          </div>
-          <div
-            style={{
-              fontSize: "22px",
-              fontWeight: 700,
-              color: "#f0f6ff",
-              marginBottom: "8px",
-              lineHeight: 1.3,
-            }}
-          >
-            Parlons de votre <em style={{ fontStyle: "italic", color: "#c9893a" }}>projet</em>
-          </div>
-          <div style={{ fontSize: "13px", color: "#6a90aa", lineHeight: 1.6 }}>
-            Un projet en t&ecirc;te ? D&eacute;crivez votre besoin et recevez une r&eacute;ponse
-            personnalis&eacute;e, claire et sans engagement.
-          </div>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {[
-            { label: "R\u00e9ponse rapide", sub: "sous 24h" },
-            { label: "Devis gratuit", sub: "sans engagement" },
-            { label: "Accompagnement", sub: "personnalis\u00e9" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "8px",
-                fontSize: "12px",
-              }}
-            >
-              <CheckCircle2
-                style={{
-                  width: "16px",
-                  height: "16px",
-                  color: "#c9893a",
-                  flexShrink: 0,
-                  marginTop: "1px",
-                }}
-              />
-              <div>
-                <strong style={{ color: "#f0f6ff", display: "block", fontSize: "12px" }}>
-                  {item.label}
-                </strong>
-                <span style={{ color: "#4a7090", fontSize: "11px" }}>{item.sub}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Link
-            href="/devis-gratuit"
-            style={{
-              background: "#c9893a",
-              color: "#fff",
-              borderRadius: "5px",
-              padding: "13px 26px",
-              fontSize: "14px",
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-            }}
-          >
-            Obtenir mon devis gratuit &rarr;
-          </Link>
-        </div>
+      <div
+        style={{
+          background: "#0f1e35",
+          border: "0.5px solid rgba(201,137,58,0.2)",
+          borderRadius: "12px",
+          padding: "48px 36px",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontStyle: "italic",
+            fontSize: "15px",
+            color: "#c9893a",
+            marginBottom: "8px",
+          }}
+        >
+          Pr&ecirc;t &agrave; vous lancer ?
+        </p>
+        <h2
+          style={{
+            fontSize: "clamp(22px, 2.5vw, 30px)",
+            fontWeight: 700,
+            lineHeight: 1.3,
+            color: "#f0f6ff",
+            marginBottom: "12px",
+          }}
+        >
+          Pr&ecirc;t &agrave; simplifier votre pr&eacute;sence en ligne ?
+        </h2>
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#6a90aa",
+            lineHeight: 1.6,
+            maxWidth: "540px",
+            margin: "0 auto 28px",
+          }}
+        >
+          Parlez-moi de votre activit&eacute; ou de votre site actuel. Je vous
+          r&eacute;ponds avec une premi&egrave;re analyse claire, gratuite et
+          sans engagement.
+        </p>
+        <Link
+          href="/devis-gratuit"
+          className="inline-flex items-center justify-center rounded-xl bg-teal-500 px-7 py-4 text-sm font-bold text-white shadow-[0_14px_36px_rgba(20,184,166,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400 hover:shadow-[0_18px_48px_rgba(45,212,191,0.32)]"
+        >
+          Demander un devis gratuit
+        </Link>
       </div>
     </section>
   );

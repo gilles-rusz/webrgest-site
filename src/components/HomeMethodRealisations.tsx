@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const steps = [
-  { num: "01", title: "Brief", desc: "On comprend votre m\u00e9tier, vos objectifs et vos contraintes." },
-  { num: "02", title: "Conception", desc: "Design sur mesure et structure pens\u00e9e pour convertir." },
-  { num: "03", title: "D\u00e9veloppement", desc: "Site rapide, s\u00e9curis\u00e9 et optimis\u00e9 pour le r\u00e9f\u00e9rencement." },
-  { num: "04", title: "Mise en ligne", desc: "Votre site est en ligne. On reste \u00e0 vos c\u00f4t\u00e9s." },
+  { num: "01", title: "\u00c9change", desc: "On \u00e9change sur votre besoin." },
+  { num: "02", title: "Structure", desc: "Je structure votre site." },
+  { num: "03", title: "Design", desc: "Je cr\u00e9e un design clair et moderne." },
+  { num: "04", title: "Lancement", desc: "Je mets en ligne et je vous accompagne." },
 ];
 
 export default function HomeMethodRealisations() {
@@ -51,7 +51,7 @@ export default function HomeMethodRealisations() {
           marginBottom: "8px",
         }}
       >
-        Notre m&eacute;thode
+        Ma m&eacute;thode
       </p>
       <h2
         style={{
@@ -63,7 +63,7 @@ export default function HomeMethodRealisations() {
           marginBottom: "36px",
         }}
       >
-        Un processus clair, simple et efficace.
+        Une m&eacute;thode simple.
       </h2>
       <div
         className="grid grid-cols-2 sm:grid-cols-4"

@@ -150,6 +150,55 @@ body {
   }
 }
 
+/* ===== HERO SLIDE-IN ANIMATION ===== */
+@keyframes heroSlideIn {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero-slide-in {
+  opacity: 0;
+  animation: heroSlideIn 0.65s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ===== BENEFIT CARDS SHINE ===== */
+@keyframes benefitShine {
+  0%   { transform: translateX(-120%) rotate(15deg); opacity: 0; }
+  40%  { opacity: 0.5; }
+  100% { transform: translateX(200%) rotate(15deg); opacity: 0; }
+}
+
+.benefit-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255,255,255,0.06) 45%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.06) 55%,
+    transparent 65%
+  );
+  transform: translateX(-120%) rotate(15deg);
+  animation: benefitShine 5s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-shine::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* ===== V7 HOMEPAGE STYLES ===== */
 @keyframes fadeUpV7 {
   from { opacity: 0; transform: translateY(26px); }
@@ -245,6 +294,59 @@ body {
   -webkit-text-fill-color: #4a7090;
 }
 
+/* V7 Tarifs neon card (large) — featured float */
+@keyframes featuredFloat {
+  0%, 100% { transform: scale(1.04) translateY(0); }
+  50%      { transform: scale(1.04) translateY(-8px); }
+}
+
+.tarif-neon-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: visible;
+  transform: scale(1.04);
+  z-index: 2;
+  box-shadow:
+    0 0 24px rgba(201,137,58,0.12),
+    0 20px 60px rgba(0,0,0,0.35);
+  animation: featuredFloat 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarif-neon-wrap {
+    animation: none;
+    transform: scale(1.04);
+  }
+}
+.tarif-neon-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.tarif-neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%, transparent 20%,
+    #7a4800 30%, #c9893a 40%, #f5d07a 50%,
+    #c9893a 60%, #7a4800 70%,
+    transparent 80%, transparent 100%
+  );
+  animation: neonSpinV7 2.5s linear infinite;
+}
+.tarif-neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 14px;
+  background: #0f1e35;
+}
+
 /* V7 CTA block */
 .cta-block-v7 {
   background: #0f1e35;
@@ -270,6 +372,13 @@ body {
     transform: scale(1);
     margin-top: 0;
     margin-bottom: 0;
+  }
+  .tarif-neon-wrap {
+    transform: scale(1.02);
+    animation: none;
+    box-shadow:
+      0 0 16px rgba(201,137,58,0.10),
+      0 12px 36px rgba(0,0,0,0.30);
   }
   .cta-block-v7 {
     grid-template-columns: 1fr;
