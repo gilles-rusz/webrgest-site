@@ -150,6 +150,55 @@ body {
   }
 }
 
+/* ===== HERO SLIDE-IN ANIMATION ===== */
+@keyframes heroSlideIn {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero-slide-in {
+  opacity: 0;
+  animation: heroSlideIn 0.65s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-in {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ===== BENEFIT CARDS SHINE ===== */
+@keyframes benefitShine {
+  0%   { transform: translateX(-120%) rotate(15deg); opacity: 0; }
+  40%  { opacity: 0.5; }
+  100% { transform: translateX(200%) rotate(15deg); opacity: 0; }
+}
+
+.benefit-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255,255,255,0.06) 45%,
+    rgba(255,255,255,0.12) 50%,
+    rgba(255,255,255,0.06) 55%,
+    transparent 65%
+  );
+  transform: translateX(-120%) rotate(15deg);
+  animation: benefitShine 5s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit-shine::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* ===== V7 HOMEPAGE STYLES ===== */
 @keyframes fadeUpV7 {
   from { opacity: 0; transform: translateY(26px); }

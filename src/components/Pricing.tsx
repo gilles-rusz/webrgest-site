@@ -35,6 +35,25 @@ interface Plan {
 
 const mainPlans: Plan[] = [
   {
+    title: "Automatisation",
+    subtitle: "Gagner du temps sur vos tâches répétitives",
+    price: "190",
+    unit: "€",
+    description:
+      "Des automatisations simples pour réduire les tâches manuelles\u00a0: emails, notifications, formulaires, suivis ou connexions entre outils.",
+    features: [
+      "Analyse du besoin",
+      "Création d\u2019un workflow simple",
+      "Connexion entre outils existants",
+      "Notifications automatiques",
+      "Test et mise en route",
+      "Explication claire du fonctionnement",
+    ],
+    cta: "Recevoir un devis",
+    ctaHref: "/devis-gratuit?offre=Automatisation",
+    icon: Zap,
+  },
+  {
     title: "Site Vitrine",
     subtitle: "Présenter votre activité et recevoir des demandes de contact",
     badge: "Le plus demandé",
@@ -75,29 +94,9 @@ const mainPlans: Plan[] = [
     icon: ShoppingCart,
   },
   {
-    title: "Automatisation",
-    subtitle: "Gagner du temps sur vos tâches répétitives",
-    price: "190",
-    unit: "€",
-    description:
-      "Des automatisations simples pour réduire les tâches manuelles : emails, notifications, formulaires, suivis ou connexions entre outils.",
-    features: [
-      "Analyse du besoin",
-      "Création d\u2019un workflow simple",
-      "Connexion entre outils existants",
-      "Notifications automatiques",
-      "Test et mise en route",
-      "Explication claire du fonctionnement",
-    ],
-    cta: "Recevoir un devis",
-    ctaHref: "/devis-gratuit?offre=Automatisation",
-    icon: Zap,
-  },
-  {
     title: "Application Web",
     subtitle: "Projet sur mesure",
-    price: "2 500",
-    unit: "€",
+    price: "Sur devis",
     description:
       "Une solution web développée sur mesure pour répondre à un besoin métier spécifique.",
     features: [
@@ -179,10 +178,12 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       </div>
 
       <div className="mb-4">
-        <span className="text-xs text-slate-400">À partir de</span>
+        {plan.unit && (
+          <span className="text-xs text-slate-400">À partir de</span>
+        )}
         <div className="flex items-baseline gap-1">
           <span className={`text-3xl font-bold ${plan.featured ? "offer-price-gold-v7" : "text-gold-400"}`}>
-            {plan.price}&nbsp;{plan.unit}
+            {plan.price}{plan.unit ? <>&nbsp;{plan.unit}</> : null}
           </span>
         </div>
       </div>
