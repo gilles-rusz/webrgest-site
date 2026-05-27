@@ -245,6 +245,41 @@ body {
   -webkit-text-fill-color: #4a7090;
 }
 
+/* V7 Tarifs neon card (large) */
+.tarif-neon-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: visible;
+}
+.tarif-neon-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.tarif-neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%, transparent 20%,
+    #7a4800 30%, #c9893a 40%, #f5d07a 50%,
+    #c9893a 60%, #7a4800 70%,
+    transparent 80%, transparent 100%
+  );
+  animation: neonSpinV7 2.5s linear infinite;
+}
+.tarif-neon-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 14px;
+  background: #0f1e35;
+}
+
 /* V7 CTA block */
 .cta-block-v7 {
   background: #0f1e35;
