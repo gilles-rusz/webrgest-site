@@ -53,10 +53,12 @@ interface WizardData {
 }
 
 const PROJECT_OPTIONS: { value: string; label: string; desc: string; Icon: LucideIcon }[] = [
-  { value: "Site vitrine",  label: "Site vitrine",  desc: "Présentez votre activité en ligne",    Icon: Monitor      },
-  { value: "Refonte",       label: "Refonte",        desc: "Modernisez votre site existant",       Icon: RefreshCw    },
-  { value: "E-commerce",    label: "E-commerce",     desc: "Vendez vos produits en ligne",         Icon: ShoppingCart },
-  { value: "Autre",         label: "Autre",          desc: "Autre type de projet",                 Icon: Plus         },
+  { value: "Site vitrine",    label: "Site Vitrine",    desc: "Présentez votre activité en ligne",              Icon: Monitor      },
+  { value: "E-commerce",      label: "E-commerce",      desc: "Vendez vos produits en ligne",                   Icon: ShoppingCart },
+  { value: "Automatisation",  label: "Automatisation",  desc: "Gagnez du temps sur vos tâches répétitives",     Icon: RefreshCw    },
+  { value: "Application Web", label: "Application Web", desc: "Projet sur mesure",                              Icon: Monitor      },
+  { value: "Refonte",         label: "Refonte",         desc: "Modernisez votre site existant",                 Icon: RefreshCw    },
+  { value: "Autre",           label: "Autre",           desc: "Autre type de projet",                           Icon: Plus         },
 ];
 
 const SECTOR_OPTIONS: { value: string; label: string; desc: string; Icon: LucideIcon }[] = [
@@ -68,9 +70,10 @@ const SECTOR_OPTIONS: { value: string; label: string; desc: string; Icon: Lucide
 ];
 
 const BUDGET_OPTIONS: { value: string; label: string; desc: string }[] = [
-  { value: "490 – 700 €",           label: "490 – 700 €",           desc: "Site Express, solution simple et efficace"        },
-  { value: "700 – 1 200 €",         label: "700 – 1 200 €",         desc: "Site Vitrine complet et optimisé SEO"             },
-  { value: "1 200 € +",             label: "1 200 € +",             desc: "E-commerce, application ou sur mesure"            },
+  { value: "Moins de 500 €",        label: "Moins de 500 €",        desc: "Automatisation ou projet simple"                  },
+  { value: "500 – 1 000 €",         label: "500 – 1 000 €",         desc: "Site Vitrine professionnel"                       },
+  { value: "1 000 – 2 000 €",       label: "1 000 – 2 000 €",       desc: "E-commerce ou projet avancé"                      },
+  { value: "2 000 € +",             label: "2 000 € +",             desc: "Application web sur mesure"                       },
   { value: "Je ne sais pas encore", label: "Je ne sais pas encore", desc: "Conseillez-moi selon mon besoin"                  },
 ];
 

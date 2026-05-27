@@ -103,20 +103,20 @@ export default function CreationSiteGrandEst() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-gold-400">Site Express</strong> — à
-                partir de 490€
+                <strong className="text-gold-400">Automatisation</strong> — à
+                partir de 190€
               </li>
               <li>
-                <strong className="text-gold-400">Site Vitrine complet</strong>{" "}
-                — à partir de 990€
+                <strong className="text-gold-400">Site Vitrine</strong>{" "}
+                — à partir de 590€
               </li>
               <li>
                 <strong className="text-gold-400">E-Commerce</strong> — à partir
                 de 1 490€
               </li>
               <li>
-                <strong className="text-gold-400">Application Web</strong> — à
-                partir de 2 500€
+                <strong className="text-gold-400">Application Web</strong> — sur
+                devis
               </li>
             </ul>
           </section>

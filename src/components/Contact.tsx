@@ -271,12 +271,11 @@ export default function Contact() {
                     <option value="">Sélectionnez...</option>
                     <option value="Site Vitrine">Site Vitrine</option>
                     <option value="E-Commerce">E-Commerce</option>
+                    <option value="Automatisation">Automatisation</option>
                     <option value="Application Web">Application Web</option>
                     <option value="Refonte de Site">Refonte de Site</option>
-                    <option value="Landing Page">Landing Page</option>
-                    <option value="Site Express">Site Express</option>
-                    <option value="Portfolio / CV">Portfolio / CV</option>
-                    <option value="Automatisation">Automatisation</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Modification ponctuelle">Modification ponctuelle</option>
                     <option value="Autre">Autre</option>
                   </select>
                 </div>

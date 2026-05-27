@@ -156,32 +156,32 @@ export default function ArticleCoutSiteArtisan() {
 
                 <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-white">Site Express (1–3 pages)</h3>
-                    <span className="text-gold-400 font-bold text-sm">490–790€</span>
+                    <h3 className="font-bold text-white">Automatisation</h3>
+                    <span className="text-gold-400 font-bold text-sm">À partir de 190€</span>
                   </div>
                   <p className="text-slate-400 text-xs">
-                    Accueil, services, contact. L&apos;essentiel pour exister en ligne rapidement. Idéal pour démarrer ou pour un budget serré.
+                    Gagner du temps sur vos tâches répétitives : emails, notifications, formulaires, connexions entre outils.
                   </p>
                 </div>
 
                 <div className="rounded-xl p-5 bg-teal-500/10 border border-teal-500/30">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-white">Site Vitrine Complet (5–8 pages)</h3>
-                    <span className="text-teal-400 font-bold text-sm">990–1 490€</span>
+                    <h3 className="font-bold text-white">Site Vitrine</h3>
+                    <span className="text-teal-400 font-bold text-sm">À partir de 590€</span>
                   </div>
                   <p className="text-slate-400 text-xs mb-2">
-                    Accueil, services détaillés, galerie de réalisations, à propos, contact. SEO local inclus. C&apos;est la formule la plus populaire pour un artisan.
+                    Un site professionnel pour présenter votre entreprise, rassurer vos visiteurs et leur donner envie de vous contacter. SEO de base inclus.
                   </p>
-                  <p className="text-xs text-teal-300 font-semibold">Recommandé pour la plupart des artisans</p>
+                  <p className="text-xs text-teal-300 font-semibold">Le plus demandé</p>
                 </div>
 
                 <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-white">Site avec Fonctionnalités Avancées</h3>
-                    <span className="text-gold-400 font-bold text-sm">1 490€+</span>
+                    <h3 className="font-bold text-white">E-commerce</h3>
+                    <span className="text-gold-400 font-bold text-sm">À partir de 1 490€</span>
                   </div>
                   <p className="text-slate-400 text-xs">
-                    Réservation en ligne, espace client, e-commerce, blog... Pour les artisans qui veulent aller plus loin.
+                    Boutique en ligne professionnelle avec catalogue produits, panier et paiement sécurisé.
                   </p>
                 </div>
               </div>

@@ -125,13 +125,12 @@ export default function SiteWebArtisan() {
             </h2>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-gold-400">Site Express</strong> (1-3
-                pages) — à partir de <strong className="text-white">490€</strong>
+                <strong className="text-gold-400">Site Vitrine</strong>{" "}
+                — à partir de <strong className="text-white">590€</strong>
               </li>
               <li>
-                <strong className="text-gold-400">Site Vitrine complet</strong>{" "}
-                (5+ pages, galerie, SEO) — à partir de{" "}
-                <strong className="text-white">990€</strong>
+                <strong className="text-gold-400">E-commerce</strong>{" "}
+                — à partir de <strong className="text-white">1 490€</strong>
               </li>
             </ul>
             <p className="mt-4">
