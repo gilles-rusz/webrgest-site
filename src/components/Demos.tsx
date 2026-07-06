@@ -18,16 +18,16 @@ const demos = [
     internal: true,
   },
   {
-    title: "Terroir d'Alsace",
-    subtitle: "Produits Locaux & Artisanaux",
+    title: "Burovia",
+    subtitle: "Accessoires de Télétravail",
     type: "E-Commerce",
     description:
-      "Boutique en ligne de produits du terroir alsacien. Catalogue avec filtres, panier fonctionnel, fiches produits détaillées et paiement sécurisé.",
-    features: ["Catalogue produits", "Panier interactif", "Filtres & recherche", "Fiches détaillées", "Paiement sécurisé"],
-    url: "/demos/ecommerce",
+      "Boutique en ligne d'accessoires pour le télétravail. Catalogue produits, panier interactif, fiches détaillées et paiement sécurisé.",
+    features: ["Catalogue produits", "Panier interactif", "Fiches détaillées", "Paiement sécurisé", "Design responsive"],
+    url: "https://burovia.eu",
     icon: ShoppingCart,
-    image: "/demos/vignoble-alsace.png",
-    internal: true,
+    image: "/demos/burovia.jpg",
+    internal: false,
   },
 ];
 
@@ -84,9 +84,15 @@ export default function Demos() {
                     <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">
                       {demo.type}
                     </span>
-                    <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-gold-400/10 text-gold-400 border border-gold-400/20">
-                      Démo fictive
-                    </span>
+                    {demo.internal ? (
+                      <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-gold-400/10 text-gold-400 border border-gold-400/20">
+                        Démo fictive
+                      </span>
+                    ) : (
+                      <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        Site en ligne
+                      </span>
+                    )}
                   </div>
                   <div className="absolute top-4 right-4">
                     {demo.internal ? (
