@@ -99,6 +99,11 @@ export default function PolitiqueConfidentialite() {
               <li>Localisation géographique approximative</li>
             </ul>
             <p className="mt-3">
+              Ce site utilise également <strong className="text-white">Google Ads</strong> afin
+              de mesurer les conversions et l&apos;efficacité de nos campagnes publicitaires.
+              Ces cookies ne sont déposés qu&apos;après votre consentement via le bandeau cookies.
+            </p>
+            <p className="mt-3">
               Vous pouvez désactiver les cookies dans les paramètres de votre navigateur
               ou installer l&apos;extension{" "}
               <a

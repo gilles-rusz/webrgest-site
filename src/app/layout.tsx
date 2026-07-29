@@ -55,9 +55,13 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('consent', 'default', {
               analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
             });
             gtag('js', new Date());
             gtag('config', 'G-DD380PLJ90');
+            gtag('config', 'AW-18139009744');
           `}
         </Script>
       </body>
