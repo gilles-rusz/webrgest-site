@@ -12,8 +12,21 @@ import {
   Settings,
   CheckCircle2,
   ArrowRight,
+  CreditCard,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+/* ────────────────────────────────────────
+   STRIPE — Liens de paiement en plusieurs fois
+   Renseigner ici les Payment Links créés dans le tableau de bord
+   Stripe « Web RG Est » (format https://buy.stripe.com/...).
+   Laisser une chaîne vide masque le bouton « Payer en plusieurs fois ».
+   ──────────────────────────────────────── */
+
+const STRIPE_PAYMENT_LINKS: Record<"vitrine" | "ecommerce", string> = {
+  vitrine: "",
+  ecommerce: "",
+};
 
 /* ────────────────────────────────────────
    DATA
@@ -25,87 +38,83 @@ interface Plan {
   badge?: string;
   price: string;
   unit?: string;
+  period?: string;
+  installment?: string;
   description: string;
   features: string[];
   cta: string;
   ctaHref: string;
+  stripeKey?: keyof typeof STRIPE_PAYMENT_LINKS;
+  installmentLabel?: string;
   icon: LucideIcon;
   featured?: boolean;
 }
 
 const mainPlans: Plan[] = [
   {
-    title: "Automatisation",
-    subtitle: "Gagner du temps sur vos tâches répétitives",
-    price: "190",
-    unit: "€",
-    description:
-      "Des automatisations simples pour réduire les tâches manuelles\u00a0: emails, notifications, formulaires, suivis ou connexions entre outils.",
-    features: [
-      "Analyse du besoin",
-      "Création d\u2019un workflow simple",
-      "Connexion entre outils existants",
-      "Notifications automatiques",
-      "Test et mise en route",
-      "Explication claire du fonctionnement",
-    ],
-    cta: "Recevoir un devis",
-    ctaHref: "/devis-gratuit?offre=Automatisation",
-    icon: Zap,
-  },
-  {
     title: "Site Vitrine",
-    subtitle: "Présenter votre activité et recevoir des demandes de contact",
-    badge: "Le plus demandé",
-    price: "590",
+    subtitle: "Présenter votre activité et générer des demandes de devis",
+    badge: "Le plus populaire",
+    price: "49",
     unit: "€",
+    period: "/ mois pendant 12 mois",
+    installment:
+      "12 mensualités de 49 € (soit 588 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 590 € en paiement unique par virement)",
     description:
-      "Un site professionnel pour présenter votre entreprise, rassurer vos visiteurs et leur donner envie de vous contacter.",
+      "Un site professionnel sur-mesure pour présenter votre activité, rassurer vos prospects et générer des demandes de devis qualifiées.",
     features: [
-      "Design moderne et responsive",
-      "1 à 3 pages selon le besoin",
-      "Formulaire de contact",
-      "SEO de base",
-      "Intégration réseaux sociaux",
-      "Mise en ligne accompagnée",
+      "Design moderne, responsive (mobile & tablette)",
+      "1 à 5 pages sur-mesure (Accueil, Services, À propos, Contact, Devis)",
+      "Formulaire de contact / demande de devis dynamique",
+      "Optimisation SEO de base & référencement Google",
+      "Intégration de vos réseaux sociaux & Google Maps",
+      "Hébergement, nom de domaine & certificat SSL inclus",
+      "Mise en ligne accompagnée & formation à la prise en main",
     ],
-    cta: "Recevoir un devis",
+    cta: "Demander mon devis",
     ctaHref: "/devis-gratuit?offre=Site+Vitrine",
+    stripeKey: "vitrine",
+    installmentLabel: "Payer en 12× de 49 €",
     icon: Globe,
     featured: true,
   },
   {
-    title: "E-commerce",
-    subtitle: "Vendre vos produits en ligne",
-    price: "1 490",
+    title: "Site E-Commerce",
+    subtitle: "Vendre vos produits en ligne 24h/24",
+    price: "124",
     unit: "€",
+    period: "/ mois pendant 12 mois",
+    installment:
+      "12 mensualités de 124 € (soit 1 488 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 1 490 € en paiement unique par virement)",
     description:
-      "Une boutique en ligne professionnelle pour vendre vos produits avec une solution claire, moderne et sécurisée.",
+      "Une boutique en ligne complète et sécurisée pour vendre vos produits et développer votre chiffre d'affaires 24h/24.",
     features: [
-      "Catalogue produits",
-      "Panier et paiement sécurisé",
-      "Pages essentielles",
-      "Responsive mobile",
-      "SEO e-commerce de base",
-      "Formation à la gestion",
+      "Tout ce qui est inclus dans le site Vitrine",
+      "Catalogue produits avec gestion des catégories & stocks",
+      "Panier d'achat & paiement sécurisé (Stripe / CB / PayPal)",
+      "Espace client & gestion des commandes",
+      "SEO e-commerce optimisé",
+      "Formation complète à la gestion de boutique en ligne",
     ],
-    cta: "Recevoir un devis",
+    cta: "Démarrer mon projet e-commerce",
     ctaHref: "/devis-gratuit?offre=E-commerce",
+    stripeKey: "ecommerce",
+    installmentLabel: "Payer en 12× de 124 €",
     icon: ShoppingCart,
   },
   {
-    title: "Application Web",
-    subtitle: "Projet sur mesure",
+    title: "Sur-Mesure & Application Web",
+    subtitle: "Fonctionnalités avancées et outils métier",
     price: "Sur devis",
+    installment: "Étude personnalisée de votre cahier des charges",
     description:
-      "Une solution web développée sur mesure pour répondre à un besoin métier spécifique.",
+      "Des fonctionnalités avancées ou un outil métier développé sur-mesure pour répondre à des besoins spécifiques.",
     features: [
-      "Analyse du besoin",
-      "Cahier des charges simplifié",
-      "Développement sur mesure",
-      "Interface administrateur si nécessaire",
-      "Base de données si nécessaire",
-      "Tests et accompagnement",
+      "Analyse approfondie du besoin & cahier des charges",
+      "Développement sur-mesure (React, Node, etc.)",
+      "Espace utilisateur / tableau de bord administrateur",
+      "Connexion base de données & API",
+      "Tests, recette & accompagnement continu",
     ],
     cta: "Parler de mon projet",
     ctaHref: "/devis-gratuit?offre=Application+Web",
@@ -156,6 +165,7 @@ const options: Option[] = [
 
 function PlanCard({ plan, index }: { plan: Plan; index: number }) {
   const Icon = plan.icon;
+  const stripeLink = plan.stripeKey ? STRIPE_PAYMENT_LINKS[plan.stripeKey] : "";
 
   const inner = (
     <div className="relative z-[1] flex h-full flex-col rounded-2xl bg-[#0f1e35] p-7">
@@ -178,14 +188,19 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       </div>
 
       <div className="mb-4">
-        {plan.unit && (
-          <span className="text-xs text-slate-400">À partir de</span>
-        )}
-        <div className="flex items-baseline gap-1">
+        <div className="flex items-baseline gap-1.5">
           <span className={`text-3xl font-bold ${plan.featured ? "offer-price-gold-v7" : "text-gold-400"}`}>
             {plan.price}{plan.unit ? <>&nbsp;{plan.unit}</> : null}
           </span>
+          {plan.period && (
+            <span className="text-sm font-medium text-slate-400">{plan.period}</span>
+          )}
         </div>
+        {plan.installment && (
+          <p className="mt-2 text-xs leading-relaxed text-slate-400/80">
+            {plan.installment}
+          </p>
+        )}
       </div>
 
       <p className="mb-5 text-sm leading-relaxed text-slate-400">{plan.description}</p>
@@ -199,16 +214,30 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
         ))}
       </ul>
 
-      <Link
-        href={plan.ctaHref}
-        className={`mt-auto block rounded-lg py-3 text-center text-sm font-semibold transition-colors duration-200 ${
-          plan.featured
-            ? "bg-teal-500 text-white hover:bg-teal-400"
-            : "border border-teal-500/30 bg-teal-500/10 text-teal-400 hover:bg-teal-500 hover:text-white"
-        }`}
-      >
-        {plan.cta}
-      </Link>
+      <div className="mt-auto space-y-2.5">
+        <Link
+          href={plan.ctaHref}
+          className={`block rounded-lg py-3 text-center text-sm font-semibold transition-colors duration-200 ${
+            plan.featured
+              ? "bg-teal-500 text-white hover:bg-teal-400"
+              : "border border-teal-500/30 bg-teal-500/10 text-teal-400 hover:bg-teal-500 hover:text-white"
+          }`}
+        >
+          {plan.cta}
+        </Link>
+
+        {stripeLink && (
+          <a
+            href={stripeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-lg border border-navy-600 py-2.5 text-center text-xs font-semibold text-slate-300 transition-colors duration-200 hover:border-teal-500/40 hover:text-teal-400"
+          >
+            <CreditCard className="h-4 w-4" />
+            {plan.installmentLabel ?? "Payer en plusieurs fois"}
+          </a>
+        )}
+      </div>
     </div>
   );
 
@@ -285,16 +314,48 @@ export default function Pricing() {
           </p>
           <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400/70">
             Pas de mauvaise surprise&nbsp;: vous savez où vous allez dès le
-            départ.
+            départ. Paiement en plusieurs fois possible, sans frais cachés.
           </p>
         </motion.div>
 
-        {/* ── 4 OFFRES PRINCIPALES ── */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* ── 3 OFFRES PRINCIPALES ── */}
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {mainPlans.map((plan, i) => (
             <PlanCard key={plan.title} plan={plan} index={i} />
           ))}
         </div>
+
+        {/* ── BANDEAU AUTOMATISATION ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-6 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-8 sm:flex-row sm:justify-between sm:text-left"
+        >
+          <div className="flex items-start gap-4">
+            <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-teal-500/10">
+              <Zap className="h-5 w-5 text-teal-400" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-white">
+                Besoin d&apos;automatiser vos processus&nbsp;?
+              </h3>
+              <p className="mt-1 max-w-xl text-sm leading-relaxed text-slate-400">
+                Gagnez du temps au quotidien en connectant vos outils (emails,
+                formulaires, CRM, notifications). Solutions d&apos;automatisation
+                sur-mesure à partir de&nbsp;190&nbsp;€.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/devis-gratuit?offre=Automatisation"
+            className="inline-flex flex-shrink-0 items-center gap-2 rounded-lg border border-teal-500/30 bg-teal-500/10 px-6 py-3 text-sm font-semibold text-teal-400 transition-colors duration-200 hover:bg-teal-500 hover:text-white"
+          >
+            En savoir plus sur l&apos;automatisation
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </motion.div>
 
         {/* ── REFONTE ── */}
         <motion.div
