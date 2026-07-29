@@ -25,6 +25,9 @@ export default function CookieBanner() {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         analytics_storage: "granted",
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
       });
     }
   }
@@ -33,6 +36,9 @@ export default function CookieBanner() {
     if (typeof window !== "undefined" && typeof window.gtag === "function") {
       window.gtag("consent", "update", {
         analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
       });
     }
   }
@@ -80,7 +86,7 @@ export default function CookieBanner() {
                 </div>
 
                 <p className="text-sm text-slate-400 mb-4 leading-relaxed">
-                  Nous utilisons Google Analytics pour mesurer l&apos;audience de notre site et am&eacute;liorer votre exp&eacute;rience.
+                  Nous utilisons Google Analytics et Google Ads pour mesurer l&apos;audience de notre site, suivre nos campagnes et am&eacute;liorer votre exp&eacute;rience.
                   Aucune donn&eacute;e personnelle n&apos;est vendue ou partag&eacute;e avec des tiers.
                   Consultez notre{" "}
                   <a
