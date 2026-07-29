@@ -59,7 +59,7 @@ const mainPlans: Plan[] = [
     unit: "€",
     period: "/ mois pendant 12 mois",
     installment:
-      "Soit 12 mensualités de 49 € · Coût total\u00a0: 588 € (ou 590 € en paiement unique par virement)",
+      "12 mensualités de 49 € (soit 588 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 590 € en paiement unique par virement)",
     description:
       "Un site professionnel sur-mesure pour présenter votre activité, rassurer vos prospects et générer des demandes de devis qualifiées.",
     features: [
@@ -85,7 +85,7 @@ const mainPlans: Plan[] = [
     unit: "€",
     period: "/ mois pendant 12 mois",
     installment:
-      "Soit 12 mensualités de 124 € · Coût total\u00a0: 1 488 € (ou 1 490 € en paiement unique par virement)",
+      "12 mensualités de 124 € (soit 1 488 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 1 490 € en paiement unique par virement)",
     description:
       "Une boutique en ligne complète et sécurisée pour vendre vos produits et développer votre chiffre d'affaires 24h/24.",
     features: [
