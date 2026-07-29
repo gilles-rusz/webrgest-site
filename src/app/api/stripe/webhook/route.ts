@@ -37,6 +37,7 @@ async function scheduleTwoPhases(subscription: Stripe.Subscription) {
       {
         items: [{ price: phase1Price, quantity: 1 }],
         iterations: PHASE1_ITERATIONS,
+        start_date: schedule.phases[0].start_date,
       },
       {
         items: [{ price: phase2Price, quantity: 1 }],
