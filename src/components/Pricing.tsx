@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -17,16 +18,16 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 /* ────────────────────────────────────────
-   STRIPE — Liens de paiement en plusieurs fois
-   Renseigner ici les Payment Links créés dans le tableau de bord
-   Stripe « Web RG Est » (format https://buy.stripe.com/...).
-   Laisser une chaîne vide masque le bouton « Payer en plusieurs fois ».
+   STRIPE — Paiement en plusieurs fois (échéancier 12 mois)
+   Le bouton « Payer en plusieurs fois » lance un Stripe Checkout via
+   /api/stripe/checkout. Il n'apparaît que lorsque l'intégration est
+   activée (NEXT_PUBLIC_STRIPE_ENABLED="true") et que les clés/ID de prix
+   Stripe sont configurés côté serveur.
    ──────────────────────────────────────── */
 
-const STRIPE_PAYMENT_LINKS: Record<"vitrine" | "ecommerce", string> = {
-  vitrine: "",
-  ecommerce: "",
-};
+type StripePlanKey = "vitrine" | "ecommerce";
+
+const STRIPE_ENABLED = process.env.NEXT_PUBLIC_STRIPE_ENABLED === "true";
 
 /* ────────────────────────────────────────
    DATA
@@ -44,7 +45,7 @@ interface Plan {
   features: string[];
   cta: string;
   ctaHref: string;
-  stripeKey?: keyof typeof STRIPE_PAYMENT_LINKS;
+  stripeKey?: StripePlanKey;
   installmentLabel?: string;
   icon: LucideIcon;
   featured?: boolean;
@@ -165,7 +166,31 @@ const options: Option[] = [
 
 function PlanCard({ plan, index }: { plan: Plan; index: number }) {
   const Icon = plan.icon;
-  const stripeLink = plan.stripeKey ? STRIPE_PAYMENT_LINKS[plan.stripeKey] : "";
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const showInstallments = STRIPE_ENABLED && Boolean(plan.stripeKey);
+
+  async function handleInstallments() {
+    if (!plan.stripeKey || loading) return;
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: plan.stripeKey }),
+      });
+      const data = await res.json();
+      if (res.ok && data.url) {
+        window.location.href = data.url;
+        return;
+      }
+      setError(true);
+    } catch {
+      setError(true);
+    }
+    setLoading(false);
+  }
 
   const inner = (
     <div className="relative z-[1] flex h-full flex-col rounded-2xl bg-[#0f1e35] p-7">
@@ -226,16 +251,26 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
           {plan.cta}
         </Link>
 
-        {stripeLink && (
-          <a
-            href={stripeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-lg border border-navy-600 py-2.5 text-center text-xs font-semibold text-slate-300 transition-colors duration-200 hover:border-teal-500/40 hover:text-teal-400"
-          >
-            <CreditCard className="h-4 w-4" />
-            {plan.installmentLabel ?? "Payer en plusieurs fois"}
-          </a>
+        {showInstallments && (
+          <>
+            <button
+              type="button"
+              onClick={handleInstallments}
+              disabled={loading}
+              className="flex w-full items-center justify-center gap-2 rounded-lg border border-navy-600 py-2.5 text-center text-xs font-semibold text-slate-300 transition-colors duration-200 hover:border-teal-500/40 hover:text-teal-400 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <CreditCard className="h-4 w-4" />
+              {loading
+                ? "Redirection…"
+                : plan.installmentLabel ?? "Payer en plusieurs fois"}
+            </button>
+            {error && (
+              <p className="text-center text-xs text-red-400">
+                Paiement momentanément indisponible. Réessayez ou demandez un
+                devis.
+              </p>
+            )}
+          </>
         )}
       </div>
     </div>
