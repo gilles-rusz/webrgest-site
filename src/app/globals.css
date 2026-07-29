@@ -81,13 +81,6 @@ body {
   background: var(--color-teal-500);
 }
 
-/* Hide reCAPTCHA v3 badge (text attribution is shown in the form instead) */
-@layer base {
-  .grecaptcha-badge {
-    visibility: hidden !important;
-  }
-}
-
 /* Restaurant demo styles */
 .hero-overlay {
   background: linear-gradient(

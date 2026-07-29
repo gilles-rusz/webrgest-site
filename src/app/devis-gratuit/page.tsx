@@ -29,18 +29,8 @@ import {
 } from "lucide-react";
 
 const FORMSPREE_FORM_ID = "xdayjojp";
-const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
-
-declare global {
-  interface Window {
-    grecaptcha: {
-      ready: (cb: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
 
 interface WizardData {
   projectType: string;
@@ -209,6 +199,8 @@ export default function DevisGratuitPage() {
 
   const [step, setStep]   = useState(1);
   const [dir,  setDir]    = useState(1);
+  const [honeypot, setHoneypot]   = useState("");
+  const [formLoadTime]            = useState(() => Date.now());
   const [data, setData]   = useState<WizardData>({
     projectType: searchParams.get("offre") || "",
     sector:      "",
@@ -220,21 +212,17 @@ export default function DevisGratuitPage() {
   });
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  // ── reCAPTCHA ──────────────────────────────────────────────────────────────
-  const getRecaptchaToken = (): Promise<string> =>
-    new Promise((resolve, reject) => {
-      if (!window.grecaptcha) { reject(new Error("reCAPTCHA not loaded")); return; }
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(RECAPTCHA_SITE_KEY, { action: "submit_devis" })
-          .then(resolve)
-          .catch(reject);
-      });
-    });
-
   // ── Submit ─────────────────────────────────────────────────────────────────
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-spam : honeypot + délai minimum avant envoi
+    if (honeypot || Date.now() - formLoadTime < 3000) {
+      setStatus("success");
+      router.push("/merci");
+      return;
+    }
+
     setStatus("submitting");
 
     const utmSource   = searchParams.get("utm_source")   || "";
@@ -242,7 +230,6 @@ export default function DevisGratuitPage() {
     const utmCampaign = searchParams.get("utm_campaign") || "";
 
     try {
-      const recaptchaToken = await getRecaptchaToken();
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method:  "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -258,7 +245,6 @@ export default function DevisGratuitPage() {
           utm_source:            utmSource,
           utm_medium:            utmMedium,
           utm_campaign:          utmCampaign,
-          "g-recaptcha-response": recaptchaToken,
           _subject:              `[Devis] ${data.name} — ${data.projectType} — ${data.sector}`,
         }),
       });
@@ -515,6 +501,18 @@ export default function DevisGratuitPage() {
                           </div>
 
                           <form id="devis-form" onSubmit={handleSubmit} className="space-y-5">
+                            <div aria-hidden="true" style={{ position: "absolute", left: "-9999px" }} className="opacity-0 h-0 w-0 overflow-hidden">
+                              <label htmlFor="_gotcha">Ne pas remplir</label>
+                              <input
+                                id="_gotcha"
+                                type="text"
+                                name="_gotcha"
+                                value={honeypot}
+                                onChange={e => setHoneypot(e.target.value)}
+                                tabIndex={-1}
+                                autoComplete="off"
+                              />
+                            </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                               <div>
                                 <label className={labelCls}>Nom / Prénom *</label>
@@ -591,14 +589,6 @@ export default function DevisGratuitPage() {
                               <a href="/politique-de-confidentialite" className="text-teal-400 hover:text-teal-300 underline">
                                 Politique de confidentialité
                               </a>.
-                              {" "}Ce site est protégé par reCAPTCHA — les{" "}
-                              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400">
-                                règles de confidentialité
-                              </a>{" "}et{" "}
-                              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400">
-                                CGU
-                              </a>{" "}
-                              de Google s&apos;appliquent.
                             </p>
                           </form>
                         </>
