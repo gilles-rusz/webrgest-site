@@ -1,17 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Phone, Clock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 const FORMSPREE_FORM_ID = "xdayjojp";
-const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
-
-interface RecaptchaInstance {
-  ready: (cb: () => void) => void;
-  execute: (siteKey: string, options: { action: string }) => Promise<string>;
-}
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -30,26 +24,6 @@ export default function Contact() {
   const [formLoadTime] = useState(() => Date.now());
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  // Load reCAPTCHA v3 script
-  useEffect(() => {
-    if (document.querySelector(`script[src*="recaptcha/api.js"]`)) return;
-    const s = document.createElement("script");
-    s.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
-    s.async = true;
-    document.head.appendChild(s);
-  }, []);
-
-  const getRecaptchaToken = (): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const g = (window as unknown as { grecaptcha?: RecaptchaInstance }).grecaptcha;
-      if (!g) { reject(new Error("reCAPTCHA not loaded")); return; }
-      g.ready(() => {
-        g.execute(RECAPTCHA_SITE_KEY, { action: "submit_contact" })
-          .then(resolve)
-          .catch(reject);
-      });
-    });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -67,13 +41,6 @@ export default function Contact() {
     setStatus("submitting");
 
     try {
-      let recaptchaToken = "";
-      try {
-        recaptchaToken = await getRecaptchaToken();
-      } catch {
-        // Submit anyway — honeypot + time check still apply
-      }
-
       const response = await fetch(
         `https://formspree.io/f/${FORMSPREE_FORM_ID}`,
         {
@@ -91,7 +58,6 @@ export default function Contact() {
             budget: formData.budget || "Non renseigné",
             delai: formData.delai || "Non renseigné",
             message: formData.message,
-            "g-recaptcha-response": recaptchaToken,
             _subject: `[Web RG Est] Nouveau message de ${formData.name} — ${formData.subject}`,
           }),
         }
@@ -413,14 +379,6 @@ export default function Contact() {
                   politique de confidentialité
                 </a>{" "}
                 pour en savoir plus.
-              </p>
-
-              <p className="text-[11px] text-slate-600 leading-relaxed">
-                Ce site est protégé par reCAPTCHA — les{" "}
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">règles de confidentialité</a>{" "}
-                et les{" "}
-                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">conditions d&apos;utilisation</a>{" "}
-                de Google s&apos;appliquent.
               </p>
             </form>
           </motion.div>
