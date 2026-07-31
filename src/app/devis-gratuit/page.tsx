@@ -45,7 +45,6 @@ declare global {
 interface WizardData {
   projectType: string;
   sector: string;
-  budget: string;
   name: string;
   email: string;
   phone: string;
@@ -69,32 +68,21 @@ const SECTOR_OPTIONS: { value: string; label: string; desc: string; Icon: Lucide
   { value: "Autre secteur",         label: "Autre secteur",         desc: "Autre type d'activité",                   Icon: Plus        },
 ];
 
-const BUDGET_OPTIONS: { value: string; label: string; desc: string }[] = [
-  { value: "Moins de 500 €",        label: "Moins de 500 €",        desc: "Automatisation ou projet simple"                  },
-  { value: "500 – 1 000 €",         label: "500 – 1 000 €",         desc: "Site Vitrine professionnel"                       },
-  { value: "1 000 – 2 000 €",       label: "1 000 – 2 000 €",       desc: "E-commerce ou projet avancé"                      },
-  { value: "2 000 € +",             label: "2 000 € +",             desc: "Application web sur mesure"                       },
-  { value: "Je ne sais pas encore", label: "Je ne sais pas encore", desc: "Conseillez-moi selon mon besoin"                  },
-];
-
 const STEPS = [
   { n: 1, label: "Projet"  },
   { n: 2, label: "Secteur" },
-  { n: 3, label: "Budget"  },
-  { n: 4, label: "Contact" },
+  { n: 3, label: "Contact" },
 ];
 
 const STEP_TITLES = [
   "Quel type de projet vous intéresse ?",
   "Quel est votre secteur d'activité ?",
-  "Quel est votre budget estimé ?",
   "Vos coordonnées",
 ];
 
 const STEP_SUBS = [
   "Choisissez ce qui correspond le mieux à votre besoin.",
   "Cela m'aide à vous proposer la solution la plus adaptée.",
-  "Aucun engagement — juste pour calibrer ma proposition.",
   "Je vous recontacte sous 24 h.",
 ];
 
@@ -155,52 +143,6 @@ function OptionCard({
   );
 }
 
-// ─── BudgetCard ───────────────────────────────────────────────────────────────
-
-function BudgetCard({
-  label,
-  desc,
-  selected,
-  onClick,
-}: {
-  label: string;
-  desc: string;
-  selected: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`w-full text-left p-4 sm:p-5 rounded-xl border-2 transition-all duration-200 group ${
-        selected
-          ? "border-teal-500 bg-teal-500/10 shadow-[0_0_0_1px_rgba(20,184,166,0.15),0_8px_24px_rgba(20,184,166,0.08)]"
-          : "border-navy-700/70 bg-navy-800/40 hover:border-teal-500/40 hover:bg-navy-800/70"
-      }`}
-    >
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <p className={`font-bold text-base sm:text-lg leading-tight transition-colors ${
-            selected ? "text-white" : "text-slate-200"
-          }`}>
-            {label}
-          </p>
-          <p className={`text-xs sm:text-sm mt-1 leading-relaxed ${
-            selected ? "text-teal-100/75" : "text-slate-500"
-          }`}>
-            {desc}
-          </p>
-        </div>
-        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
-          selected ? "bg-teal-500 border-teal-500" : "border-navy-600"
-        }`}>
-          {selected && <Check className="w-3 h-3 text-white" />}
-        </div>
-      </div>
-    </button>
-  );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function DevisGratuitPage() {
@@ -212,7 +154,6 @@ export default function DevisGratuitPage() {
   const [data, setData]   = useState<WizardData>({
     projectType: searchParams.get("offre") || "",
     sector:      "",
-    budget:      "",
     name:        "",
     email:       "",
     phone:       "",
@@ -253,7 +194,6 @@ export default function DevisGratuitPage() {
           phone:                 data.phone || "Non renseigné",
           subject:               data.projectType,
           sector:                data.sector,
-          budget:                data.budget,
           message:               data.message,
           utm_source:            utmSource,
           utm_medium:            utmMedium,
@@ -279,10 +219,9 @@ export default function DevisGratuitPage() {
   // ── Navigation ─────────────────────────────────────────────────────────────
   const canProceed =
     (step === 1 && !!data.projectType) ||
-    (step === 2 && !!data.sector)      ||
-    (step === 3 && !!data.budget);
+    (step === 2 && !!data.sector);
 
-  const goNext = () => { setDir(1);  setStep(s => Math.min(s + 1, 4)); };
+  const goNext = () => { setDir(1);  setStep(s => Math.min(s + 1, 3)); };
   const goPrev = () => { setDir(-1); setStep(s => Math.max(s - 1, 1)); };
   const setField = (field: keyof WizardData) => (val: string) =>
     setData(d => ({ ...d, [field]: val }));
@@ -484,27 +423,12 @@ export default function DevisGratuitPage() {
                         </div>
                       )}
 
-                      {/* Step 3 — Budget */}
+                      {/* Step 3 — Coordonnées */}
                       {step === 3 && (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {BUDGET_OPTIONS.map(o => (
-                            <BudgetCard
-                              key={o.value}
-                              label={o.label}
-                              desc={o.desc}
-                              selected={data.budget === o.value}
-                              onClick={() => setField("budget")(o.value)}
-                            />
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Step 4 — Coordonnées */}
-                      {step === 4 && (
                         <>
                           {/* Recap chips */}
                           <div className="flex flex-wrap gap-2 mb-6 pb-5 border-b border-navy-700/50">
-                            {[data.projectType, data.sector, data.budget].filter(Boolean).map((v) => (
+                            {[data.projectType, data.sector].filter(Boolean).map((v) => (
                               <span
                                 key={v}
                                 className="px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-300 border border-teal-500/20"
@@ -620,7 +544,7 @@ export default function DevisGratuitPage() {
                     Précédent
                   </button>
 
-                  {step < 4 ? (
+                  {step < 3 ? (
                     <button
                       type="button"
                       onClick={goNext}
@@ -631,7 +555,7 @@ export default function DevisGratuitPage() {
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   ) : (
-                    /* Spacer so Précédent stays left-aligned on step 4 */
+                    /* Spacer so Précédent stays left-aligned on the last step */
                     <div />
                   )}
                 </div>
