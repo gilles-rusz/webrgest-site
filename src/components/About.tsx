@@ -80,7 +80,7 @@ export default function About() {
               <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                 <h4 className="font-semibold text-white mb-1">Un profil hybride</h4>
                 <p className="text-sm text-slate-400">
-                  Développeur web certifié avec 22 ans d&apos;expérience en management industriel. Je ne code pas juste un site — je comprends votre métier.
+                  Développeur web certifié avec 22 ans d&apos;expérience en management industriel. Je ne code pas juste un site, je comprends votre métier.
                 </p>
               </div>
               <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">

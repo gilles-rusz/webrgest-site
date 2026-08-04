@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité | Web RG Est",
-  description: "Politique de confidentialité du site webrgest.fr — Web RG Est.",
+  description: "Politique de confidentialité du site webrgest.fr (Web RG Est).",
 };
 
 export default function PolitiqueConfidentialite() {
@@ -30,7 +30,7 @@ export default function PolitiqueConfidentialite() {
               Le responsable du traitement des données personnelles est :
             </p>
             <ul className="mt-3 space-y-1">
-              <li><strong className="text-white">Gilles Ruszczycki</strong> — Web RG Est</li>
+              <li><strong className="text-white">Gilles Ruszczycki</strong> : Web RG Est</li>
               <li>17 Rue de la Division Leclerc, 57280 Maizières-lès-Metz</li>
               <li>Email : <a href="mailto:contact@webrgest.fr" className="text-teal-400 hover:text-teal-300">contact@webrgest.fr</a></li>
             </ul>

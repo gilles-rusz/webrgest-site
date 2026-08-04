@@ -78,27 +78,27 @@ export default function SiteWebArtisan() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-white">Page d&apos;accueil</strong> — votre
+                <strong className="text-white">Page d&apos;accueil</strong> : votre
                 métier, votre zone d&apos;intervention, vos points forts
               </li>
               <li>
-                <strong className="text-white">Galerie de réalisations</strong> —
+                <strong className="text-white">Galerie de réalisations</strong> :
                 photos de vos chantiers et projets
               </li>
               <li>
-                <strong className="text-white">Page services</strong> — détail
+                <strong className="text-white">Page services</strong> : détail
                 de vos prestations
               </li>
               <li>
-                <strong className="text-white">Formulaire de contact</strong> —
+                <strong className="text-white">Formulaire de contact</strong> :
                 demande de devis simple et rapide
               </li>
               <li>
-                <strong className="text-white">Référencement local</strong> —
+                <strong className="text-white">Référencement local</strong> :
                 pour apparaître sur Google dans votre ville
               </li>
               <li>
-                <strong className="text-white">Compatible mobile</strong> — votre
+                <strong className="text-white">Compatible mobile</strong> : votre
                 site s&apos;affiche parfaitement sur smartphone
               </li>
             </ul>
@@ -112,7 +112,7 @@ export default function SiteWebArtisan() {
               Ancien Team Leader en milieu industriel pendant{" "}
               <strong className="text-white">22 ans chez Stellantis</strong>,
               je connais le terrain. Vous n&apos;avez pas le temps de vous
-              occuper d&apos;un site web — c&apos;est pour ça que je m&apos;occupe
+              occuper d&apos;un site web, c&apos;est pour ça que je m&apos;occupe
               de tout : de la conception à la mise en ligne, avec une formation
               pour que vous puissiez le gérer seul ensuite. Pas de jargon
               technique, pas de complications.
@@ -125,12 +125,10 @@ export default function SiteWebArtisan() {
             </h2>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-gold-400">Site Vitrine</strong>{" "}
-                — à partir de <strong className="text-white">590€</strong>
+                <strong className="text-gold-400">Site Vitrine</strong> : à partir de <strong className="text-white">590€</strong>
               </li>
               <li>
-                <strong className="text-gold-400">E-commerce</strong>{" "}
-                — à partir de <strong className="text-white">1 490€</strong>
+                <strong className="text-gold-400">E-commerce</strong> : à partir de <strong className="text-white">1 490€</strong>
               </li>
             </ul>
             <p className="mt-4">
@@ -144,7 +142,7 @@ export default function SiteWebArtisan() {
               Votre site d&apos;artisan, prêt en 2 à 4 semaines
             </h3>
             <p className="text-slate-400 mb-4">
-              Devis gratuit et sans engagement — réponse sous 24h.
+              Devis gratuit et sans engagement, réponse sous 24h.
             </p>
             <Link
               href="/devis-gratuit"

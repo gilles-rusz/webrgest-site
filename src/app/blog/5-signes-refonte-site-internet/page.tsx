@@ -124,7 +124,7 @@ export default function ArticleSignesRefonte() {
                     Votre site n&apos;est pas adapté au mobile
                   </h2>
                   <p className="mb-3">
-                    Les sites créés avant 2015 n&apos;étaient souvent pas &ldquo;responsive&rdquo; — c&apos;est-à-dire qu&apos;ils ne s&apos;adaptent pas à la taille de l&apos;écran. Résultat : sur smartphone, les textes sont minuscules, les boutons sont impossibles à cliquer, et l&apos;utilisateur doit zoomer en permanence.
+                    Les sites créés avant 2015 n&apos;étaient souvent pas &ldquo;responsive&rdquo;, c&apos;est-à-dire qu&apos;ils ne s&apos;adaptent pas à la taille de l&apos;écran. Résultat : sur smartphone, les textes sont minuscules, les boutons sont impossibles à cliquer, et l&apos;utilisateur doit zoomer en permanence.
                   </p>
                   <p>
                     Or depuis 2021, <strong className="text-white">Google pénalise les sites non-responsives dans ses résultats de recherche</strong>. Un site non adapté au mobile, c&apos;est une double peine : mauvaise expérience utilisateur et mauvais référencement.
@@ -146,7 +146,7 @@ export default function ArticleSignesRefonte() {
                     Les vieux sites WordPress avec des dizaines de plugins, ou les sites avec des images non compressées, peuvent mettre 8 à 15 secondes à charger. C&apos;est une éternité. <strong className="text-white">Chaque seconde supplémentaire fait partir 10% des visiteurs.</strong>
                   </p>
                   <p>
-                    Les technologies modernes (Next.js, Astro, hébergement optimisé) permettent d&apos;atteindre des temps de chargement inférieurs à 1 seconde — ce qui améliore à la fois l&apos;expérience utilisateur et votre positionnement sur Google.
+                    Les technologies modernes (Next.js, Astro, hébergement optimisé) permettent d&apos;atteindre des temps de chargement inférieurs à 1 seconde, ce qui améliore à la fois l&apos;expérience utilisateur et votre positionnement sur Google.
                   </p>
                 </div>
               </div>
@@ -198,7 +198,7 @@ export default function ArticleSignesRefonte() {
                 Si vous cochez 2 signes ou plus, une refonte vaut très probablement l&apos;investissement. Un nouveau site bien conçu peut <strong className="text-white">multiplier par 3 à 5 le nombre de contacts générés</strong> par rapport à un ancien site qui sous-performe.
               </p>
               <p>
-                La bonne nouvelle : contrairement à ce qu&apos;on imagine souvent, une refonte ne signifie pas partir de zéro. On garde votre contenu existant, vos textes, vos photos — et on reconstruit autour en optimisant tout ce qui pose problème.
+                La bonne nouvelle : contrairement à ce qu&apos;on imagine souvent, une refonte ne signifie pas partir de zéro. On garde votre contenu existant, vos textes, vos photos, et on reconstruit autour en optimisant tout ce qui pose problème.
               </p>
             </section>
 
@@ -228,7 +228,7 @@ export default function ArticleSignesRefonte() {
               Prêt à moderniser votre site ?
             </h3>
             <p className="text-slate-400 mb-6 max-w-md mx-auto">
-              Audit gratuit de votre site actuel — je vous dis précisément ce qui pose problème et ce qu&apos;une refonte changerait pour vous. Réponse sous 24h.
+              Audit gratuit de votre site actuel : je vous dis précisément ce qui pose problème et ce qu&apos;une refonte changerait pour vous. Réponse sous 24h.
             </p>
             <Link
               href="/devis-gratuit"

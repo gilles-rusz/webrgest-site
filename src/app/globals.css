@@ -294,7 +294,7 @@ body {
   -webkit-text-fill-color: #4a7090;
 }
 
-/* V7 Tarifs neon card (large) — featured float */
+/* V7 Tarifs neon card (large) - featured float */
 @keyframes featuredFloat {
   0%, 100% { transform: scale(1.04) translateY(0); }
   50%      { transform: scale(1.04) translateY(-8px); }

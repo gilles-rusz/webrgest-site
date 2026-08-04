@@ -23,7 +23,7 @@ async function sendAvisFallback({ name, company, rating, message }: AvisPayload)
       rating,
       message,
       subject: "Nouvel avis client à valider",
-      _subject: `[Web RG Est] Nouvel avis client — ${rating}/5`,
+      _subject: `[Web RG Est] Nouvel avis client : ${rating}/5`,
     }),
   });
 

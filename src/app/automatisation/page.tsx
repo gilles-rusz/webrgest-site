@@ -6,7 +6,7 @@ import { ArrowRight, Zap, Link2, RefreshCw, Settings, Clock, ShieldCheck, ArrowR
 export const metadata: Metadata = {
   title: "Automatisation avec n8n & IA | Web RG Est",
   description:
-    "Automatisez vos tâches répétitives grâce à n8n et l'intelligence artificielle. Emails, formulaires, CRM, notifications — gagnez du temps et réduisez les erreurs. Devis gratuit.",
+    "Automatisez vos tâches répétitives grâce à n8n et l'intelligence artificielle. Emails, formulaires, CRM, notifications : gagnez du temps et réduisez les erreurs. Devis gratuit.",
   keywords: [
     "automatisation n8n",
     "agent IA automatisation",
@@ -372,7 +372,7 @@ export default function AutomatisationPage() {
               </p>
               <div className="p-5 rounded-xl bg-navy-900/50 border border-teal-500/15 mb-8">
                 <h3 className="font-bold text-white mb-3">
-                  Offre Automatisation — à partir de 190€
+                  Offre Automatisation : à partir de 190€
                 </h3>
                 <ul className="space-y-2 text-sm text-slate-400">
                   <li className="flex items-center gap-2">

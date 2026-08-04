@@ -60,21 +60,21 @@ export default function CreationSiteGrandEst() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-white">Référencement local</strong> —
+                <strong className="text-white">Référencement local</strong> :
                 votre site apparaît quand on recherche vos services dans votre
                 ville ou département
               </li>
               <li>
-                <strong className="text-white">Site responsive</strong> — adapté
+                <strong className="text-white">Site responsive</strong> : adapté
                 à tous les écrans (mobile, tablette, desktop)
               </li>
               <li>
-                <strong className="text-white">Vitesse optimisée</strong> — un
+                <strong className="text-white">Vitesse optimisée</strong> : un
                 site rapide, c&apos;est un meilleur classement Google et plus de
                 visiteurs qui restent
               </li>
               <li>
-                <strong className="text-white">Formulaire de contact</strong> —
+                <strong className="text-white">Formulaire de contact</strong> :
                 pour convertir vos visiteurs en prospects
               </li>
             </ul>
@@ -89,7 +89,7 @@ export default function CreationSiteGrandEst() {
               industriel chez Stellantis</strong> et un titre professionnel de
               développeur web, j&apos;apporte une approche unique : je comprends vos
               contraintes métier avant de proposer une solution technique.
-              Pas de jargon inutile, pas de fonctionnalités superflues — juste
+              Pas de jargon inutile, pas de fonctionnalités superflues, juste
               un site efficace qui travaille pour votre activité.
             </p>
           </section>
@@ -103,19 +103,18 @@ export default function CreationSiteGrandEst() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
-                <strong className="text-gold-400">Automatisation</strong> — à
+                <strong className="text-gold-400">Automatisation</strong> : à
                 partir de 190€
               </li>
               <li>
-                <strong className="text-gold-400">Site Vitrine</strong>{" "}
-                — à partir de 590€
+                <strong className="text-gold-400">Site Vitrine</strong> : à partir de 590€
               </li>
               <li>
-                <strong className="text-gold-400">E-Commerce</strong> — à partir
+                <strong className="text-gold-400">E-Commerce</strong> : à partir
                 de 1 490€
               </li>
               <li>
-                <strong className="text-gold-400">Application Web</strong> — sur
+                <strong className="text-gold-400">Application Web</strong> : sur
                 devis
               </li>
             </ul>
@@ -139,7 +138,7 @@ export default function CreationSiteGrandEst() {
               Prêt à créer votre site web ?
             </h3>
             <p className="text-slate-400 mb-4">
-              Devis gratuit et sans engagement — réponse sous 24h.
+              Devis gratuit et sans engagement, réponse sous 24h.
             </p>
             <Link
               href="/devis-gratuit"

@@ -92,7 +92,7 @@ export default function ArticleSiteNeGeneresPasContacts() {
 
           <div className="space-y-10 text-sm leading-relaxed">
             <p className="text-base text-slate-300 leading-relaxed">
-              Vous avez investi dans un site web, mais votre téléphone reste silencieux et vos demandes de devis se font rares ? Vous n&apos;êtes pas seul. <strong className="text-white">La majorité des sites d&apos;artisans et de TPE ne convertissent pas</strong> — non pas parce que le site est moche, mais pour des raisons précises et corrigeables. Voici les 5 problèmes les plus fréquents.
+              Vous avez investi dans un site web, mais votre téléphone reste silencieux et vos demandes de devis se font rares ? Vous n&apos;êtes pas seul. <strong className="text-white">La majorité des sites d&apos;artisans et de TPE ne convertissent pas</strong> : non pas parce que le site est moche, mais pour des raisons précises et corrigeables. Voici les 5 problèmes les plus fréquents.
             </p>
 
             <section>
@@ -103,7 +103,7 @@ export default function ArticleSiteNeGeneresPasContacts() {
                 </h2>
               </div>
               <p className="mb-3">
-                Aujourd&apos;hui, <strong className="text-white">plus de 65% des recherches locales se font sur smartphone</strong>. Si votre site s&apos;affiche mal sur mobile — textes trop petits, boutons trop rapprochés, images coupées — les visiteurs repartent aussitôt.
+                Aujourd&apos;hui, <strong className="text-white">plus de 65% des recherches locales se font sur smartphone</strong>. Si votre site s&apos;affiche mal sur mobile (textes trop petits, boutons trop rapprochés, images coupées), les visiteurs repartent aussitôt.
               </p>
               <div className="rounded-lg p-4 bg-navy-900/40 border border-navy-700/50">
                 <p className="text-xs font-semibold text-slate-300 mb-2">Comment vérifier ?</p>
@@ -142,7 +142,7 @@ export default function ArticleSiteNeGeneresPasContacts() {
                 </h2>
               </div>
               <p className="mb-3">
-                Un visiteur ne devrait jamais se demander <em className="text-slate-300">&ldquo;Qu&apos;est-ce que je dois faire maintenant ?&rdquo;</em>. Si votre numéro de téléphone est caché dans le pied de page, si le bouton de contact se fond dans la page, si vous n&apos;avez pas de formulaire de demande de devis évident — vous perdez des clients.
+                Un visiteur ne devrait jamais se demander <em className="text-slate-300">&ldquo;Qu&apos;est-ce que je dois faire maintenant ?&rdquo;</em>. Si votre numéro de téléphone est caché dans le pied de page, si le bouton de contact se fond dans la page, si vous n&apos;avez pas de formulaire de demande de devis évident, vous perdez des clients.
               </p>
               <div className="rounded-lg p-4 bg-teal-500/10 border border-teal-500/30">
                 <p className="text-xs font-semibold text-teal-300 mb-2">Ce qui doit être visible immédiatement</p>

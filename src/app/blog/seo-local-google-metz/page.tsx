@@ -97,7 +97,7 @@ export default function ArticleSeoLocalMetz() {
 
           <div className="space-y-10 text-sm leading-relaxed">
             <p className="text-base text-slate-300 leading-relaxed">
-              Quand quelqu&apos;un à Metz tape &ldquo;plombier urgence Metz&rdquo; ou &ldquo;électricien Thionville pas cher&rdquo; sur Google, les 3 premiers résultats captent <strong className="text-white">plus de 50% des clics</strong>. Si vous n&apos;y êtes pas, vos concurrents prennent vos clients. Le SEO local, c&apos;est précisément ce qui vous permet de figurer dans ces résultats — et ça ne s&apos;improvise pas.
+              Quand quelqu&apos;un à Metz tape &ldquo;plombier urgence Metz&rdquo; ou &ldquo;électricien Thionville pas cher&rdquo; sur Google, les 3 premiers résultats captent <strong className="text-white">plus de 50% des clics</strong>. Si vous n&apos;y êtes pas, vos concurrents prennent vos clients. Le SEO local, c&apos;est précisément ce qui vous permet de figurer dans ces résultats, et ça ne s&apos;improvise pas.
             </p>
 
             <section>
@@ -117,7 +117,7 @@ export default function ArticleSeoLocalMetz() {
                 1. Google Business Profile : votre premier levier
               </h2>
               <p className="mb-4">
-                Votre fiche <strong className="text-white">Google Business Profile</strong> (ex-Google My Business) est la base du SEO local. C&apos;est elle qui apparaît dans le pack local et sur Google Maps. Beaucoup d&apos;entreprises la créent mais ne l&apos;optimisent pas — c&apos;est une erreur.
+                Votre fiche <strong className="text-white">Google Business Profile</strong> (ex-Google My Business) est la base du SEO local. C&apos;est elle qui apparaît dans le pack local et sur Google Maps. Beaucoup d&apos;entreprises la créent mais ne l&apos;optimisent pas, et c&apos;est une erreur.
               </p>
               <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                 <p className="text-xs font-semibold text-slate-300 mb-3">Checklist d&apos;optimisation Google Business</p>
@@ -150,19 +150,19 @@ export default function ArticleSeoLocalMetz() {
               </p>
               <ul className="list-disc list-inside space-y-3 text-slate-400">
                 <li>
-                  <strong className="text-white">Balises titre avec ville</strong> — chaque page doit avoir un titre qui inclut votre métier et votre ville : &ldquo;Plombier à Metz | Intervention rapide — Nom Entreprise&rdquo;
+                  <strong className="text-white">Balises titre avec ville</strong> : chaque page doit avoir un titre qui inclut votre métier et votre ville : &ldquo;Plombier à Metz | Intervention rapide | Nom Entreprise&rdquo;
                 </li>
                 <li>
-                  <strong className="text-white">Zones d&apos;intervention détaillées</strong> — créez une page ou une section qui liste toutes les villes où vous intervenez
+                  <strong className="text-white">Zones d&apos;intervention détaillées</strong> : créez une page ou une section qui liste toutes les villes où vous intervenez
                 </li>
                 <li>
-                  <strong className="text-white">Contenu local</strong> — mentionnez Metz, les quartiers, les villes proches dans vos textes de façon naturelle
+                  <strong className="text-white">Contenu local</strong> : mentionnez Metz, les quartiers, les villes proches dans vos textes de façon naturelle
                 </li>
                 <li>
-                  <strong className="text-white">Schema.org LocalBusiness</strong> — un code technique invisible que Google lit pour comprendre que vous êtes une entreprise locale
+                  <strong className="text-white">Schema.org LocalBusiness</strong> : un code technique invisible que Google lit pour comprendre que vous êtes une entreprise locale
                 </li>
                 <li>
-                  <strong className="text-white">Page de contact avec adresse</strong> — votre adresse complète, écrite en texte (pas uniquement dans une image ou une carte)
+                  <strong className="text-white">Page de contact avec adresse</strong> : votre adresse complète, écrite en texte (pas uniquement dans une image ou une carte)
                 </li>
               </ul>
             </section>
@@ -226,13 +226,13 @@ export default function ArticleSeoLocalMetz() {
               </p>
               <ul className="list-disc list-inside space-y-2 text-slate-400">
                 <li>
-                  <strong className="text-white">Google Search Console</strong> (gratuit) — pour voir les requêtes qui génèrent des impressions et des clics
+                  <strong className="text-white">Google Search Console</strong> (gratuit) : pour voir les requêtes qui génèrent des impressions et des clics
                 </li>
                 <li>
-                  <strong className="text-white">Tableau de bord Google Business</strong> — pour suivre les vues de fiche, appels téléphoniques et demandes d&apos;itinéraire
+                  <strong className="text-white">Tableau de bord Google Business</strong> : pour suivre les vues de fiche, appels téléphoniques et demandes d&apos;itinéraire
                 </li>
                 <li>
-                  <strong className="text-white">Google Analytics</strong> — pour analyser d&apos;où viennent vos visiteurs et quelles pages convertissent
+                  <strong className="text-white">Google Analytics</strong> : pour analyser d&apos;où viennent vos visiteurs et quelles pages convertissent
                 </li>
               </ul>
               <p className="mt-4">

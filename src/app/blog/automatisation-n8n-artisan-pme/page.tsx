@@ -92,7 +92,7 @@ export default function ArticleAutomatisationN8n() {
 
           <div className="space-y-10 text-sm leading-relaxed">
             <p className="text-base text-slate-300 leading-relaxed">
-              Combien d&apos;heures par semaine passez-vous à copier-coller des informations d&apos;un outil à un autre, envoyer des emails de suivi, ou relancer des clients ? Pour beaucoup d&apos;artisans et de TPE, c&apos;est <strong className="text-white">2 à 5 heures par semaine perdues</strong> sur des tâches répétitives. N8N peut en automatiser la majorité — sans avoir besoin de savoir coder.
+              Combien d&apos;heures par semaine passez-vous à copier-coller des informations d&apos;un outil à un autre, envoyer des emails de suivi, ou relancer des clients ? Pour beaucoup d&apos;artisans et de TPE, c&apos;est <strong className="text-white">2 à 5 heures par semaine perdues</strong> sur des tâches répétitives. N8N peut en automatiser la majorité, sans avoir besoin de savoir coder.
             </p>
 
             <section>
@@ -100,7 +100,7 @@ export default function ArticleAutomatisationN8n() {
                 Qu&apos;est-ce que N8N ?
               </h2>
               <p className="mb-4">
-                N8N est un outil d&apos;automatisation open-source qui permet de connecter vos applications et d&apos;automatiser des workflows. Imaginez que vous pouvez dire à votre ordinateur : <em className="text-slate-300">&ldquo;quand un client remplit mon formulaire de contact, envoie-lui un email de confirmation, ajoute-le dans mon agenda et préviens-moi sur WhatsApp&rdquo;</em> — sans toucher une ligne de code.
+                N8N est un outil d&apos;automatisation open-source qui permet de connecter vos applications et d&apos;automatiser des workflows. Imaginez que vous pouvez dire à votre ordinateur : <em className="text-slate-300">&ldquo;quand un client remplit mon formulaire de contact, envoie-lui un email de confirmation, ajoute-le dans mon agenda et préviens-moi sur WhatsApp&rdquo;</em> : sans toucher une ligne de code.
               </p>
               <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                 <p className="text-xs font-semibold text-slate-300 mb-3">N8N vs ses concurrents (Zapier, Make)</p>
@@ -189,10 +189,10 @@ export default function ArticleAutomatisationN8n() {
               </p>
               <ol className="list-decimal list-inside space-y-3 text-slate-400">
                 <li>
-                  <strong className="text-white">N8N Cloud</strong> — version hébergée par N8N. Vous créez un compte, et vous accédez à une interface visuelle pour créer vos automatisations. Pas besoin de serveur.
+                  <strong className="text-white">N8N Cloud</strong> : version hébergée par N8N. Vous créez un compte, et vous accédez à une interface visuelle pour créer vos automatisations. Pas besoin de serveur.
                 </li>
                 <li>
-                  <strong className="text-white">N8N auto-hébergé</strong> — vous installez N8N sur un serveur (VPS à ~5€/mois). Plus de contrôle, vos données restent chez vous, et coût réduit au minimum.
+                  <strong className="text-white">N8N auto-hébergé</strong> : vous installez N8N sur un serveur (VPS à ~5€/mois). Plus de contrôle, vos données restent chez vous, et coût réduit au minimum.
                 </li>
               </ol>
               <p className="mt-4">

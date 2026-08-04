@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devis Gratuit | Web RG Est",
     description:
-      "Demandez votre devis gratuit — Création de site web, refonte, e-commerce, automatisation ou application web sur mesure. Réponse rapide, sans engagement.",
+      "Demandez votre devis gratuit : création de site web, refonte, e-commerce, automatisation ou application web sur mesure. Réponse rapide, sans engagement.",
     type: "website",
     locale: "fr_FR",
   },

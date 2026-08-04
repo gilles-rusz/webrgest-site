@@ -92,7 +92,7 @@ export default function ArticleCoutSiteArtisan() {
 
           <div className="space-y-10 text-sm leading-relaxed">
             <p className="text-base text-slate-300 leading-relaxed">
-              Plombier, électricien, menuisier, peintre ou couvreur — l&apos;une des premières questions que vous posez quand vous envisagez un site web, c&apos;est : <strong className="text-white">combien ça coûte ?</strong> Et la réponse honnête, c&apos;est : ça dépend. Mais dans cet article, on va démystifier les prix et vous donner des repères concrets.
+              Plombier, électricien, menuisier, peintre ou couvreur : l&apos;une des premières questions que vous posez quand vous envisagez un site web, c&apos;est : <strong className="text-white">combien ça coûte ?</strong> Et la réponse honnête, c&apos;est : ça dépend. Mais dans cet article, on va démystifier les prix et vous donner des repères concrets.
             </p>
 
             <section>
@@ -104,19 +104,19 @@ export default function ArticleCoutSiteArtisan() {
               </p>
               <ul className="list-disc list-inside space-y-2 text-slate-400">
                 <li>
-                  <strong className="text-white">Le type de prestataire</strong> — agence, freelance, plateforme DIY (Wix, Squarespace) ou développeur spécialisé
+                  <strong className="text-white">Le type de prestataire</strong> : agence, freelance, plateforme DIY (Wix, Squarespace) ou développeur spécialisé
                 </li>
                 <li>
-                  <strong className="text-white">Le nombre de pages</strong> — un site 3 pages ne coûte pas le même prix qu&apos;un site 15 pages avec blog et e-commerce
+                  <strong className="text-white">Le nombre de pages</strong> : un site 3 pages ne coûte pas le même prix qu&apos;un site 15 pages avec blog et e-commerce
                 </li>
                 <li>
-                  <strong className="text-white">Le niveau de personnalisation</strong> — template modifié ou design sur mesure
+                  <strong className="text-white">Le niveau de personnalisation</strong> : template modifié ou design sur mesure
                 </li>
                 <li>
-                  <strong className="text-white">Les fonctionnalités</strong> — formulaire de contact simple, galerie photo, système de réservation en ligne...
+                  <strong className="text-white">Les fonctionnalités</strong> : formulaire de contact simple, galerie photo, système de réservation en ligne...
                 </li>
                 <li>
-                  <strong className="text-white">L&apos;optimisation SEO</strong> — incluse ou non, basique ou avancée
+                  <strong className="text-white">L&apos;optimisation SEO</strong> : incluse ou non, basique ou avancée
                 </li>
               </ul>
             </section>
@@ -130,7 +130,7 @@ export default function ArticleCoutSiteArtisan() {
                 <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="font-bold text-white">Les plateformes DIY (Wix, Squarespace)</h3>
-                    <span className="text-gold-400 font-bold text-sm">15–50€/mois</span>
+                    <span className="text-gold-400 font-bold text-sm">15 - 50€/mois</span>
                   </div>
                   <p className="text-slate-400 text-xs mb-2">
                     Vous faites tout vous-même avec des templates prêts à l&apos;emploi.
@@ -205,7 +205,7 @@ export default function ArticleCoutSiteArtisan() {
                 <div className="rounded-lg p-4 bg-navy-900/40 border border-navy-700/50">
                   <h4 className="font-semibold text-slate-300 mb-2 text-sm">Souvent en supplément</h4>
                   <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
-                    <li>Hébergement (~10–15€/mois)</li>
+                    <li>Hébergement (~10 - 15€/mois)</li>
                     <li>Nom de domaine (~15€/an)</li>
                     <li>Maintenance mensuelle</li>
                     <li>Contenu rédactionnel</li>
@@ -230,7 +230,7 @@ export default function ArticleCoutSiteArtisan() {
                   <strong className="text-white">Les offres très basses</strong> utilisent des templates génériques mal optimisés, ou sous-traitent à l&apos;étranger sans suivi
                 </li>
                 <li>
-                  <strong className="text-white">Sans SEO local</strong>, votre site sera invisible sur Google — et un site invisible ne sert à rien
+                  <strong className="text-white">Sans SEO local</strong>, votre site sera invisible sur Google, et un site invisible ne sert à rien
                 </li>
                 <li>
                   <strong className="text-white">Sans formation</strong>, vous dépendrez toujours de quelqu&apos;un pour la moindre modification
@@ -264,7 +264,7 @@ export default function ArticleCoutSiteArtisan() {
               Obtenez un devis précis pour votre site
             </h3>
             <p className="text-slate-400 mb-6 max-w-md mx-auto">
-              Chaque projet est unique. Décrivez-moi votre activité et vos besoins — je vous réponds sous 24h avec une estimation détaillée, sans engagement.
+              Chaque projet est unique. Décrivez-moi votre activité et vos besoins, je vous réponds sous 24h avec une estimation détaillée, sans engagement.
             </p>
             <Link
               href="/devis-gratuit"

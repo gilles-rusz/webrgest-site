@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Mentions légales | Web RG Est",
-  description: "Mentions légales du site webrgest.fr — Web RG Est, création de sites web dans le Grand Est.",
+  description: "Mentions légales du site webrgest.fr : Web RG Est, création de sites web dans le Grand Est.",
 };
 
 export default function MentionsLegales() {
@@ -36,7 +36,7 @@ export default function MentionsLegales() {
               <li><strong className="text-white">SIREN :</strong> 989 861 869</li>
               <li><strong className="text-white">SIRET :</strong> 989 861 869 00018</li>
               <li><strong className="text-white">N° TVA intracommunautaire :</strong> FR71989861869</li>
-              <li><strong className="text-white">Code APE :</strong> 6201Z — Programmation informatique</li>
+              <li><strong className="text-white">Code APE :</strong> 6201Z (Programmation informatique)</li>
               <li><strong className="text-white">Adresse :</strong> 17 Rue de la Division Leclerc, 57280 Maizières-lès-Metz</li>
               <li><strong className="text-white">Email :</strong> contact@webrgest.fr</li>
             </ul>
@@ -46,7 +46,7 @@ export default function MentionsLegales() {
             <h2 className="text-lg font-semibold text-white mb-3">
               2. Directeur de la publication
             </h2>
-            <p>Gilles Ruszczycki — contact@webrgest.fr</p>
+            <p>Gilles Ruszczycki, contact@webrgest.fr</p>
           </section>
 
           <section>
