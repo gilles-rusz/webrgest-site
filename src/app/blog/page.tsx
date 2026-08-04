@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Blog — Conseils création web & SEO local | Web RG Est",
+  title: "Blog : conseils création web & SEO local | Web RG Est",
   description:
     "Conseils pratiques pour artisans et TPE/PME : création de site web, SEO local, automatisation, refonte... Lisez les guides de Web RG Est pour booster votre présence en ligne.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "https://webrgest.fr/blog",
   },
   openGraph: {
-    title: "Blog — Conseils création web & SEO local | Web RG Est",
+    title: "Blog : conseils création web & SEO local | Web RG Est",
     description:
       "Conseils pratiques pour artisans et TPE/PME : création de site web, SEO local, automatisation, refonte...",
     type: "website",

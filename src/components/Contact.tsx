@@ -71,7 +71,7 @@ export default function Contact() {
       try {
         recaptchaToken = await getRecaptchaToken();
       } catch {
-        // Submit anyway — honeypot + time check still apply
+        // Submit anyway - honeypot + time check still apply
       }
 
       const response = await fetch(
@@ -92,7 +92,7 @@ export default function Contact() {
             delai: formData.delai || "Non renseigné",
             message: formData.message,
             "g-recaptcha-response": recaptchaToken,
-            _subject: `[Web RG Est] Nouveau message de ${formData.name} — ${formData.subject}`,
+            _subject: `[Web RG Est] Nouveau message de ${formData.name} - ${formData.subject}`,
           }),
         }
       );
@@ -329,8 +329,8 @@ export default function Contact() {
                   >
                     <option value="">Sélectionnez...</option>
                     <option value="Moins de 500€">Moins de 500€</option>
-                    <option value="500 – 1 000€">500 – 1 000€</option>
-                    <option value="1 000 – 2 000€">1 000 – 2 000€</option>
+                    <option value="500 - 1 000€">500 - 1 000€</option>
+                    <option value="1 000 - 2 000€">1 000 - 2 000€</option>
                     <option value="2 000€ et plus">2 000€ et plus</option>
                   </select>
                 </div>
@@ -416,7 +416,7 @@ export default function Contact() {
               </p>
 
               <p className="text-[11px] text-slate-600 leading-relaxed">
-                Ce site est protégé par reCAPTCHA — les{" "}
+                Ce site est protégé par reCAPTCHA, les{" "}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">règles de confidentialité</a>{" "}
                 et les{" "}
                 <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-500">conditions d&apos;utilisation</a>{" "}

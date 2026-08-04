@@ -34,7 +34,7 @@ export default function RefonteSiteInternet() {
         <p className="text-lg text-slate-300 mb-12 leading-relaxed">
           Votre site a quelques années, il est lent, il ne s&apos;affiche pas
           bien sur mobile, ou il ne vous apporte plus de contacts ? Il est temps
-          de le refaire — avec une approche moderne et orientée résultats.
+          de le refaire, avec une approche moderne et orientée résultats.
         </p>
 
         <div className="space-y-10 text-sm leading-relaxed">
@@ -52,7 +52,7 @@ export default function RefonteSiteInternet() {
                 sur mobile</strong> (plus de 60% du trafic web est mobile)
               </li>
               <li>
-                Il est <strong className="text-white">lent à charger</strong> —
+                Il est <strong className="text-white">lent à charger</strong> :
                 chaque seconde de chargement fait perdre des visiteurs
               </li>
               <li>
@@ -104,25 +104,25 @@ export default function RefonteSiteInternet() {
             </h2>
             <ol className="list-decimal list-inside space-y-3 text-slate-400">
               <li>
-                <strong className="text-white">Audit de votre site actuel</strong> —
+                <strong className="text-white">Audit de votre site actuel</strong> :
                 j&apos;analyse ce qui fonctionne, ce qui ne fonctionne pas et ce
                 qui manque
               </li>
               <li>
-                <strong className="text-white">Maquette du nouveau design</strong> —
+                <strong className="text-white">Maquette du nouveau design</strong> :
                 vous validez le visuel avant le développement
               </li>
               <li>
-                <strong className="text-white">Développement</strong> — je
+                <strong className="text-white">Développement</strong> : je
                 construis le nouveau site avec les technologies les plus récentes
                 (Next.js, React, Tailwind CSS)
               </li>
               <li>
-                <strong className="text-white">Migration du contenu</strong> —
+                <strong className="text-white">Migration du contenu</strong> :
                 vos textes, images et données sont transférés
               </li>
               <li>
-                <strong className="text-white">Mise en ligne + formation</strong> —
+                <strong className="text-white">Mise en ligne + formation</strong> :
                 votre nouveau site est en ligne et vous savez le gérer
               </li>
             </ol>
@@ -135,18 +135,18 @@ export default function RefonteSiteInternet() {
             <ul className="list-disc list-inside space-y-2 text-slate-400">
               <li>
                 <strong className="text-gold-400">Refonte simple</strong>{" "}
-                (nouveau design, responsive, SEO) — à partir de{" "}
+                (nouveau design, responsive, SEO) : à partir de{" "}
                 <strong className="text-white">690€</strong>
               </li>
               <li>
                 <strong className="text-gold-400">Refonte complète</strong>{" "}
-                (restructuration, nouvelles fonctionnalités, e-commerce) — à
+                (restructuration, nouvelles fonctionnalités, e-commerce) : à
                 partir de <strong className="text-white">1 490€</strong>
               </li>
             </ul>
             <p className="mt-4">
               Le prix dépend de la complexité de votre site actuel et des
-              fonctionnalités souhaitées. Chaque projet est unique — demandez un
+              fonctionnalités souhaitées. Chaque projet est unique, demandez un
               devis pour une estimation précise.
             </p>
           </section>
@@ -160,7 +160,7 @@ export default function RefonteSiteInternet() {
               management industriel</strong> et une certification développeur
               web Full-Stack, j&apos;apporte une double compétence rare : je
               comprends vos enjeux business et je maîtrise les technologies
-              modernes du web. Votre nouveau site ne sera pas juste beau — il
+              modernes du web. Votre nouveau site ne sera pas juste beau, il
               sera un véritable outil au service de votre activité.
             </p>
           </section>
@@ -170,7 +170,7 @@ export default function RefonteSiteInternet() {
               Prêt à moderniser votre site ?
             </h3>
             <p className="text-slate-400 mb-4">
-              Audit gratuit de votre site actuel — réponse sous 24h.
+              Audit gratuit de votre site actuel, réponse sous 24h.
             </p>
             <Link
               href="/devis-gratuit"

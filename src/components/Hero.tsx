@@ -16,7 +16,7 @@ export default function Hero() {
     <section className="relative w-full min-h-[100svh] flex items-center overflow-hidden">
       <Image
         src="/hero-bg-clean.png"
-        alt="Gilles Ruszczycki — développeur web Web RG Est"
+        alt="Gilles Ruszczycki, développeur web Web RG Est"
         fill
         priority
         className="object-cover object-center"

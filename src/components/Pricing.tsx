@@ -18,7 +18,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 /* ────────────────────────────────────────
-   STRIPE — Paiement en plusieurs fois (échéancier 12 mois)
+   STRIPE - Paiement en plusieurs fois (échéancier 12 mois)
    Le bouton « Payer en plusieurs fois » lance un Stripe Checkout via
    /api/stripe/checkout. Il n'apparaît que lorsque l'intégration est
    activée (NEXT_PUBLIC_STRIPE_ENABLED="true") et que les clés/ID de prix
@@ -60,7 +60,7 @@ const mainPlans: Plan[] = [
     unit: "€",
     period: "/ mois pendant 12 mois",
     installment:
-      "12 mensualités de 49 € (soit 588 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 590 € en paiement unique par virement)",
+      "12 mensualités de 49 € (soit 588 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement, résiliable à tout moment. (ou 590 € en paiement unique par virement)",
     description:
       "Un site professionnel sur-mesure pour présenter votre activité, rassurer vos prospects et générer des demandes de devis qualifiées.",
     features: [
@@ -86,7 +86,7 @@ const mainPlans: Plan[] = [
     unit: "€",
     period: "/ mois pendant 12 mois",
     installment:
-      "12 mensualités de 124 € (soit 1 488 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement — résiliable à tout moment. (ou 1 490 € en paiement unique par virement)",
+      "12 mensualités de 124 € (soit 1 488 €) pour financer la création. Puis 29 €/mois de maintenance & hébergement, sans engagement, résiliable à tout moment. (ou 1 490 € en paiement unique par virement)",
     description:
       "Une boutique en ligne complète et sécurisée pour vendre vos produits et développer votre chiffre d'affaires 24h/24.",
     features: [

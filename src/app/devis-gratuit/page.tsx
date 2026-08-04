@@ -199,7 +199,7 @@ export default function DevisGratuitPage() {
           utm_medium:            utmMedium,
           utm_campaign:          utmCampaign,
           "g-recaptcha-response": recaptchaToken,
-          _subject:              `[Devis] ${data.name} — ${data.projectType} — ${data.sector}`,
+          _subject:              `[Devis] ${data.name} - ${data.projectType} - ${data.sector}`,
         }),
       });
 
@@ -391,7 +391,7 @@ export default function DevisGratuitPage() {
                     >
                       <p className="text-sm text-slate-400 mb-5">{STEP_SUBS[step - 1]}</p>
 
-                      {/* Step 1 — Type de projet */}
+                      {/* Step 1 - Type de projet */}
                       {step === 1 && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {PROJECT_OPTIONS.map(o => (
@@ -407,7 +407,7 @@ export default function DevisGratuitPage() {
                         </div>
                       )}
 
-                      {/* Step 2 — Secteur */}
+                      {/* Step 2 - Secteur */}
                       {step === 2 && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {SECTOR_OPTIONS.map(o => (
@@ -423,7 +423,7 @@ export default function DevisGratuitPage() {
                         </div>
                       )}
 
-                      {/* Step 3 — Coordonnées */}
+                      {/* Step 3 - Coordonnées */}
                       {step === 3 && (
                         <>
                           {/* Recap chips */}
@@ -515,7 +515,7 @@ export default function DevisGratuitPage() {
                               <a href="/politique-de-confidentialite" className="text-teal-400 hover:text-teal-300 underline">
                                 Politique de confidentialité
                               </a>.
-                              {" "}Ce site est protégé par reCAPTCHA — les{" "}
+                              {" "}Ce site est protégé par reCAPTCHA, les{" "}
                               <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-400">
                                 règles de confidentialité
                               </a>{" "}et{" "}
