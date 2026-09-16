@@ -1,21 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, UtensilsCrossed, ShoppingCart } from "lucide-react";
+import { ExternalLink, Trees, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 const demos = [
   {
-    title: "La Table d'Or",
-    subtitle: "Restaurant Gastronomique",
+    title: "Oli'Wood",
+    subtitle: "Artisan menuisier · Structures bois",
     type: "Site Vitrine",
     description:
-      "Site complet pour un restaurant étoilé en Alsace. Carte interactive, réservation en ligne, galerie photo, avis clients et design premium.",
-    features: ["Carte interactive", "Réservation en ligne", "Galerie photo", "Avis clients", "Design responsive"],
-    url: "/demos/restaurant",
-    icon: UtensilsCrossed,
-    image: "/demos/restaurant-gastronomique.jpg",
-    internal: true,
+      "Site complet pour un artisan menuisier du Jura. Galerie de réalisations, demande de devis en ligne et back-office sur mesure pour gérer les photos et les demandes.",
+    features: ["Galerie de réalisations", "Demande de devis", "Back-office sur mesure", "Notifications mobiles", "Design responsive"],
+    url: "https://oliwood-jura.fr",
+    icon: Trees,
+    image: "/demos/oliwood-jura.jpg",
+    internal: false,
   },
   {
     title: "Burovia",
