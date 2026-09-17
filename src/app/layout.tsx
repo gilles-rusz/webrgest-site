@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Web RG Est | Création de site web à Maizières-lès-Metz",
     description:
-      "Web RG Est crée votre site internet à Maizières-lès-Metz, Metz et Thionville. Sites professionnels, sans abonnement imposé, optimisés SEO.",
+      "Web RG Est crée votre site internet à Maizières-lès-Metz, Metz et Thionville. Sites professionnels payables en mensualités, optimisés SEO.",
     url: BASE_URL,
     siteName: "Web RG Est",
     type: "website",
