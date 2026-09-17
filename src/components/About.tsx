@@ -62,9 +62,11 @@ export default function About() {
                 cette rigueur et cette vision business au service de vos projets web.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Basé dans l&apos;
-                <span className="text-gold-400 font-medium">Est de la France</span>,
-                titulaire d&apos;un{" "}
+                Basé à{" "}
+                <span className="text-gold-400 font-medium">Maizières-lès-Metz</span>,
+                j&apos;accompagne les artisans, indépendants et PME de Metz, Thionville
+                et de toute la Moselle dans la création de leur site internet et leur
+                visibilité en ligne. Titulaire d&apos;un{" "}
                 <span className="text-teal-400 font-medium">
                   Titre Professionnel de Développeur Web et Web Mobile
                 </span>

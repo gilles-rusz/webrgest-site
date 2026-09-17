@@ -37,15 +37,17 @@ export default function Hero() {
             >
               simplifient
             </span>{" "}
-            la vie.
+            la vie, créés à Maizières-lès-Metz.
           </h1>
 
           <p
             className="hero-slide-in mt-5 text-base sm:text-lg text-slate-300 leading-relaxed"
             style={{ animationDelay: "0.12s" }}
           >
-            Des sites professionnels, sans abonnement imposé, pensés pour
-            présenter votre activité et générer des demandes de devis.
+            Développeur web à Maizières-lès-Metz, j&apos;accompagne les artisans,
+            indépendants et PME de Metz, Thionville et de toute la Moselle :
+            des sites professionnels, sans abonnement imposé, pensés pour
+            générer des demandes de devis.
           </p>
 
           <div
@@ -82,9 +84,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <h1 className="sr-only">
-        Des sites web qui vous simplifient la vie.
-      </h1>
     </section>
   );
 }
