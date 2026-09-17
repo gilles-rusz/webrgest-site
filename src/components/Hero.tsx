@@ -45,9 +45,8 @@ export default function Hero() {
             style={{ animationDelay: "0.12s" }}
           >
             Développeur web à Maizières-lès-Metz, j&apos;accompagne les artisans,
-            indépendants et PME de Metz, Thionville et de toute la Moselle :
-            des sites professionnels financés en mensualités, puis 29 €/mois
-            sans engagement. Vous restez propriétaire de votre site.
+            indépendants et PME de Metz, Thionville et de toute la Moselle avec
+            des sites professionnels.
           </p>
 
           <div
