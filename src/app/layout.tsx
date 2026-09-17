@@ -3,26 +3,73 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+const BASE_URL = "https://www.webrgest.fr";
+
 export const metadata: Metadata = {
-  title: "Web RG Est | Création Web & Solutions Digitales",
+  metadataBase: new URL(BASE_URL),
+  title: "Web RG Est | Création de site web à Maizières-lès-Metz",
   description:
-    "Web RG Est - Votre partenaire pour la création de sites web, applications et solutions digitales dans l'Est de la France. Développement full-stack sur mesure.",
+    "Développeur web basé à Maizières-lès-Metz (57). Sites vitrines, e-commerce et SEO local pour artisans et PME à Metz, Thionville et en Moselle. Devis gratuit.",
   keywords: [
-    "création web",
-    "développeur web",
-    "full-stack",
-    "Est de la France",
-    "site internet",
-    "application web",
+    "création site internet Maizières-lès-Metz",
+    "développeur web Maizières-lès-Metz",
+    "création site web Metz",
+    "site internet Thionville",
+    "développeur web Moselle",
+    "création site internet Moselle",
+    "site vitrine artisan Metz",
+    "SEO local Metz",
     "Web RG Est",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Web RG Est | Création Web & Solutions Digitales",
+    title: "Web RG Est | Création de site web à Maizières-lès-Metz",
     description:
-      "Votre partenaire pour la création de sites web et solutions digitales dans l'Est de la France.",
+      "Web RG Est crée votre site internet à Maizières-lès-Metz, Metz et Thionville. Sites professionnels, sans abonnement imposé, optimisés SEO.",
+    url: BASE_URL,
+    siteName: "Web RG Est",
     type: "website",
     locale: "fr_FR",
   },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${BASE_URL}/#business`,
+  name: "Web RG Est",
+  description:
+    "Création de sites internet, e-commerce et SEO local pour artisans, indépendants et PME à Maizières-lès-Metz, Metz, Thionville et en Moselle.",
+  url: BASE_URL,
+  image: `${BASE_URL}/logo.png`,
+  founder: {
+    "@type": "Person",
+    name: "Gilles Ruszczycki",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "17 Rue de la Division Leclerc",
+    addressLocality: "Maizières-lès-Metz",
+    postalCode: "57280",
+    addressRegion: "Moselle",
+    addressCountry: "FR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 49.2117,
+    longitude: 6.1594,
+  },
+  areaServed: [
+    { "@type": "City", name: "Maizières-lès-Metz" },
+    { "@type": "City", name: "Metz" },
+    { "@type": "City", name: "Thionville" },
+    { "@type": "AdministrativeArea", name: "Moselle" },
+    { "@type": "AdministrativeArea", name: "Grand Est" },
+  ],
+  priceRange: "€€",
+  sameAs: ["https://www.linkedin.com/in/gilles-ruszczycki/"],
 };
 
 export default function RootLayout({
@@ -44,6 +91,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DD380PLJ90"

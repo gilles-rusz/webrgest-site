@@ -3,9 +3,9 @@ import PageShell from "@/components/PageShell";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Contact | Web RG Est | Devis gratuit sous 24h",
+  title: "Contact | Développeur web Maizières-lès-Metz | Web RG Est",
   description:
-    "Contactez Web RG Est pour un devis gratuit et sans engagement. Réponse sous 24h. Création de sites web, automatisation, SEO dans le Grand Est.",
+    "Contactez Web RG Est à Maizières-lès-Metz pour un devis gratuit et sans engagement. Réponse sous 24h. Création de sites web et SEO local à Metz et en Moselle.",
 };
 
 export default function ContactPage() {

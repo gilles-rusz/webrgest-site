@@ -4,9 +4,9 @@ import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export const metadata: Metadata = {
-  title: "À propos | Web RG Est | Gilles Ruszczycki, Développeur Full-Stack",
+  title: "À propos | Développeur web à Maizières-lès-Metz (57) | Web RG Est",
   description:
-    "22 ans de management industriel chez Stellantis, développeur Full-Stack certifié. Découvrez le parcours et les compétences de Gilles Ruszczycki.",
+    "Gilles Ruszczycki, développeur web Full-Stack basé à Maizières-lès-Metz près de Metz. 22 ans de management industriel au service de votre site internet.",
 };
 
 export default function AProposPage() {

@@ -32,8 +32,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Votre partenaire pour la création de sites web et solutions
-              digitales sur mesure dans le Grand Est.
+              Création de sites web et solutions digitales sur mesure à
+              Maizières-lès-Metz, Metz, Thionville et dans tout le Grand Est.
             </p>
             <div className="mt-4 space-y-1 text-xs text-slate-500">
               <p>SIRET : 989 861 869 00018</p>

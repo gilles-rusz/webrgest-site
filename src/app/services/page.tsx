@@ -4,9 +4,9 @@ import Services from "@/components/Services";
 import PainPoints from "@/components/PainPoints";
 
 export const metadata: Metadata = {
-  title: "Services | Web RG Est | Création Web & Automatisation",
+  title: "Services | Création de site web à Metz et Moselle | Web RG Est",
   description:
-    "Sites vitrines, e-commerce, applications web, SEO, maintenance et automatisation. Découvrez tous les services de Web RG Est pour développer votre activité en ligne.",
+    "Sites vitrines, e-commerce, SEO local et automatisation pour artisans et PME à Maizières-lès-Metz, Metz, Thionville et en Moselle. Devis gratuit sous 24h.",
 };
 
 export default function ServicesPage() {
