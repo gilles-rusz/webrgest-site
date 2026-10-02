@@ -30,3 +30,26 @@ CREATE POLICY "Tout le monde peut soumettre un avis"
 
 -- Les opérations UPDATE et DELETE ne sont accessibles qu'avec la clé service_role
 -- (utilisée côté serveur dans /api/admin/avis)
+
+-- Table des demandes de devis et messages de contact (route /api/demande)
+CREATE TABLE IF NOT EXISTS demandes (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  type TEXT NOT NULL,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  subject TEXT,
+  sector TEXT,
+  budget TEXT,
+  delai TEXT,
+  message TEXT NOT NULL,
+  utm_source TEXT,
+  utm_medium TEXT,
+  utm_campaign TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_demandes_created_at ON demandes (created_at DESC);
+
+-- RLS activée sans politique : seule la clé service_role (côté serveur) peut lire et écrire
+ALTER TABLE demandes ENABLE ROW LEVEL SECURITY;

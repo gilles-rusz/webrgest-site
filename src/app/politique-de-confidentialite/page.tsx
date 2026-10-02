@@ -78,8 +78,9 @@ export default function PolitiqueConfidentialite() {
             </h2>
             <p>
               Vos données ne sont ni vendues, ni louées, ni transmises à des tiers
-              à des fins commerciales. Le formulaire de contact utilise le service
-              Formspree pour la transmission sécurisée des messages.
+              à des fins commerciales. Les demandes envoyées via les formulaires sont
+              enregistrées de façon sécurisée (Supabase) et transmises par email
+              via le service Resend.
             </p>
           </section>
 

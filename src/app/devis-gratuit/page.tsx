@@ -28,7 +28,6 @@ import {
   Check,
 } from "lucide-react";
 
-const FORMSPREE_FORM_ID = "xdayjojp";
 const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -184,22 +183,21 @@ export default function DevisGratuitPage() {
 
     try {
       const recaptchaToken = await getRecaptchaToken();
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+      const response = await fetch("/api/demande", {
         method:  "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          name:                  data.name,
-          _replyto:              data.email,
-          email:                 data.email,
-          phone:                 data.phone || "Non renseigné",
-          subject:               data.projectType,
-          sector:                data.sector,
-          message:               data.message,
-          utm_source:            utmSource,
-          utm_medium:            utmMedium,
-          utm_campaign:          utmCampaign,
-          "g-recaptcha-response": recaptchaToken,
-          _subject:              `[Devis] ${data.name} - ${data.projectType} - ${data.sector}`,
+          type:           "devis",
+          name:           data.name,
+          email:          data.email,
+          phone:          data.phone,
+          subject:        data.projectType,
+          sector:         data.sector,
+          message:        data.message,
+          utm_source:     utmSource,
+          utm_medium:     utmMedium,
+          utm_campaign:   utmCampaign,
+          recaptchaToken,
         }),
       });
 
