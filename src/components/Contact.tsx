@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Phone, Clock, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-const FORMSPREE_FORM_ID = "xdayjojp";
 const RECAPTCHA_SITE_KEY = "6Ld3cuQsAAAAAINY43cOVBifxmEVHOGhqYuczZ5B";
 
 interface RecaptchaInstance {
@@ -74,28 +73,24 @@ export default function Contact() {
         // Submit anyway - honeypot + time check still apply
       }
 
-      const response = await fetch(
-        `https://formspree.io/f/${FORMSPREE_FORM_ID}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            _replyto: formData.email,
-            email: formData.email,
-            phone: formData.phone || "Non renseigné",
-            subject: formData.subject,
-            budget: formData.budget || "Non renseigné",
-            delai: formData.delai || "Non renseigné",
-            message: formData.message,
-            "g-recaptcha-response": recaptchaToken,
-            _subject: `[Web RG Est] Nouveau message de ${formData.name} - ${formData.subject}`,
-          }),
-        }
-      );
+      const response = await fetch("/api/demande", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          type: "contact",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          budget: formData.budget,
+          delai: formData.delai,
+          message: formData.message,
+          recaptchaToken,
+        }),
+      });
 
       if (response.ok) {
         setStatus("success");
