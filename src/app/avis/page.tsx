@@ -13,17 +13,31 @@ interface Avis {
   rating: number;
   message: string;
   created_at: string;
+  source?: "google";
 }
 
+const AVIS_GOOGLE: Avis[] = [
+  {
+    id: "google-oliwood",
+    name: "Oli'Wood EURL",
+    company: null,
+    rating: 5,
+    message:
+      "Super site web fait par Gilles, il répond à toutes mes attentes. J'étais inquiet quant aux difficultés de positionnement et référencement du site cependant Gilles a su me rassurer et me conseiller. Il s'est occupé de tout, il propose toute son expertise au service de ses clients et c'est grandement appréciable. Merci d'avoir été tellement à l'écoute et aussi patient.\nJe recommande vivement WEB RG EST",
+    created_at: "2026-09-24",
+    source: "google",
+  },
+];
+
 export default function AvisPage() {
-  const [avis, setAvis] = useState<Avis[]>([]);
+  const [avis, setAvis] = useState<Avis[]>(AVIS_GOOGLE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/avis")
       .then((res) => res.json())
       .then((data) => {
-        if (Array.isArray(data)) setAvis(data);
+        if (Array.isArray(data)) setAvis([...data, ...AVIS_GOOGLE]);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -115,10 +129,10 @@ export default function AvisPage() {
                           ))}
                         </div>
                       </div>
-                      <p className="text-slate-300 leading-relaxed mb-3">
+                      <p className="text-slate-300 leading-relaxed mb-3 whitespace-pre-line">
                         {item.message}
                       </p>
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="text-sm font-semibold text-white">
                           {item.name}
                         </span>
@@ -127,6 +141,14 @@ export default function AvisPage() {
                             <span className="text-slate-600">•</span>
                             <span className="text-sm text-slate-400">
                               {item.company}
+                            </span>
+                          </>
+                        )}
+                        {item.source === "google" && (
+                          <>
+                            <span className="text-slate-600">•</span>
+                            <span className="text-xs text-slate-400">
+                              Avis Google
                             </span>
                           </>
                         )}
