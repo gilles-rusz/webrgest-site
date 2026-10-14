@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Trees, ShoppingCart } from "lucide-react";
+import { ExternalLink, Trees, HeartHandshake } from "lucide-react";
 import Link from "next/link";
 
 const demos = [
@@ -18,15 +18,15 @@ const demos = [
     internal: false,
   },
   {
-    title: "Burovia",
-    subtitle: "Accessoires de Télétravail",
-    type: "E-Commerce",
+    title: "Les Capés du Bide",
+    subtitle: "Soutien stomie & maladie de Crohn",
+    type: "Site Communautaire",
     description:
-      "Boutique en ligne d'accessoires pour le télétravail. Catalogue produits, panier interactif, fiches détaillées et paiement sécurisé.",
-    features: ["Catalogue produits", "Panier interactif", "Fiches détaillées", "Paiement sécurisé", "Design responsive"],
+      "Site d'entraide en style bande dessinée pour les personnes stomisées ou atteintes de la maladie de Crohn et leurs proches. Épisodes illustrés pour comprendre la maladie, journal, espace questions et soutien.",
+    features: ["Design bande dessinée", "Épisodes illustrés", "Journal", "Formulaire de questions", "Design responsive"],
     url: "https://burovia.eu",
-    icon: ShoppingCart,
-    image: "/demos/burovia.jpg",
+    icon: HeartHandshake,
+    image: "/demos/capes-du-bide.jpg",
     internal: false,
   },
 ];
