@@ -107,7 +107,7 @@ export default function ArticleCoutSiteArtisan() {
                   <strong className="text-white">Le type de prestataire</strong> : agence, freelance, plateforme DIY (Wix, Squarespace) ou développeur spécialisé
                 </li>
                 <li>
-                  <strong className="text-white">Le nombre de pages</strong> : un site 3 pages ne coûte pas le même prix qu&apos;un site 15 pages avec blog et e-commerce
+                  <strong className="text-white">Le nombre de pages</strong> : un site 3 pages ne coûte pas le même prix qu&apos;un site 15 pages avec blog
                 </li>
                 <li>
                   <strong className="text-white">Le niveau de personnalisation</strong> : template modifié ou design sur mesure
@@ -173,16 +173,6 @@ export default function ArticleCoutSiteArtisan() {
                     Un site professionnel pour présenter votre entreprise, rassurer vos visiteurs et leur donner envie de vous contacter. SEO de base inclus.
                   </p>
                   <p className="text-xs text-teal-300 font-semibold">Le plus demandé</p>
-                </div>
-
-                <div className="rounded-xl p-5 bg-navy-900/40 border border-navy-700/50">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-bold text-white">E-commerce</h3>
-                    <span className="text-gold-400 font-bold text-sm">À partir de 1 490€</span>
-                  </div>
-                  <p className="text-slate-400 text-xs">
-                    Boutique en ligne professionnelle avec catalogue produits, panier et paiement sécurisé.
-                  </p>
                 </div>
               </div>
             </section>

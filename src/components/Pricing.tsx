@@ -7,7 +7,6 @@ import {
   Globe,
   Briefcase,
   Zap,
-  Monitor,
   RefreshCw,
   Wrench,
   Settings,
@@ -25,7 +24,7 @@ import type { LucideIcon } from "lucide-react";
    Stripe sont configurés côté serveur.
    ──────────────────────────────────────── */
 
-type StripePlanKey = "vitrine" | "ecommerce";
+type StripePlanKey = "vitrine";
 
 const STRIPE_ENABLED = process.env.NEXT_PUBLIC_STRIPE_ENABLED === "true";
 
@@ -96,24 +95,6 @@ const mainPlans: Plan[] = [
     cta: "Demander mon devis",
     ctaHref: "/devis-gratuit?offre=Application+Web",
     icon: Briefcase,
-  },
-  {
-    title: "Sur-Mesure & Application Web",
-    subtitle: "Fonctionnalités avancées et outils métier",
-    price: "Sur devis",
-    installment: "Étude personnalisée de votre cahier des charges",
-    description:
-      "Des fonctionnalités avancées ou un outil métier développé sur-mesure pour répondre à des besoins spécifiques.",
-    features: [
-      "Analyse approfondie du besoin & cahier des charges",
-      "Développement sur-mesure (React, Node, etc.)",
-      "Espace utilisateur / tableau de bord administrateur",
-      "Connexion base de données & API",
-      "Tests, recette & accompagnement continu",
-    ],
-    cta: "Parler de mon projet",
-    ctaHref: "/devis-gratuit?offre=Application+Web",
-    icon: Monitor,
   },
 ];
 
@@ -348,7 +329,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* ── 3 OFFRES PRINCIPALES ── */}
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
           {mainPlans.map((plan, i) => (
             <PlanCard key={plan.title} plan={plan} index={i} />
           ))}

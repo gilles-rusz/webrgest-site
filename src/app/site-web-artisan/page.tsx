@@ -128,7 +128,7 @@ export default function SiteWebArtisan() {
                 <strong className="text-gold-400">Site Vitrine</strong> : à partir de <strong className="text-white">590€</strong>
               </li>
               <li>
-                <strong className="text-gold-400">E-commerce</strong> : à partir de <strong className="text-white">1 490€</strong>
+                <strong className="text-gold-400">Application d&apos;entreprise</strong> : <strong className="text-white">sur devis</strong>
               </li>
             </ul>
             <p className="mt-4">

@@ -25,17 +25,14 @@ export function getStripe(): Stripe {
  */
 export const PHASE1_ITERATIONS = 12;
 
-export type PlanKey = "vitrine" | "ecommerce";
+export type PlanKey = "vitrine";
 
 export function getPlanPriceIds(plan: PlanKey): {
   phase1Price: string;
   phase2Price: string;
 } {
   const phase2Price = getEnv("STRIPE_PRICE_MAINTENANCE");
-  const phase1Price =
-    plan === "vitrine"
-      ? getEnv("STRIPE_PRICE_VITRINE")
-      : getEnv("STRIPE_PRICE_ECOMMERCE");
+  const phase1Price = getEnv("STRIPE_PRICE_VITRINE");
 
   if (!phase1Price || !phase2Price) {
     throw new Error(

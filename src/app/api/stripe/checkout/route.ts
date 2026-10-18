@@ -10,7 +10,7 @@ function getBaseUrl(request: Request): string {
 }
 
 function isPlanKey(value: unknown): value is PlanKey {
-  return value === "vitrine" || value === "ecommerce";
+  return value === "vitrine";
 }
 
 export async function POST(request: Request) {
