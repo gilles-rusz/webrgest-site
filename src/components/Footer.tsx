@@ -92,8 +92,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Sites Vitrines", href: "/services#site-vitrine" },
-                { label: "E-Commerce", href: "/services#e-commerce" },
-                { label: "Applications Web", href: "/services#applications-web" },
+                { label: "Applications d'entreprise", href: "/services#applications-web" },
                 { label: "Refonte de Sites", href: "/refonte-site-internet" },
                 { label: "SEO & Référencement", href: "/services#seo" },
                 { label: "Automatisation", href: "/automatisation" },

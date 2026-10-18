@@ -19,7 +19,6 @@ import {
   ArrowLeft,
   Monitor,
   RefreshCw,
-  ShoppingCart,
   Plus,
   Wrench,
   ShoppingBag,
@@ -52,7 +51,6 @@ interface WizardData {
 
 const PROJECT_OPTIONS: { value: string; label: string; desc: string; Icon: LucideIcon }[] = [
   { value: "Site vitrine",    label: "Site Vitrine",    desc: "Présentez votre activité en ligne",              Icon: Monitor      },
-  { value: "E-commerce",      label: "E-commerce",      desc: "Vendez vos produits en ligne",                   Icon: ShoppingCart },
   { value: "Automatisation",  label: "Automatisation",  desc: "Gagnez du temps sur vos tâches répétitives",     Icon: RefreshCw    },
   { value: "Application Web", label: "Application Web", desc: "Projet sur mesure",                              Icon: Monitor      },
   { value: "Refonte",         label: "Refonte",         desc: "Modernisez votre site existant",                 Icon: RefreshCw    },

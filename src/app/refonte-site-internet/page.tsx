@@ -140,7 +140,7 @@ export default function RefonteSiteInternet() {
               </li>
               <li>
                 <strong className="text-gold-400">Refonte complète</strong>{" "}
-                (restructuration, nouvelles fonctionnalités, e-commerce) : à
+                (restructuration, nouvelles fonctionnalités) : à
                 partir de <strong className="text-white">1 490€</strong>
               </li>
             </ul>

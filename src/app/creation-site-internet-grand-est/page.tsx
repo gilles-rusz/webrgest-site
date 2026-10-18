@@ -110,11 +110,7 @@ export default function CreationSiteGrandEst() {
                 <strong className="text-gold-400">Site Vitrine</strong> : à partir de 590€
               </li>
               <li>
-                <strong className="text-gold-400">E-Commerce</strong> : à partir
-                de 1 490€
-              </li>
-              <li>
-                <strong className="text-gold-400">Application Web</strong> : sur
+                <strong className="text-gold-400">Application d&apos;entreprise</strong> : sur
                 devis
               </li>
             </ul>

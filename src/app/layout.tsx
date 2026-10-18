@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: "Web RG Est | Création de site web à Maizières-lès-Metz",
   description:
-    "Développeur web basé à Maizières-lès-Metz (57). Sites vitrines, e-commerce et SEO local pour artisans et PME à Metz, Thionville et en Moselle. Devis gratuit.",
+    "Développeur web basé à Maizières-lès-Metz (57). Sites vitrines, applications d'entreprise et SEO local pour artisans et PME à Metz, Thionville et en Moselle. Devis gratuit.",
   keywords: [
     "création site internet Maizières-lès-Metz",
     "développeur web Maizières-lès-Metz",
@@ -41,7 +41,7 @@ const localBusinessJsonLd = {
   "@id": `${BASE_URL}/#business`,
   name: "Web RG Est",
   description:
-    "Création de sites internet, e-commerce et SEO local pour artisans, indépendants et PME à Maizières-lès-Metz, Metz, Thionville et en Moselle.",
+    "Création de sites internet, applications d'entreprise et SEO local pour artisans, indépendants et PME à Maizières-lès-Metz, Metz, Thionville et en Moselle.",
   url: BASE_URL,
   image: `${BASE_URL}/logo.png`,
   founder: {

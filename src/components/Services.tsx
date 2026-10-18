@@ -13,17 +13,10 @@ const services: { id: string; title: string; description: string; image: string;
     image: "/services/site-vitrine.jpg",
   },
   {
-    id: "e-commerce",
-    title: "E-Commerce",
-    description:
-      "Boutiques en ligne complètes avec paiement sécurisé, gestion des stocks et interface d'administration.",
-    image: "/services/ecommerce.jpg",
-  },
-  {
     id: "applications-web",
-    title: "Applications Web",
+    title: "Applications d'entreprise",
     description:
-      "Applications sur mesure : dashboards, CRM, outils internes, plateformes collaboratives.",
+      "Des outils métier sur mesure : traducteur pour le SAV, organisateur de projets Lean, suivi des habilitations et des formations du personnel, ou toute autre idée.",
     image: "/services/application-web.jpg",
   },
   {
