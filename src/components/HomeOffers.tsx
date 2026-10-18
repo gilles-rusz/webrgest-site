@@ -25,13 +25,13 @@ const offers = [
     badge: "Le plus demandé",
   },
   {
-    name: "E-Commerce",
-    target: "Boutiques en ligne",
+    name: "Application d\u2019entreprise",
+    target: "Outils métier sur mesure",
     price: "sur devis",
     priceSub: "\u00A0",
-    desc: "Paiement sécurisé, gestion des stocks, interface simple au quotidien.",
-    link: "/contact",
-    linkText: "Prendre contact \u2192",
+    desc: "Traducteur pour le SAV, organisateur de projets Lean, suivi des habilitations du personnel. Votre idée, je la conçois.",
+    link: "/devis-gratuit?offre=Application+Web",
+    linkText: "Demander un devis \u2192",
   },
   {
     name: "Automatisation",
