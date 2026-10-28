@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Trees, HeartHandshake } from "lucide-react";
+import { ExternalLink, Trees, HeartHandshake, Languages, ShieldCheck, ClipboardList, AppWindow, KeyRound } from "lucide-react";
 import Link from "next/link";
 
 const demos = [
@@ -28,6 +28,36 @@ const demos = [
     icon: HeartHandshake,
     image: "/demos/capes-du-bide.jpg",
     internal: false,
+  },
+];
+
+const apps = [
+  {
+    title: "Web RG Est / Traduction",
+    description:
+      "Assistant de traduction pour le service après-vente : écrire ou dicter en français, envoyer dans la langue du client, comprendre les messages reçus.",
+    access: "Code RG2026",
+    url: "https://webrgest-traduction.vercel.app",
+    icon: Languages,
+    image: "/demos/app-traduction.jpg",
+  },
+  {
+    title: "Web RG Est / Habilitations",
+    description:
+      "Suivi des habilitations par opérateur et par poste, audits et papiers signés, planning de rotation généré selon les personnes présentes.",
+    access: "Code RG2026",
+    url: "https://webrgest-habilitations.vercel.app",
+    icon: ShieldCheck,
+    image: "/demos/app-habilitations.png",
+  },
+  {
+    title: "Web RG Est / Logistique",
+    description:
+      "Le rituel terrain Lean sur le téléphone : tableau kanban, rituel SQCDP de 5 minutes, plan d'actions et KPI automatiques.",
+    access: "Accès libre",
+    url: "https://webrgest-logistique.vercel.app",
+    icon: ClipboardList,
+    image: "/demos/app-logistique.jpg",
   },
 ];
 
@@ -169,6 +199,70 @@ export default function Demos() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 rounded-2xl bg-navy-900/40 border border-navy-700/50 p-8"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-teal-500/10 flex items-center justify-center">
+                <AppWindow className="w-5 h-5 text-teal-400" />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-xl font-bold text-white">Applications d&apos;entreprise</h3>
+                  <span className="inline-block px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Démo en ligne
+                  </span>
+                </div>
+                <span className="text-sm text-slate-400">Outils métier conçus par Web RG Est, à tester sur ordinateur ou smartphone</span>
+              </div>
+            </div>
+            <div className="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-2 rounded-lg bg-gold-400/10 border border-gold-400/20 text-gold-400 text-sm font-semibold">
+              <KeyRound className="w-4 h-4" />
+              Code d&apos;accès démo : RG2026 (24 h)
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {apps.map((app) => {
+              const AppIcon = app.icon;
+              return (
+                <div key={app.title} className="rounded-xl overflow-hidden bg-navy-800/50 border border-navy-700 flex flex-col">
+                  <div className="relative h-36 bg-navy-900">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={app.image} alt={app.title} className="absolute inset-0 w-full h-full object-cover object-top" />
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <AppIcon className="w-4 h-4 text-teal-400" />
+                      <h4 className="font-bold text-white">{app.title}</h4>
+                    </div>
+                    <p className="text-sm text-slate-400 leading-relaxed mb-4 flex-1">{app.description}</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="px-3 py-1 rounded-md text-xs font-medium bg-navy-800 text-slate-300 border border-navy-700">
+                        {app.access}
+                      </span>
+                      <a
+                        href={app.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-teal-400 font-medium hover:text-teal-300 transition-colors"
+                      >
+                        Tester
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
